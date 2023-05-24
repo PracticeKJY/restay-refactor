@@ -1,0 +1,33 @@
+.userMenuWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+}
+
+.userMenu {
+  padding: 4px 12px;
+  display: flex;
+  font-display: row;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #e6e6e6;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.userMenu:hover {
+  background: #f5f5f5;
+}
+
+.userMenuText {
+  font-size: 0.925rem;
+  font-weight: 600;
+  padding-right: 24px;
+}
+
+@media (max-width: 768px) {
+  .userMenuText {
+    display: none;
+  }
+}

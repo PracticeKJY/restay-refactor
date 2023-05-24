@@ -3,6 +3,7 @@ import { RecoilRoot } from "recoil"
 import "../styles/globals.css"
 import Head from "next/head"
 import { Gowun_Dodum } from "next/font/google"
+import Navbar from "./@component/Header/Navbar"
 
 const gowunDodum = Gowun_Dodum({
   weight: "400",
@@ -15,19 +16,22 @@ const metadata = {
   description: "restay homepage",
 }
 
+
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
+     <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         <link rel="icon" href="/restay.png" />
       </Head>
-      <main className={gowunDodum.className}>
         <RecoilRoot>
+      <main className={gowunDodum.className}>
+        <Navbar />
           <Component {...pageProps} />
-        </RecoilRoot>
       </main>
+        </RecoilRoot>
     </>
   )
 }
