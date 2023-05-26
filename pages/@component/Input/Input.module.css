@@ -1,0 +1,53 @@
+.inputContainer {
+  position: relative;
+  width: 100%;
+}
+
+.biDollar {
+  color: #404040;
+  position: absolute;
+  left: 0.5rem;
+  top: 1.25rem;
+}
+
+.label {
+  font-weight: 400;
+  padding-left: 0.5rem;
+  color: rgb(161, 161, 170);
+  position: absolute;
+  line-height: 24px;
+  transition-duration: 150ms;
+  transform: translateY(-0.825rem);
+  top: 1.25rem;
+  z-index: 10;
+  /* transform-origin: 0px center; */
+}
+
+.input {
+  width: 100%;
+  padding: 1.5rem 1rem 1rem 1rem;
+  font-size: 18px;
+  font-weight: 300;
+  background: white;
+  border: 2px solid #e6e6e6;
+  border-radius: 0.375rem;
+  outline: none;
+}
+
+.input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.inputNotFocused {
+  font-size: 16px;
+}
+
+.inputFocused {
+  font-size: 12px;
+  transform: translateY(-20px);
+}
+
+.inputFocus {
+  border: 2px solid black;
+}
