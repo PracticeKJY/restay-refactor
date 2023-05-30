@@ -6,13 +6,14 @@ import styles from "./Logo.module.css"
 const Logo = () => {
   return (
     <Image
-      style={{cursor:"pointer"}}
-      onClick={()=>{}}
+      style={{ cursor: "pointer" }}
+      onClick={() => {}}
       className={styles.logo}
       height={50}
       width={100}
       src={logo}
       alt="Restay Logo"
+      priority
     />
   )
 }

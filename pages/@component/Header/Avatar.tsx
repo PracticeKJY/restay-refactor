@@ -1,7 +1,6 @@
 import Image from "next/image"
 import avatar from "/public/placeHolder.jpg"
 import { FC } from "react"
-import styles from "./Avatar.module.css"
 type AccountImageProps = {
   accountImage?: string | null | undefined
 }

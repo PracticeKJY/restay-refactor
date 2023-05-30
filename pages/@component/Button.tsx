@@ -8,7 +8,7 @@ import styles from "./Button.module.css"
 
 interface ButtonProps {
   label: string
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean
   outline?: boolean
   small?: boolean
