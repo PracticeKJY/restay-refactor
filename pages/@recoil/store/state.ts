@@ -15,3 +15,7 @@ export const useRegisterModal = atom({
   key: "useRegisterModal",
   default: false,
 })
+export const useMenuOpen = atom({
+  key: "useMenuOpen",
+  default: false,
+})
