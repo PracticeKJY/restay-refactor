@@ -1,6 +1,6 @@
 "use client"
 import styles from "./LoginModal.module.css"
-import { useLoginModal } from "@/pages/@recoil/store/state"
+import { useLoginModal, useRegisterModal } from "@/pages/@recoil/store/state"
 import { useRecoilState } from "recoil"
 import { SubmitHandler, FieldValues, useForm } from "react-hook-form"
 import Heading from "../Heading"
@@ -23,9 +23,10 @@ const LoginModal = () => {
   console.log(session, "세션은뭐나올까요?")
 
   const [isLoading, setIsLoading] = useState(false)
-  const [isLoginModal, isSetLoginModal] = useRecoilState(useLoginModal)
+  const [isLoginModal, setIsLoginModal] = useRecoilState(useLoginModal)
+  const [isRegisterModal, setIsRegisterModal] = useRecoilState(useRegisterModal)
   const handleClose = () => {
-    isSetLoginModal(!isLoginModal)
+    setIsLoginModal(!isLoginModal)
   }
 
   const {
@@ -50,7 +51,7 @@ const LoginModal = () => {
 
       if (callback?.ok) {
         toast.success("만나서 반가워요!🖐")
-        isSetLoginModal(!isLoginModal)
+        setIsLoginModal(!isLoginModal)
       }
 
       if (callback?.error) {
@@ -90,6 +91,11 @@ const LoginModal = () => {
     </>
   )
 
+  const onClick = () => {
+    setIsLoginModal(!isLoginModal)
+    setIsRegisterModal(!isRegisterModal)
+  }
+
   const footerContent = (
     <>
       <div className={styles.footerContentContainer}>
@@ -128,7 +134,7 @@ const LoginModal = () => {
         <div className={styles.footerTextContainer}>
           <div className={styles.footerTextWraaper}>
             <div>Restay이 처음이신가요?</div>
-            <button onClick={() => {}} className={styles.footerTextButton}>
+            <button onClick={onClick} className={styles.footerTextButton}>
               회원가입
             </button>
           </div>

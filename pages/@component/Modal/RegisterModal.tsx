@@ -7,7 +7,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import Heading from "../Heading"
 import Input from "../Input/Input"
 import { useRecoilState } from "recoil"
-import { useRegisterModal } from "@/pages/@recoil/store/state"
+import { useLoginModal, useRegisterModal } from "@/pages/@recoil/store/state"
 import { RiKakaoTalkFill } from "react-icons/ri"
 import Button from "../Button"
 import { AiFillGithub } from "react-icons/ai"
@@ -17,9 +17,10 @@ import toast from "react-hot-toast"
 
 const RegisterModal = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const [isRegisterModal, isSetRegisterModal] = useRecoilState(useRegisterModal)
+  const [isRegisterModal, setIsRegisterModal] = useRecoilState(useRegisterModal)
+  const [isLoginModal, setIsLoginModal] = useRecoilState(useLoginModal)
   const handleClose = () => {
-    isSetRegisterModal(!isRegisterModal)
+    setIsRegisterModal(!isRegisterModal)
   }
 
   const {
@@ -47,8 +48,13 @@ const RegisterModal = () => {
       })
       .finally(() => {
         setIsLoading(false)
-        isSetRegisterModal(!isRegisterModal)
+        setIsRegisterModal(!isRegisterModal)
       })
+  }
+
+  const onClick = () => {
+    setIsLoginModal(!isLoginModal)
+    setIsRegisterModal(!isRegisterModal)
   }
 
   const bodyContent = (
@@ -90,34 +96,10 @@ const RegisterModal = () => {
   const footerContent = (
     <>
       <div className={styles.footerContentContainer}>
-        <Button
-          outline
-          label={"Google로 시작하기"}
-          icon={FcGoogle}
-          onClick={() => {}}
-        />
-        <Button
-          outline
-          label={"Github로 시작하기"}
-          icon={AiFillGithub}
-          onClick={() => {}}
-        />
-        <Button
-          outline
-          label={"Naver으로 시작하기"}
-          icon={"/naverIcon.png"}
-          onClick={() => {}}
-        />
-        <Button
-          outline
-          label={"Kakao으로 시작하기"}
-          icon={RiKakaoTalkFill}
-          onClick={() => {}}
-        />
         <div className={styles.footerTextContainer}>
           <div className={styles.footerTextWraaper}>
             <div>이미 계정이 있으신가요?</div>
-            <button onClick={() => {}} className={styles.footerTextButton}>
+            <button onClick={onClick} className={styles.footerTextButton}>
               로그인
             </button>
           </div>
