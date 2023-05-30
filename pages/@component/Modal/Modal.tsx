@@ -34,15 +34,20 @@ const Modal: FC<ModalProps> = ({
   secondaryAction,
   secondaryActionLabel,
 }) => {
-  console.log(isOpen)
-  console.log(onClose)
-
   const [showModal, setShowModal] = useState(false)
   const [isLoginModal, isSetLoginModal] = useRecoilState(useLoginModal)
 
   useEffect(() => {
     setShowModal(isOpen)
   }, [isOpen])
+
+  const handleSubmit = useCallback(() => {
+    if (disabled || !onSubmit) {
+      return
+    }
+
+    onSubmit()
+  }, [onSubmit, disabled])
 
   const handleClose = useCallback(() => {
     if (disabled) {
@@ -54,6 +59,18 @@ const Modal: FC<ModalProps> = ({
       onClose()
     }, 300)
   }, [onClose, disabled])
+
+  const handleSecondaryAction = useCallback(() => {
+    if (disabled || !secondaryAction) {
+      return
+    }
+
+    secondaryAction()
+  }, [secondaryAction, disabled])
+
+  if (!isOpen) {
+    return null
+  }
 
   const modalTransitionClass = showModal ? styles.modalShow : styles.modalHide
 
@@ -74,13 +91,13 @@ const Modal: FC<ModalProps> = ({
                 outline
                 disabled={disabled}
                 label={secondaryActionLabel}
-                onClick={() => {}}
+                onClick={handleSecondaryAction}
               />
             )}
             <Button
               disabled={disabled}
               label={actionLabel}
-              onClick={() => {}}
+              onClick={handleSubmit}
             />
           </div>
           {footer}

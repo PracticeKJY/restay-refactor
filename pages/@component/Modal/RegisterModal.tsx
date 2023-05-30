@@ -1,31 +1,25 @@
 "use client"
-import styles from "./LoginModal.module.css"
-import { useLoginModal } from "@/pages/@recoil/store/state"
-import { useRecoilState } from "recoil"
-import { SubmitHandler, FieldValues, useForm } from "react-hook-form"
+
+import { useCallback, useEffect, useState } from "react"
+import Modal from "./Modal"
+import styles from "./RegisterModal.module.css"
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import Heading from "../Heading"
 import Input from "../Input/Input"
-import Modal from "./Modal"
-import Button from "../Button"
-import { FcGoogle } from "react-icons/fc"
-import { AiFillGithub } from "react-icons/ai"
+import { useRecoilState } from "recoil"
+import { useRegisterModal } from "@/pages/@recoil/store/state"
 import { RiKakaoTalkFill } from "react-icons/ri"
+import Button from "../Button"
+import { AiFillGithub } from "react-icons/ai"
+import { FcGoogle } from "react-icons/fc"
+import axios from "axios"
+import toast from "react-hot-toast"
 
-import { signIn, useSession } from "next-auth/react"
-import { toast } from "react-hot-toast"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
-
-const LoginModal = () => {
-  const router = useRouter()
-  const { data: session } = useSession()
-
-  console.log(session, "세션은뭐나올까요?")
-
+const RegisterModal = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const [isLoginModal, isSetLoginModal] = useRecoilState(useLoginModal)
+  const [isRegisterModal, isSetRegisterModal] = useRecoilState(useRegisterModal)
   const handleClose = () => {
-    isSetLoginModal(!isLoginModal)
+    isSetRegisterModal(!isRegisterModal)
   }
 
   const {
@@ -42,22 +36,19 @@ const LoginModal = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true)
 
-    signIn("credentials", {
-      ...data,
-      redirect: false,
-    }).then((callback) => {
-      setIsLoading(false)
-
-      if (callback?.ok) {
-        toast.success("만나서 반가워요!🖐")
-        isSetLoginModal(!isLoginModal)
-      }
-
-      if (callback?.error) {
-        toast.error("이메일 혹은 비밀번호를 확인해주세요")
-        console.log(callback.error)
-      }
-    })
+    axios
+      .post("/api/auth/signup", data)
+      .then(() => {
+        toast.success("restay의 회원이 되신걸 환영해요")
+      })
+      .catch((error) => {
+        console.log(error)
+        toast.error("Something went wrong")
+      })
+      .finally(() => {
+        setIsLoading(false)
+        isSetRegisterModal(!isRegisterModal)
+      })
   }
 
   const bodyContent = (
@@ -65,13 +56,19 @@ const LoginModal = () => {
       <div className={styles.bodyContentContainer}>
         <Heading
           title="Restay에 오신것을 환영합니다."
-          subTitle="이메일,비밀번호를 입력하세요."
+          subTitle="Restay의 회원이 되시고 혜택을 받아가세요"
         />
-
         <Input
           id={"email"}
           label={"Email"}
-          type={"email"}
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
+        />
+        <Input
+          id={"name"}
+          label={"Name"}
           disabled={isLoading}
           register={register}
           errors={errors}
@@ -97,39 +94,31 @@ const LoginModal = () => {
           outline
           label={"Google로 시작하기"}
           icon={FcGoogle}
-          onClick={() => {
-            signIn("google")
-          }}
+          onClick={() => {}}
         />
         <Button
           outline
           label={"Github로 시작하기"}
           icon={AiFillGithub}
-          onClick={() => {
-            signIn("github")
-          }}
+          onClick={() => {}}
         />
         <Button
           outline
           label={"Naver으로 시작하기"}
           icon={"/naverIcon.png"}
-          onClick={() => {
-            signIn("naver")
-          }}
+          onClick={() => {}}
         />
         <Button
           outline
           label={"Kakao으로 시작하기"}
           icon={RiKakaoTalkFill}
-          onClick={() => {
-            signIn("kakao")
-          }}
+          onClick={() => {}}
         />
         <div className={styles.footerTextContainer}>
           <div className={styles.footerTextWraaper}>
-            <div>Restay이 처음이신가요?</div>
+            <div>이미 계정이 있으신가요?</div>
             <button onClick={() => {}} className={styles.footerTextButton}>
-              회원가입
+              로그인
             </button>
           </div>
         </div>
@@ -139,11 +128,11 @@ const LoginModal = () => {
 
   return (
     <Modal
-      isOpen={isLoginModal}
+      isOpen={isRegisterModal}
       onClose={handleClose}
       disabled={isLoading}
-      title={"로그인"}
-      actionLabel={"로그인"}
+      title={"회원가입"}
+      actionLabel={"회원가입"}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
       footer={footerContent}
@@ -151,4 +140,4 @@ const LoginModal = () => {
   )
 }
 
-export default LoginModal
+export default RegisterModal
