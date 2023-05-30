@@ -1,9 +1,11 @@
 import { AppProps } from "next/app"
-import { RecoilRoot } from "recoil"
 import "../styles/globals.css"
 import Head from "next/head"
 import { Gowun_Dodum } from "next/font/google"
 import Navbar from "./@component/Header/Navbar"
+import RecoilProvider from "./@provider/RecoilProvider"
+import ToasterProvider from "./@provider/ToasterProvider"
+import { SessionProvider } from "next-auth/react"
 
 const gowunDodum = Gowun_Dodum({
   weight: "400",
@@ -16,22 +18,25 @@ const metadata = {
   description: "restay homepage",
 }
 
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+  // console.log(pageProps.session, "뭐라나오냐")
 
-
-function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-     <Head>
+      <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         <link rel="icon" href="/restay.png" />
       </Head>
-        <RecoilRoot>
-      <main className={gowunDodum.className}>
-        <Navbar />
-          <Component {...pageProps} />
-      </main>
-        </RecoilRoot>
+      <ToasterProvider />
+      <RecoilProvider>
+        <SessionProvider session={session} basePath="/api/auth">
+          <main className={gowunDodum.className}>
+            <Navbar />
+            <Component {...pageProps} />
+          </main>
+        </SessionProvider>
+      </RecoilProvider>
     </>
   )
 }
