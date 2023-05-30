@@ -26,6 +26,8 @@ const Input: FC<InputProps> = ({
   register,
   errors,
 }) => {
+  console.log(errors, "에러들")
+
   const [inputFocused, setInputFocused] = useState(false)
 
   const handleOnFocus = () => setInputFocused(true)
@@ -33,28 +35,64 @@ const Input: FC<InputProps> = ({
 
   return (
     <div className={styles.inputContainer}>
-      <form action="">
-        {formatPrice && <BiDollar size={24} className={styles.biDollar} />}
-        <label
-          className={`${styles.label} ${
-            inputFocused ? styles.inputFocused : styles.inputNotFocused
-          }`}
-          htmlFor={id}
-        >
-          {label}
-        </label>
-        <input
-          className={`${styles.input} ${inputFocused ? styles.inputFocus : ""}`}
-          id={id}
-          type={type}
-          disabled={disabled}
-          {...register(id, { required })}
-          placeholder=""
-          onFocus={handleOnFocus}
-          onBlur={handleOnBlur}
-        />
-        {errors.id && typeof errors.id === "string" && <span>{errors.id}</span>}
-      </form>
+      {formatPrice && <BiDollar size={24} className={styles.biDollar} />}
+      <label
+        className={`${styles.label} ${
+          inputFocused ? styles.inputFocused : styles.inputNotFocused
+        }`}
+        htmlFor={id}
+      >
+        {label}
+      </label>
+      <input
+        className={`${styles.input} ${inputFocused ? styles.inputFocus : ""}
+        ${errors[id] ? styles.inputError : ""}
+        `}
+        id={id}
+        type={type}
+        disabled={disabled}
+        {...register(id, {
+          required: required && "필수 입력사항입니다.",
+          ...(id === "email"
+            ? {
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                  message: "올바른 이메일 주소 형식이 아닙니다.",
+                },
+              }
+            : {}),
+          ...(id === "name"
+            ? {
+                pattern: {
+                  value: /^[ㄱ-ㅎ|가-힣|]+$/,
+                  message: "이름은 한글만 적을 수 있습니다.",
+                },
+              }
+            : {}),
+          ...(id === "password"
+            ? {
+                minLength: {
+                  value: 4,
+                  message: "비밀번호는 최소 4자 이상이어야 합니다.",
+                },
+                maxLength: {
+                  value: 12,
+                  message: "비밀번호는 최대 12자까지 가능합니다.",
+                },
+              }
+            : {}),
+        })}
+        placeholder=""
+        onFocus={handleOnFocus}
+        onBlur={handleOnBlur}
+      />
+      {errors[id] ? (
+        <span className={styles.errorText}>
+          {errors[id]?.message?.toString()}
+        </span>
+      ) : (
+        ""
+      )}
     </div>
   )
 }
