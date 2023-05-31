@@ -19,3 +19,7 @@ export const useMenuOpen = atom({
   key: "useMenuOpen",
   default: false,
 })
+export const useRentModal = atom({
+  key: "useRentModal",
+  default: false,
+})
