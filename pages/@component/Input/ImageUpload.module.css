@@ -1,0 +1,26 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #525252;
+  padding: 5rem;
+  border: 2px dashed #d4d4d4;
+  cursor: pointer;
+}
+.container:hover {
+  opacity: 0.7;
+}
+.imageUploadText {
+  font-weight: 600;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+}
+.imagesWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
