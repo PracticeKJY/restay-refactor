@@ -1,0 +1,5 @@
+.mapContainer {
+  height: 35vh;
+  border-radius: 0.5rem;
+  z-index: 0;
+}
