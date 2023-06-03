@@ -23,13 +23,6 @@
   grid-column: span 1 / span 1;
 }
 
-/*location*/
-.location {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
 /* 768px = md */
 @media (max-width: 768px) {
   /* category */

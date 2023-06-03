@@ -30,16 +30,15 @@
   color: white;
 }
 .isSmall {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding: 0.25rem 0;
   font-size: 0.875rem; /* 14px */
   line-height: 1.25rem; /* 20px */
   font-weight: 300;
   border-width: 1px;
 }
 .nonSmall {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  width: 100px;
+  padding: 0.75rem 0;
   font-size: 1rem; /* 16px */
   line-height: 1.5rem; /* 24px */
   font-weight: 600;
