@@ -1,0 +1,22 @@
+.countrySelectContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+.regionWrapper {
+  color: #737373;
+  margin-left: 0.25rem;
+}
+.styles.controls {
+  padding: 0.75rem;
+  border-width: 2px;
+}
+.styles.inputs {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+}
+.styles.options {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+}
