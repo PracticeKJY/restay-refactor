@@ -13,6 +13,7 @@ import CategoryInput from "../Input/CategoryInput"
 import CountrySelect from "../Input/CountrySelect"
 import MapComponent from "../MapComponent"
 import dynamic from "next/dynamic"
+import Counter from "../Input/Counter"
 
 // enum? 관련된 상수들을 그룹화하고 식별하기 위해 사용됩니다. 특히, enum은 서로 연관된 상수의 집합을 정의하는 데 유용합니다. 이렇게 정의된 enum은 TypeScript 코드에서 해당 상수를 사용할 수 있게 되며, 가독성과 유지보수의 편의성을 높여줍니다.
 // TypeScript에서는 enum 상수에 대한 값을 따로 지정하지 않으면, 0부터 시작하여 순차적인 값(0, 1, 2, ...)이 자동으로 할당됩니다
@@ -147,7 +148,7 @@ const RentModal = () => {
   // STEP.LOCATION
   if (step === STEPS.LOCATION) {
     bodyContent = (
-      <div className={styles.location}>
+      <div className={styles.bodyContentContainer}>
         <Heading
           title="어디에 위치하고 있나요?"
           subTitle="게스트들이 찾을 수 있도록 위치를 알려주세요"
@@ -157,6 +158,36 @@ const RentModal = () => {
           onChange={(value) => setCustomValue("location", value)}
         />
         <MapComponent center={location?.latlng} />
+      </div>
+    )
+  }
+
+  // STEPS.INFO
+  if (step === STEPS.INFO) {
+    bodyContent = (
+      <div className={styles.bodyContentContainer}>
+        <Heading
+          title="공유하실 장소에 몇가지 사항을 알려주세요."
+          subTitle="어떠한 편의 시설들이 있나요?"
+        />
+        <Counter
+          title={"게스트"}
+          subTitle={"총 인원수를 알려주세요."}
+          value={guestCount}
+          onChange={(value) => setCustomValue("guestCount", value)}
+        />
+        <Counter
+          title={"방"}
+          subTitle={"총 방의 갯수를 알려주세요."}
+          value={roomCount}
+          onChange={(value) => setCustomValue("roomCount", value)}
+        />
+        <Counter
+          title={"화장실"}
+          subTitle={"총 화장실의 갯수를 알려주세요."}
+          value={bathroomCount}
+          onChange={(value) => setCustomValue("bathroomCount", value)}
+        />
       </div>
     )
   }
