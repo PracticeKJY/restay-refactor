@@ -3,6 +3,7 @@ import Logo from "./Logo"
 import Search from "./Search"
 import styles from "./Navbar.module.css"
 import UserMenu from "./UserMenu"
+import Categories from "./Categories"
 
 const Navbar = () => {
   return (
@@ -14,6 +15,7 @@ const Navbar = () => {
           <UserMenu />
         </div>
       </Container>
+      <Categories />
     </div>
   )
 }
