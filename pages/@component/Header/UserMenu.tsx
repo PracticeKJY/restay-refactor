@@ -8,11 +8,13 @@ import {
   useLoginModal,
   useMenuOpen,
   useRegisterModal,
+  useRentModal,
 } from "@/pages/@recoil/store/state"
 import LoginModal from "../Modal/LoginModal"
 import RegisterModal from "../Modal/RegisterModal"
 import { signOut, useSession } from "next-auth/react"
 import toast from "react-hot-toast"
+import RentModal from "../Modal/RentModal"
 
 const UserMenu = () => {
   const { data: session, status: sessionStatus } = useSession()
@@ -21,6 +23,7 @@ const UserMenu = () => {
   console.log(sessionStatus, "세션의 status")
 
   const [isMenuOpen, setIsMenuOpen] = useRecoilState(useMenuOpen)
+  const [isRentModal, SetIsRentModal] = useRecoilState(useRentModal)
 
   const handleMenuOpen = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -28,7 +31,7 @@ const UserMenu = () => {
 
   const userMenu = session ? (
     <div className={styles.userMenuOpen}>
-      <LogoutMenu />
+      <LogoutMenu session={session} />
     </div>
   ) : (
     <div className={styles.userMenuOpen}>
@@ -36,15 +39,30 @@ const UserMenu = () => {
     </div>
   )
 
+  const onClick = () => {
+    // 회원이 아닐 경우 클릭 이벤트를 막음
+    if (!session) {
+      return
+    }
+    SetIsRentModal(!isRentModal)
+  }
+
   return (
     <>
+      {isRentModal && <RentModal />}
       <div style={{ position: "relative" }}>
         <div className={styles.userMenuWrapper}>
-          <div className={styles.userMenuText}>
+          <div
+            className={`${styles.userMenuText} ${
+              session && !isRentModal ? styles.pointer : ""
+            }`}
+            onClick={onClick}
+          >
             {session
               ? `${session.user?.name}님 오늘은 어디로 떠나보실래요?`
               : "당신의 공간을 공유하세요"}
           </div>
+
           <div className={styles.userMenu} onClick={handleMenuOpen}>
             <AiOutlineMenu />
             <Avatar accountImage={session ? session.user?.image : ""} />
@@ -73,14 +91,11 @@ const LoginMenu = () => {
 
   return (
     <>
-      <div className={styles.loginComponent} onClick={handleLoginModalOpen}>
+      <div className={styles.pointer} onClick={handleLoginModalOpen}>
         로그인
       </div>
       {isLoginModal && <LoginModal />}
-      <div
-        className={styles.registerComponent}
-        onClick={handleRegisterModalOpen}
-      >
+      <div className={styles.pointer} onClick={handleRegisterModalOpen}>
         회원가입
       </div>
       {isRegisterModal && <RegisterModal />}
@@ -89,8 +104,20 @@ const LoginMenu = () => {
 }
 
 //로그아웃메뉴
-const LogoutMenu = () => {
+const LogoutMenu = ({ session }: any) => {
+  console.log(session, "프롭스로받은세션")
+
   const [isMenuOpen, setIsMenuOpen] = useRecoilState(useMenuOpen)
+  const [isRentModal, SetIsRentModal] = useRecoilState(useRentModal)
+  // const { data: session, status: sessionStatus } = useSession()
+
+  const onClick = () => {
+    // 회원이 아닐 경우 클릭 이벤트를 막음
+    if (!session) {
+      return
+    }
+    SetIsRentModal(!isRentModal)
+  }
 
   const logOutHandler = async () => {
     try {
@@ -108,19 +135,19 @@ const LogoutMenu = () => {
 
   return (
     <>
-      <div className={styles.registerComponent} onClick={() => {}}>
+      <div className={styles.pointer} onClick={() => {}}>
         여행
       </div>
-      <div className={styles.registerComponent} onClick={() => {}}>
+      <div className={styles.pointer} onClick={onClick}>
         호스팅
       </div>
-      <div className={styles.registerComponent} onClick={() => {}}>
+      <div className={styles.pointer} onClick={() => {}}>
         위시리스트
       </div>
-      <div className={styles.registerComponent} onClick={() => {}}>
+      <div className={styles.pointer} onClick={() => {}}>
         메세지
       </div>
-      <div className={styles.registerComponent} onClick={logOutHandler}>
+      <div className={styles.pointer} onClick={logOutHandler}>
         로그아웃
       </div>
     </>
