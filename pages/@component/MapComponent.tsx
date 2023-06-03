@@ -25,13 +25,13 @@ interface MapComponentProps {
 const MapComponent: FC<MapComponentProps> = ({ center }) => {
   return (
     <MapContainer
-      center={[37.5665, 126.978]}
-      zoom={center ? 15 : 10}
+      center={(center as L.LatLngExpression) || [51, -0.09]}
+      zoom={center ? 8 : 4}
       scrollWheelZoom={true}
       className={styles.mapContainer}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      {center && <Marker position={[37.5665, 126.978]} />}
+      {center && <Marker position={center as L.LatLngExpression} />}
     </MapContainer>
   )
 }
