@@ -35,7 +35,7 @@ const Input: FC<InputProps> = ({
 
   return (
     <div className={styles.inputContainer}>
-      {formatPrice && <BiDollar size={24} className={styles.biDollar} />}
+      {formatPrice && <BiDollar size={16} className={styles.biDollar} />}
       <label
         className={`${styles.label} ${
           inputFocused ? styles.inputFocused : styles.inputNotFocused

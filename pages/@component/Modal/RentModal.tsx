@@ -15,6 +15,7 @@ import MapComponent from "../MapComponent"
 import dynamic from "next/dynamic"
 import Counter from "../Input/Counter"
 import ImageUpload from "./../Input/ImageUpload"
+import Input from "../Input/Input"
 
 // enum? 관련된 상수들을 그룹화하고 식별하기 위해 사용됩니다. 특히, enum은 서로 연관된 상수의 집합을 정의하는 데 유용합니다. 이렇게 정의된 enum은 TypeScript 코드에서 해당 상수를 사용할 수 있게 되며, 가독성과 유지보수의 편의성을 높여줍니다.
 // TypeScript에서는 enum 상수에 대한 값을 따로 지정하지 않으면, 0부터 시작하여 순차적인 값(0, 1, 2, ...)이 자동으로 할당됩니다
@@ -203,6 +204,56 @@ const RentModal = () => {
         <ImageUpload
           value={imageSrc}
           onChange={(value) => setCustomValue("imageSrc", value)}
+        />
+      </div>
+    )
+  }
+
+  // STEP.DESCRIPTION
+  if (step === STEPS.DESCRIPTION) {
+    bodyContent = (
+      <div className={styles.bodyContentContainer}>
+        <Heading
+          title="공유하실 공간을 설명해주세요."
+          subTitle="짧고 매콤한 표현으로 부탁드려요~!"
+        />
+        <Input
+          id="title"
+          label="Title"
+          register={register}
+          errors={errors}
+          disabled={isLoading}
+          required
+        />
+        <Input
+          id="description"
+          label="Description"
+          register={register}
+          errors={errors}
+          disabled={isLoading}
+          required
+        />
+      </div>
+    )
+  }
+
+  // STEP.PRICE
+  if (step === STEPS.PRICE) {
+    bodyContent = (
+      <div className={styles.bodyContentContainer}>
+        <Heading
+          title="가격을 정해주세요."
+          subTitle="1박당 가격으로 정하시면 되요"
+        />
+        <Input
+          id="price"
+          label="Price"
+          formatPrice
+          type="number"
+          register={register}
+          errors={errors}
+          disabled={isLoading}
+          required
         />
       </div>
     )
