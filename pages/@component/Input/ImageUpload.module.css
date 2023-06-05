@@ -24,3 +24,19 @@
   height: 100%;
   inset: 0;
 }
+.uploadImageContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.uploadImageWrapper {
+  position: relative;
+}
+.deleteButton {
+  font-weight: 700;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 4px;
+  cursor: pointer;
+}
