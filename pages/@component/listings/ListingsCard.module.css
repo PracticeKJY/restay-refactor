@@ -1,0 +1,43 @@
+.listingsWrapper {
+  display: block;
+  position: relative;
+  border-radius: 12px;
+}
+
+.listingsLocation {
+  font-weight: 600;
+}
+.listingsCategory {
+  padding-top: 1rem;
+}
+
+.listingsTitle {
+  width: 350px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.listingsPrice {
+  font-weight: 600;
+}
+
+.listingsImage {
+  border-radius: 12px;
+}
+
+.aiOutlineHeart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  fill: #f43f5e;
+}
+.aiFillHeart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  fill: #f43f5e;
+  opacity: 0.7;
+  cursor: pointer;
+}
