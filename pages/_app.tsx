@@ -6,6 +6,7 @@ import Navbar from "./@component/Header/Navbar"
 import RecoilProvider from "./@provider/RecoilProvider"
 import ToasterProvider from "./@provider/ToasterProvider"
 import { SessionProvider } from "next-auth/react"
+import { Suspense } from "react"
 
 const gowunDodum = Gowun_Dodum({
   weight: "400",
@@ -30,12 +31,14 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       </Head>
       <ToasterProvider />
       <RecoilProvider>
-        <SessionProvider session={session} basePath="/api/auth">
-          <main className={gowunDodum.className}>
-            <Navbar />
-            <Component {...pageProps} />
-          </main>
-        </SessionProvider>
+        <Suspense fallback={<div>Loading...</div>}>
+          <SessionProvider session={session} basePath="/api/auth">
+            <main className={gowunDodum.className}>
+              <Navbar />
+              <Component {...pageProps} />
+            </main>
+          </SessionProvider>
+        </Suspense>
       </RecoilProvider>
     </>
   )
