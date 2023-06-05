@@ -16,6 +16,10 @@ import dynamic from "next/dynamic"
 import Counter from "../Input/Counter"
 import ImageUpload from "./../Input/ImageUpload"
 import Input from "../Input/Input"
+import axios from "axios"
+import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
+import { useSession } from "next-auth/react"
 
 // enum? 관련된 상수들을 그룹화하고 식별하기 위해 사용됩니다. 특히, enum은 서로 연관된 상수의 집합을 정의하는 데 유용합니다. 이렇게 정의된 enum은 TypeScript 코드에서 해당 상수를 사용할 수 있게 되며, 가독성과 유지보수의 편의성을 높여줍니다.
 // TypeScript에서는 enum 상수에 대한 값을 따로 지정하지 않으면, 0부터 시작하여 순차적인 값(0, 1, 2, ...)이 자동으로 할당됩니다
@@ -40,10 +44,12 @@ enum STEPS {
 }
 
 const RentModal = () => {
+  const { data: session } = useSession()
+  console.log(session?.user?.email, "나와라세션얍")
   const [step, setStep] = useState(STEPS.CATEGORY)
   const [isRentModal, SetIsRentModal] = useRecoilState(useRentModal)
   const [isLoading, setIsLoading] = useState(false)
-
+  const router = useRouter()
   console.log(isRentModal, "랜트모달상태")
 
   const {
@@ -63,7 +69,7 @@ const RentModal = () => {
       imageSrc: "",
       price: 1,
       title: "",
-      discription: "",
+      description: "",
     },
   })
 
@@ -101,11 +107,30 @@ const RentModal = () => {
   }
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    const emailData = session?.user?.email
+    const modifyFormData = { ...data, emailData }
+
     if (step !== STEPS.PRICE) {
       return onNext()
     }
 
-    // setIsLoading(true)
+    setIsLoading(true)
+
+    axios
+      .post("/api/listings/listings", modifyFormData)
+      .then(() => {
+        toast.success("리스트가 생성되었어요")
+        router.refresh()
+        reset()
+        setStep(STEPS.CATEGORY)
+        SetIsRentModal(!isRentModal)
+      })
+      .catch(() => {
+        toast.error("리스트 생성에 실패했어요")
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
 
   const actionLabel = useMemo(() => {
@@ -199,7 +224,7 @@ const RentModal = () => {
       <div className={styles.bodyContentContainer}>
         <Heading
           title="공유하실 장소의 사진들을 올려주세요."
-          subTitle="멋지게 찍어서 올리시면 더욱 좋겠쥬?"
+          subTitle="사진은 최대 4장까지 올릴 수 있어요. "
         />
         <ImageUpload
           value={imageSrc}
@@ -208,6 +233,7 @@ const RentModal = () => {
       </div>
     )
   }
+  console.log(imageSrc, "src 뭐라나옴?")
 
   // STEP.DESCRIPTION
   if (step === STEPS.DESCRIPTION) {
