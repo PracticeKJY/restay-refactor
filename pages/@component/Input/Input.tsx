@@ -3,7 +3,7 @@
 import { FC, useState } from "react"
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form"
 import styles from "./Input.module.css"
-import { BiDollar } from "react-icons/bi"
+import { BiWon } from "react-icons/bi"
 
 interface InputProps {
   id: string
@@ -35,7 +35,7 @@ const Input: FC<InputProps> = ({
 
   return (
     <div className={styles.inputContainer}>
-      {formatPrice && <BiDollar size={16} className={styles.biDollar} />}
+      {formatPrice && <BiWon size={16} className={styles.biWon} />}
       <label
         className={`${styles.label} ${
           inputFocused ? styles.inputFocused : styles.inputNotFocused
