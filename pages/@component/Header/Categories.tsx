@@ -27,11 +27,6 @@ export const categories = [
     description: "This property is close to the beach!",
   },
   {
-    label: "풍차",
-    icon: GiWindmill,
-    description: "This property is has windmills!",
-  },
-  {
     label: "빌라",
     icon: MdOutlineVilla,
     description: "This property is modern!",
@@ -61,11 +56,7 @@ export const categories = [
     icon: FaSkiing,
     description: "This property has skiing activies!",
   },
-  {
-    label: "캐슬",
-    icon: GiCastle,
-    description: "This property is an ancient castle!",
-  },
+
   {
     label: "동굴",
     icon: GiCaveEntrance,
@@ -75,6 +66,16 @@ export const categories = [
     label: "캠핑",
     icon: GiForestCamp,
     description: "This property offers camping activities!",
+  },
+  {
+    label: "특별한 시설",
+    icon: IoDiamond,
+    description: "This property is brand new and luxurious!",
+  },
+  {
+    label: "풍차",
+    icon: GiWindmill,
+    description: "This property is has windmills!",
   },
   {
     label: "북극 지역",
@@ -92,9 +93,9 @@ export const categories = [
     description: "This property is in a barn!",
   },
   {
-    label: "특별한 시설",
-    icon: IoDiamond,
-    description: "This property is brand new and luxurious!",
+    label: "캐슬",
+    icon: GiCastle,
+    description: "This property is an ancient castle!",
   },
 ]
 
