@@ -39,13 +39,6 @@ export default function Home() {
     getListings()
   }, [])
 
-  console.log(listings, "리스트들")
-  // console.log(listings[6].imageSrc[2], "리스트들22")
-
-  // const handleSetFavorite = () => {
-  //   setHasFavorite(!hasFavorite)
-  // }
-
   return (
     <>
       <Container>
