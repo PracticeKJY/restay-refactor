@@ -1,7 +1,9 @@
 .dataPickerContainer {
+  position: relative;
 }
 .dataPickerWrapper {
-  position: relative;
+  position: sticky;
+  top: 100px;
   display: flex;
   flex-direction: column;
   width: 332px;
