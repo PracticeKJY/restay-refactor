@@ -23,9 +23,38 @@
   border-bottom: 1px solid #e6e6e6;
 }
 
-.descriptionInfo {
+.descriptionWrapper {
+  position: relative;
   padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.descriptionInfo {
   white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.descriptionInfoMore {
+  white-space: pre-wrap;
+  text-overflow: ellipsis;
+}
+
+.moreDescription {
+  margin-top: 20px;
+}
+.moreDescriptionButton {
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+}
+.moreDescriptionText {
+  text-decoration: underline;
+  padding-right: 4px;
 }
 
 .mapInfo {

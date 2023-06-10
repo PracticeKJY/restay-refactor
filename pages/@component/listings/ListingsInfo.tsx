@@ -3,7 +3,7 @@
 import styles from "./ListingsInfo.module.css"
 import useCountries from "@/pages/@hooks/useCountries"
 import dynamic from "next/dynamic"
-import { FC, useMemo } from "react"
+import { FC, useMemo, useState } from "react"
 import { categories } from "../Header/Categories"
 import ListingCategory from "./ListingCategory"
 
@@ -27,6 +27,7 @@ interface ListingsInfoProps {
 const ListingsInfo: FC<ListingsInfoProps> = ({ listingData }) => {
   const { getByValue } = useCountries()
   const location = getByValue(listingData.locationValue)
+  const [isMore, setIsMore] = useState(false)
 
   const MapComponent = useMemo(
     () =>
@@ -61,8 +62,29 @@ const ListingsInfo: FC<ListingsInfoProps> = ({ listingData }) => {
           />
         )}
       </div>
-      <div className={styles.descriptionInfo}>
-        <div>{listingData.description}</div>
+      <div className={styles.descriptionWrapper}>
+        <div className={styles.descriptionInfoWrapper}>
+          <div
+            className={`${
+              !isMore ? styles.descriptionInfo : styles.descriptionInfoMore
+            }`}
+          >
+            {listingData.description}
+          </div>
+          <div className={styles.moreDescription}>
+            <button
+              className={styles.moreDescriptionButton}
+              onClick={() => {
+                setIsMore(!isMore)
+              }}
+            >
+              <span className={styles.moreDescriptionText}>
+                {!isMore ? "더 보기" : "접기"}
+              </span>
+              <span>{">"}</span>
+            </button>
+          </div>
+        </div>
       </div>
       <div className={styles.mapInfo}>
         <div>호스팅 지역</div>
