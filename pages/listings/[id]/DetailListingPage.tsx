@@ -3,7 +3,7 @@
 import styles from "./DetailListingPage.module.css"
 
 import Container from "@/pages/@component/Container"
-import { FC, useRef, useState } from "react"
+import { FC, useMemo, useRef, useState } from "react"
 
 import Image from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -19,6 +19,9 @@ import "swiper/css/navigation"
 import ListingsInfo from "@/pages/@component/listings/ListingsInfo"
 import DetailListingHeading from "./DetailListingHeading"
 import ListingsReservation from "@/pages/@component/listings/ListingsReservation"
+import MapComponent from "@/pages/@component/MapComponent"
+import useCountries from "@/pages/@hooks/useCountries"
+import dynamic from "next/dynamic"
 
 interface DetailListingPageProps {
   listingData: {
@@ -40,6 +43,16 @@ interface DetailListingPageProps {
 SwiperCore.use([Navigation])
 
 const DetailListingPage: FC<DetailListingPageProps> = ({ listingData }) => {
+  const { getByValue } = useCountries()
+  const location = getByValue(listingData.locationValue)
+  const MapComponent = useMemo(
+    () =>
+      dynamic(() => import("@/pages/@component/MapComponent"), {
+        ssr: false,
+      }),
+    [location],
+  )
+
   return (
     <Container>
       <div className={styles.contentContainer}>
@@ -50,6 +63,12 @@ const DetailListingPage: FC<DetailListingPageProps> = ({ listingData }) => {
         <div className={styles.bodyContainer}>
           <ListingsInfo listingData={listingData} />
           <ListingsReservation price={listingData.price} />
+        </div>
+        <div className={styles.mapInfoWrapper}>
+          <div className={styles.mapInfo}>
+            <div className={styles.mapInfoTitle}>호스팅 위치</div>
+            <MapComponent center={location?.latlng} />
+          </div>
         </div>
       </div>
     </Container>

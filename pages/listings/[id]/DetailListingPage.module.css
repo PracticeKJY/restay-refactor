@@ -132,17 +132,26 @@
 }
 
 .descriptionInfo {
-  padding: 3rem 0;
-  white-space: pre-wrap;
+  /* width: 350px; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.mapInfo {
+.mapInfoWrapper {
   padding: 3rem 0;
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
+}
+
+.mapInfo {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   width: 500px;
-  height: 500px;
+}
+
+.mapInfoTitle {
+  font-size: 24px;
+  font-weight: 600;
 }
