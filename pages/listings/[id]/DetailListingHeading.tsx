@@ -4,6 +4,7 @@ import { FC } from "react"
 import styles from "./DetailListingHeading.module.css"
 import useCountries from "@/pages/@hooks/useCountries"
 import Heading from "@/pages/@component/Heading"
+import Avatar from "@/pages/@component/Header/Avatar"
 
 interface DetailListingHeadingProps {
   listingData: {
@@ -20,10 +21,12 @@ interface DetailListingHeadingProps {
     createdAt: any
     _id: string
   }
+  userInfo: any
 }
 
 const DetailListingHeading: FC<DetailListingHeadingProps> = ({
   listingData,
+  userInfo,
 }) => {
   const { getByValue } = useCountries()
   const location = getByValue(listingData.locationValue)
@@ -36,16 +39,7 @@ const DetailListingHeading: FC<DetailListingHeadingProps> = ({
           subTitle={`${location?.region}, ${location?.label}`}
         />
       </div>
-      <div className={styles.infoWrapper}>
-        <div>
-          <h2 className={styles.hostingIntroduce}>함찌 님이 호스팅하는 숙소</h2>
-        </div>
-        <ol className={styles.countList}>
-          <li>{`최대 인원 ${listingData.guestCount}명`}</li>
-          <li>{`방 ${listingData.roomCount}개`}</li>
-          <li>{`욕실 ${listingData.bathroomCount}개`}</li>
-        </ol>
-      </div>
+
       <div className={styles.comment}>
         <span className={styles.commentTitle}>{"사장님 한마디"}</span>
         <div className={styles.commentBody}>

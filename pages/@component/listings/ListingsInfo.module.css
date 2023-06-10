@@ -1,3 +1,14 @@
+.hostingInfoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 3rem;
+}
+.hostingInfoWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .countList {
   display: flex;
   flex-direction: row;
@@ -11,10 +22,6 @@
 .hostingIntroduce {
   font-size: 22px;
   font-weight: 500;
-}
-
-.hostingIntroduceInfo {
-  padding-bottom: 3rem;
 }
 
 .locationInfo {

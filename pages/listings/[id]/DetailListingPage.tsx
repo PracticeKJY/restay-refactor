@@ -19,11 +19,10 @@ import "swiper/css/navigation"
 import ListingsInfo from "@/pages/@component/listings/ListingsInfo"
 import DetailListingHeading from "./DetailListingHeading"
 import ListingsReservation from "@/pages/@component/listings/ListingsReservation"
-import MapComponent from "@/pages/@component/MapComponent"
 import useCountries from "@/pages/@hooks/useCountries"
 import dynamic from "next/dynamic"
 
-interface DetailListingPageProps {
+interface DetailListingMainCarouselSwiperProps {
   listingData: {
     category: string
     locationValue: string
@@ -40,9 +39,16 @@ interface DetailListingPageProps {
   }
 }
 
+interface DetailListingPageProps extends DetailListingMainCarouselSwiperProps {
+  userInfo: any
+}
+
 SwiperCore.use([Navigation])
 
-const DetailListingPage: FC<DetailListingPageProps> = ({ listingData }) => {
+const DetailListingPage: FC<DetailListingPageProps> = ({
+  listingData,
+  userInfo,
+}) => {
   const { getByValue } = useCountries()
   const location = getByValue(listingData.locationValue)
   const MapComponent = useMemo(
@@ -58,10 +64,10 @@ const DetailListingPage: FC<DetailListingPageProps> = ({ listingData }) => {
       <div className={styles.contentContainer}>
         <div className={styles.mainCarousel}>
           <DetailListingMainCarouselSwiper listingData={listingData} />
-          <DetailListingHeading listingData={listingData} />
+          <DetailListingHeading listingData={listingData} userInfo={userInfo} />
         </div>
         <div className={styles.bodyContainer}>
-          <ListingsInfo listingData={listingData} />
+          <ListingsInfo listingData={listingData} userInfo={userInfo} />
           <ListingsReservation price={listingData.price} />
         </div>
         <div className={styles.mapInfoWrapper}>
@@ -77,9 +83,9 @@ const DetailListingPage: FC<DetailListingPageProps> = ({ listingData }) => {
 
 export default DetailListingPage
 
-const DetailListingMainCarouselSwiper: FC<DetailListingPageProps> = ({
-  listingData,
-}) => {
+const DetailListingMainCarouselSwiper: FC<
+  DetailListingMainCarouselSwiperProps
+> = ({ listingData }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
   const swiperRef = useRef<SwiperType>()
   const [slideIndex, setslideIndex] = useState(0)

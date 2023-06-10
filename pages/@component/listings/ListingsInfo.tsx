@@ -4,6 +4,7 @@ import styles from "./ListingsInfo.module.css"
 import { FC, useState } from "react"
 import { categories } from "../Header/Categories"
 import ListingCategory from "./ListingCategory"
+import Avatar from "../Header/Avatar"
 
 interface ListingsInfoProps {
   listingData: {
@@ -20,9 +21,10 @@ interface ListingsInfoProps {
     createdAt: any
     _id: string
   }
+  userInfo: any
 }
 
-const ListingsInfo: FC<ListingsInfoProps> = ({ listingData }) => {
+const ListingsInfo: FC<ListingsInfoProps> = ({ listingData, userInfo }) => {
   const [isMore, setIsMore] = useState(false)
 
   const findCategory = categories.filter((item) => {
@@ -32,18 +34,20 @@ const ListingsInfo: FC<ListingsInfoProps> = ({ listingData }) => {
   return (
     <>
       <div className={styles.hostDataContainer}>
-        <div className={styles.hostingIntroduceInfo}>
-          <div>
+        <div className={styles.hostingInfoContainer}>
+          <div className={styles.hostingInfoWrapper}>
             <h2 className={styles.hostingIntroduce}>
-              함찌 님이 호스팅하는 숙소
+              {userInfo.name} 님이 호스팅하는 숙소
             </h2>
+            <ol className={styles.countList}>
+              <li>{`최대 인원 ${listingData.guestCount}명`}</li>
+              <li>{`방 ${listingData.roomCount}개`}</li>
+              <li>{`욕실 ${listingData.bathroomCount}개`}</li>
+            </ol>
           </div>
-          <ol className={styles.countList}>
-            <li>{`최대 인원 ${listingData.guestCount}명`}</li>
-            <li>{`방 ${listingData.roomCount}개`}</li>
-            <li>{`욕실 ${listingData.bathroomCount}개`}</li>
-          </ol>
+          <Avatar accountImage={userInfo.image} width={60} height={60} />
         </div>
+
         <div className={styles.locationInfo}>
           {findCategory && (
             <ListingCategory

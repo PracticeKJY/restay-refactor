@@ -7,6 +7,16 @@
   min-height: 460px;
 }
 
+.hostingInfoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.hostingInfoWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .headingContainer {
   position: relative;
 }
@@ -31,7 +41,4 @@
 
 .commentTitle {
   font-weight: 600;
-}
-.commentBody {
-  /* min-height: 176px; */
 }
