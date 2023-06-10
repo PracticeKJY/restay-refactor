@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+.icon {
+  color: #525252;
+}
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.label {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 600;
+}
+.description {
+  color: #737373;
+  font-weight: 300;
+}
