@@ -52,6 +52,8 @@ const ListingsCard: FC<ListingsCardProps> = ({ data, userId }) => {
 
   const swiperRef = useRef<SwiperType>()
 
+  const localePrice = data.price.toLocaleString("ko-KR")
+
   return (
     <>
       <div
@@ -107,7 +109,7 @@ const ListingsCard: FC<ListingsCardProps> = ({ data, userId }) => {
           <div className={styles.listingsCategory}>{data.category}</div>
           <div className={styles.listingsTitle}>{data.title}</div>
           <div>
-            <span className={styles.listingsPrice}>￦{data.price}</span>
+            <span className={styles.listingsPrice}>￦{localePrice}</span>
             /박
           </div>
         </div>
