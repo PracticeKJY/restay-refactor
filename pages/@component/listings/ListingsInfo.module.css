@@ -1,0 +1,40 @@
+.countList {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.hostDataContainer {
+  width: 550px;
+}
+
+.hostingIntroduce {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.hostingIntroduceInfo {
+  padding-bottom: 3rem;
+}
+
+.locationInfo {
+  padding: 3rem 0;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.descriptionInfo {
+  padding: 3rem 0;
+  white-space: pre-wrap;
+}
+
+.mapInfo {
+  padding: 3rem 0;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 500px;
+  height: 500px;
+}
