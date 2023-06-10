@@ -19,9 +19,6 @@ import RentModal from "../Modal/RentModal"
 const UserMenu = () => {
   const { data: session, status: sessionStatus } = useSession()
 
-  console.log(session, "세션의 정보")
-  console.log(sessionStatus, "세션의 status")
-
   const [isMenuOpen, setIsMenuOpen] = useRecoilState(useMenuOpen)
   const [isRentModal, SetIsRentModal] = useRecoilState(useRentModal)
 

@@ -41,7 +41,6 @@ const ListingsReservation: FC<ListingsReservationProps> = ({ price }) => {
   const toggleHandler = () => {
     setToggle(!toggle)
   }
-  console.log(endDate, "엔드")
 
   const priceInfo = (
     <div className={styles.priceInfoWrapper}>
