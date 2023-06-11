@@ -41,6 +41,29 @@ const Modal: FC<ModalProps> = ({
     setShowModal(isOpen)
   }, [isOpen])
 
+  //모달창을 띄었을 시, 외부 스크롤을 막는 로직
+
+  useEffect(() => {
+    document.body.style.cssText = `
+      position: fixed;
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;
+    `
+
+    // 스크롤바를 없애는 스타일 속성을 추가
+    document.body.style.overflow = "hidden"
+    // 파이어폭스 ver
+    document.body.style.setProperty("scrollbar-width", "none")
+    return () => {
+      const scrollY = document.body.style.top
+      document.body.style.cssText = ""
+      document.body.style.overflow = ""
+      document.body.style.setProperty("scrollbar-width", "")
+      window.scrollTo(0, parseInt(scrollY || "0", 10) * -1)
+    }
+  }, [])
+
   const handleSubmit = useCallback(() => {
     if (disabled || !onSubmit) {
       return
