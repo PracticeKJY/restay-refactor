@@ -4,7 +4,6 @@ import { FC } from "react"
 import styles from "./DetailListingHeading.module.css"
 import useCountries from "@/pages/@hooks/useCountries"
 import Heading from "@/pages/@component/Heading"
-import Avatar from "@/pages/@component/Header/Avatar"
 
 interface DetailListingHeadingProps {
   listingData: {
@@ -26,7 +25,6 @@ interface DetailListingHeadingProps {
 
 const DetailListingHeading: FC<DetailListingHeadingProps> = ({
   listingData,
-  userInfo,
 }) => {
   const { getByValue } = useCountries()
   const location = getByValue(listingData.locationValue)

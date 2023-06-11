@@ -20,8 +20,6 @@ const metadata = {
 }
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
-  // console.log(pageProps.session, "뭐라나오냐")
-
   return (
     <>
       <Head>
