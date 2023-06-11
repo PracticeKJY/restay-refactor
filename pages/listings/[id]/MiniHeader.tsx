@@ -40,9 +40,15 @@ const MiniHeader = ({ topRef, bodyRef, mapRef }: any) => {
     <div className={`${isShow ? styles.displayNav : styles.notdisplayNav}`}>
       <div className={styles.detailListingNavContainer}>
         <div className={styles.detailListingNavWrapper}>
-          <div onClick={moveToTop}>사진</div>
-          <div onClick={moveToBodyInfo}>숙소 정보</div>
-          <div onClick={moveToMapInfo}>위치</div>
+          <button className={styles.borderNone} onClick={moveToTop}>
+            사진
+          </button>
+          <button className={styles.borderNone} onClick={moveToBodyInfo}>
+            숙소 정보
+          </button>
+          <button className={styles.borderNone} onClick={moveToMapInfo}>
+            위치
+          </button>
         </div>
       </div>
     </div>
