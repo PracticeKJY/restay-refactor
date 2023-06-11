@@ -21,6 +21,7 @@ type Data = {
 const Listings = () => {
   const router = useRouter()
   const [DetailListing, setDetailListing] = useState<Data>()
+  const [userInfo, setUserInfo] = useState<Data>()
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -40,11 +41,28 @@ const Listings = () => {
     getDetailListingData()
   }, [router.query])
 
-  if (!DetailListing) {
+  useEffect(() => {
+    const getUserInfo = async () => {
+      try {
+        setIsLoading(true)
+        const response2 = await axios.post("/api/user/findUser", {
+          id: DetailListing?.userId,
+        })
+        setUserInfo(response2.data)
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    getUserInfo()
+  }, [DetailListing])
+
+  if (isLoading || !DetailListing || !userInfo) {
     return <div>로딩중입니다...</div>
   }
 
-  return <DetailListingPage listingData={DetailListing} />
+  return <DetailListingPage listingData={DetailListing} userInfo={userInfo} />
 }
 
 export default Listings
