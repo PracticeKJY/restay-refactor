@@ -145,3 +145,31 @@
   font-size: 24px;
   font-weight: 600;
 }
+
+.displayNav {
+  display: block;
+  width: 100%;
+  max-width: 2520px;
+  padding: 2rem 5rem;
+  position: fixed;
+  top: 0%;
+  z-index: 60;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 0px !important;
+}
+
+.notdisplayNav {
+  display: none;
+}
+
+.detailListingNavContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.detailListingNavWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4rem;
+  font-weight: 600;
+}
