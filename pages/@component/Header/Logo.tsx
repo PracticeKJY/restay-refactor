@@ -17,7 +17,6 @@ const Logo = () => {
       width={100}
       src={logo}
       alt="Restay Logo"
-      priority
     />
   )
 }
