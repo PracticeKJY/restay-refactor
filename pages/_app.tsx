@@ -7,6 +7,7 @@ import RecoilProvider from "./@provider/RecoilProvider"
 import ToasterProvider from "./@provider/ToasterProvider"
 import { SessionProvider } from "next-auth/react"
 import { Suspense } from "react"
+import Footer from "./@component/Footer/Footer"
 
 const gowunDodum = Gowun_Dodum({
   weight: "400",
@@ -34,6 +35,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
             <main className={gowunDodum.className}>
               <Navbar />
               <Component {...pageProps} />
+              <Footer />
             </main>
           </SessionProvider>
         </Suspense>
