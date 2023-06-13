@@ -3,11 +3,11 @@ import "../styles/globals.css"
 import Head from "next/head"
 import { Gowun_Dodum } from "next/font/google"
 import Navbar from "./@component/Header/Navbar"
-import RecoilProvider from "./@provider/RecoilProvider"
 import ToasterProvider from "./@provider/ToasterProvider"
 import { SessionProvider } from "next-auth/react"
-import { Suspense } from "react"
 import Footer from "./@component/Footer/Footer"
+import { Provider, createStore } from "jotai"
+import { DevTools } from "jotai-devtools"
 
 const gowunDodum = Gowun_Dodum({
   weight: "400",
@@ -20,6 +20,8 @@ const metadata = {
   description: "restay homepage",
 }
 
+const customStore = createStore()
+
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <>
@@ -29,17 +31,16 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <link rel="icon" href="/restay.png" />
       </Head>
       <ToasterProvider />
-      <RecoilProvider>
-        <Suspense fallback={<div>Loading...</div>}>
-          <SessionProvider session={session} basePath="/api/auth">
-            <main className={gowunDodum.className}>
-              <Navbar />
-              <Component {...pageProps} />
-              <Footer />
-            </main>
-          </SessionProvider>
-        </Suspense>
-      </RecoilProvider>
+      <Provider store={customStore}>
+        <DevTools store={customStore} />
+        <SessionProvider session={session} basePath="/api/auth">
+          <main className={gowunDodum.className}>
+            <Navbar />
+            <Component {...pageProps} />
+            <Footer />
+          </main>
+        </SessionProvider>
+      </Provider>
     </>
   )
 }
