@@ -3,22 +3,24 @@
 import styles from "./DatePickerComponent.module.css"
 import DatePicker from "react-datepicker"
 import { ko } from "date-fns/locale"
-import { useRecoilState } from "recoil"
 import {
-  isCalendarOpen,
-  useEndDate,
-  useStartDate,
-} from "@/pages/@recoil/store/state"
+  calendarOpenAtom,
+  endDateAtom,
+  startDateAtom,
+} from "@/pages/@jotai/store/state"
 import Button from "../Button"
 import Image from "next/image"
 import { getMonth, getYear } from "date-fns"
 import _ from "lodash"
-import { useState } from "react"
+import { useAtomValue, useSetAtom } from "jotai"
 
 const DatePickerComponent = () => {
-  const [startDate, setStartDate] = useRecoilState(useStartDate)
-  const [endDate, setEndDate] = useRecoilState(useEndDate)
-  const [toggle, setToggle] = useRecoilState(isCalendarOpen)
+  const startDate = useAtomValue(startDateAtom)
+  const endDate = useAtomValue(endDateAtom)
+  const toggle = useAtomValue(calendarOpenAtom)
+  const setStartDate = useSetAtom(startDateAtom)
+  const setEndDate = useSetAtom(endDateAtom)
+  const setToggle = useSetAtom(calendarOpenAtom)
 
   const years = _.range(2023, getYear(new Date()) + 1, 1)
   const months = [

@@ -1,17 +1,14 @@
 "use client"
 
 import styles from "./RentModal.module.css"
-import { useRecoilState } from "recoil"
 import Modal from "./Modal"
-import { useRentModal } from "@/pages/@recoil/store/state"
+import { rentModalAtom } from "@/pages/@jotai/store/state"
 import { useMemo, useState } from "react"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
-import { divIcon } from "leaflet"
 import Heading from "../Heading"
 import { categories } from "./../Header/Categories"
 import CategoryInput from "../Input/CategoryInput"
 import CountrySelect from "../Input/CountrySelect"
-import MapComponent from "../MapComponent"
 import dynamic from "next/dynamic"
 import Counter from "../Input/Counter"
 import ImageUpload from "./../Input/ImageUpload"
@@ -20,6 +17,7 @@ import axios from "axios"
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
 import { useSession } from "next-auth/react"
+import { useAtomValue, useSetAtom } from "jotai"
 
 // enum? 관련된 상수들을 그룹화하고 식별하기 위해 사용됩니다. 특히, enum은 서로 연관된 상수의 집합을 정의하는 데 유용합니다. 이렇게 정의된 enum은 TypeScript 코드에서 해당 상수를 사용할 수 있게 되며, 가독성과 유지보수의 편의성을 높여줍니다.
 // TypeScript에서는 enum 상수에 대한 값을 따로 지정하지 않으면, 0부터 시작하여 순차적인 값(0, 1, 2, ...)이 자동으로 할당됩니다
@@ -45,12 +43,12 @@ enum STEPS {
 
 const RentModal = () => {
   const { data: session } = useSession()
-  console.log(session?.user?.email, "나와라세션얍")
   const [step, setStep] = useState(STEPS.CATEGORY)
-  const [isRentModal, SetIsRentModal] = useRecoilState(useRentModal)
+  const isRentModal = useAtomValue(rentModalAtom)
+  const SetIsRentModal = useSetAtom(rentModalAtom)
+
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
-  console.log(isRentModal, "랜트모달상태")
 
   const {
     register,

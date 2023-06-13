@@ -2,11 +2,6 @@
 import { FC, useCallback, useEffect, useState } from "react"
 import styles from "./Modal.module.css"
 import { IoMdClose } from "react-icons/io"
-import { useLoginModal } from "@/pages/@recoil/store/state"
-import { useRecoilState } from "recoil"
-import { SubmitHandler, FieldValues, useForm } from "react-hook-form"
-import Heading from "../Heading"
-import Input from "../Input/Input"
 import Button from "../Button"
 
 interface ModalProps {
@@ -35,7 +30,6 @@ const Modal: FC<ModalProps> = ({
   secondaryActionLabel,
 }) => {
   const [showModal, setShowModal] = useState(false)
-  const [isLoginModal, isSetLoginModal] = useRecoilState(useLoginModal)
 
   useEffect(() => {
     setShowModal(isOpen)

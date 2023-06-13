@@ -1,7 +1,6 @@
 "use client"
 import styles from "./LoginModal.module.css"
-import { useLoginModal, useRegisterModal } from "@/pages/@recoil/store/state"
-import { useRecoilState } from "recoil"
+import { loginModalAtom, registerModalAtom } from "@/pages/@jotai/store/state"
 import { SubmitHandler, FieldValues, useForm } from "react-hook-form"
 import Heading from "../Heading"
 import Input from "../Input/Input"
@@ -15,16 +14,19 @@ import { signIn, useSession } from "next-auth/react"
 import { toast } from "react-hot-toast"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import { useAtomValue, useSetAtom } from "jotai"
 
 const LoginModal = () => {
-  const router = useRouter()
   const { data: session } = useSession()
 
   console.log(session, "세션은뭐나올까요?")
 
   const [isLoading, setIsLoading] = useState(false)
-  const [isLoginModal, setIsLoginModal] = useRecoilState(useLoginModal)
-  const [isRegisterModal, setIsRegisterModal] = useRecoilState(useRegisterModal)
+  const isLoginModal = useAtomValue(loginModalAtom)
+  const isRegisterModal = useAtomValue(registerModalAtom)
+  const setIsLoginModal = useSetAtom(loginModalAtom)
+  const setIsRegisterModal = useSetAtom(registerModalAtom)
+
   const handleClose = () => {
     setIsLoginModal(!isLoginModal)
   }

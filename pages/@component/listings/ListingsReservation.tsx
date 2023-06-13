@@ -3,27 +3,29 @@
 import styles from "./ListingsReservation.module.css"
 import "react-datepicker/dist/react-datepicker.css"
 import Button from "../Button"
-import { useRecoilState, useRecoilValue } from "recoil"
 import {
-  isCalendarOpen,
+  calendarOpenAtom,
   restayChargeAtom,
-  useEndDate,
-  useStartDate,
-} from "@/pages/@recoil/store/state"
+  endDateAtom,
+  startDateAtom,
+} from "@/pages/@jotai/store/state"
 import CheckIn from "../DatePicker/CheckIn"
 import DatePickerComponent from "../DatePicker/DatePickerComponent"
 import { FC } from "react"
 import moment from "moment"
+import { useAtomValue, useSetAtom } from "jotai"
 
 interface ListingsReservationProps {
   price: number
 }
 
 const ListingsReservation: FC<ListingsReservationProps> = ({ price }) => {
-  const startDate = useRecoilValue(useStartDate)
-  const endDate = useRecoilValue(useEndDate)
-  const restayCharge = useRecoilValue(restayChargeAtom)
-  const [toggle, setToggle] = useRecoilState(isCalendarOpen)
+  const startDate = useAtomValue(startDateAtom)
+  const endDate = useAtomValue(endDateAtom)
+  const restayCharge = useAtomValue(restayChargeAtom)
+  const toggle = useAtomValue(calendarOpenAtom)
+  const setToggle = useSetAtom(calendarOpenAtom)
+
   const calculateDate: number = endDate
     ? parseInt(moment(endDate).format("D")) -
       parseInt(moment(startDate).format("D"))

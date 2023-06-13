@@ -1,24 +1,23 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
+import { useState } from "react"
 import Modal from "./Modal"
 import styles from "./RegisterModal.module.css"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import Heading from "../Heading"
 import Input from "../Input/Input"
-import { useRecoilState } from "recoil"
-import { useLoginModal, useRegisterModal } from "@/pages/@recoil/store/state"
-import { RiKakaoTalkFill } from "react-icons/ri"
-import Button from "../Button"
-import { AiFillGithub } from "react-icons/ai"
-import { FcGoogle } from "react-icons/fc"
+import { loginModalAtom, registerModalAtom } from "@/pages/@jotai/store/state"
 import axios from "axios"
 import toast from "react-hot-toast"
+import { useAtomValue, useSetAtom } from "jotai"
 
 const RegisterModal = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const [isRegisterModal, setIsRegisterModal] = useRecoilState(useRegisterModal)
-  const [isLoginModal, setIsLoginModal] = useRecoilState(useLoginModal)
+  const isRegisterModal = useAtomValue(registerModalAtom)
+  const isLoginModal = useAtomValue(loginModalAtom)
+  const setIsRegisterModal = useSetAtom(registerModalAtom)
+  const setIsLoginModal = useSetAtom(loginModalAtom)
+
   const handleClose = () => {
     setIsRegisterModal(!isRegisterModal)
   }

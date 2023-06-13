@@ -1,26 +1,28 @@
 "use client"
 
-import { useRecoilState } from "recoil"
 import Avatar from "./Avatar"
 import styles from "./UserMenu.module.css"
 import { AiOutlineMenu } from "react-icons/ai"
 import {
-  useLoginModal,
-  useMenuOpen,
-  useRegisterModal,
-  useRentModal,
-} from "@/pages/@recoil/store/state"
+  loginModalAtom,
+  menuOpenAtom,
+  registerModalAtom,
+  rentModalAtom,
+} from "@/pages/@jotai/store/state"
 import LoginModal from "../Modal/LoginModal"
 import RegisterModal from "../Modal/RegisterModal"
 import { signOut, useSession } from "next-auth/react"
 import toast from "react-hot-toast"
 import RentModal from "../Modal/RentModal"
+import { useAtomValue, useSetAtom } from "jotai"
 
 const UserMenu = () => {
   const { data: session, status: sessionStatus } = useSession()
 
-  const [isMenuOpen, setIsMenuOpen] = useRecoilState(useMenuOpen)
-  const [isRentModal, SetIsRentModal] = useRecoilState(useRentModal)
+  const isMenuOpen = useAtomValue(menuOpenAtom)
+  const isRentModal = useAtomValue(rentModalAtom)
+  const setIsMenuOpen = useSetAtom(menuOpenAtom)
+  const SetIsRentModal = useSetAtom(rentModalAtom)
 
   const handleMenuOpen = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -75,8 +77,10 @@ export default UserMenu
 
 //로그인메뉴
 const LoginMenu = () => {
-  const [isLoginModal, isSetLoginModal] = useRecoilState(useLoginModal)
-  const [isRegisterModal, isSetRegisterModal] = useRecoilState(useRegisterModal)
+  const isLoginModal = useAtomValue(loginModalAtom)
+  const isRegisterModal = useAtomValue(registerModalAtom)
+  const isSetLoginModal = useSetAtom(loginModalAtom)
+  const isSetRegisterModal = useSetAtom(registerModalAtom)
 
   const handleLoginModalOpen = () => {
     isSetLoginModal(!isLoginModal)
@@ -104,9 +108,10 @@ const LoginMenu = () => {
 const LogoutMenu = ({ session }: any) => {
   console.log(session, "프롭스로받은세션")
 
-  const [isMenuOpen, setIsMenuOpen] = useRecoilState(useMenuOpen)
-  const [isRentModal, SetIsRentModal] = useRecoilState(useRentModal)
-  // const { data: session, status: sessionStatus } = useSession()
+  const isMenuOpen = useAtomValue(menuOpenAtom)
+  const isRentModal = useAtomValue(rentModalAtom)
+  const setIsMenuOpen = useSetAtom(menuOpenAtom)
+  const SetIsRentModal = useSetAtom(rentModalAtom)
 
   const onClick = () => {
     // 회원이 아닐 경우 클릭 이벤트를 막음
