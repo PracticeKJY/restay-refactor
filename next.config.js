@@ -9,6 +9,7 @@ const nextConfig = {
       "res.cloudinary.com",
     ],
   },
+  transpilePackages: ["jotai-devtools"],
 }
 
 module.exports = nextConfig
