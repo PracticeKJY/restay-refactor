@@ -9,9 +9,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: hidden;
 }
 .modalContainer {
   position: absolute;
+  z-index: 51;
+  overflow-y: hidden;
   top: 10%;
   width: 600px;
   background-color: white;
