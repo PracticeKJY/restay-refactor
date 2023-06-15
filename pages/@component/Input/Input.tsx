@@ -26,8 +26,6 @@ const Input: FC<InputProps> = ({
   register,
   errors,
 }) => {
-  console.log(errors, "에러들")
-
   const [inputFocused, setInputFocused] = useState(false)
 
   const handleOnFocus = () => setInputFocused(true)
