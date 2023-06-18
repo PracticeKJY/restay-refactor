@@ -15,6 +15,7 @@ import { signOut, useSession } from "next-auth/react"
 import toast from "react-hot-toast"
 import RentModal from "../Modal/RentModal"
 import { useAtomValue, useSetAtom } from "jotai"
+import { useRouter } from "next/navigation"
 
 const UserMenu = () => {
   const { data: session, status: sessionStatus } = useSession()
@@ -57,9 +58,11 @@ const UserMenu = () => {
             }`}
             onClick={onClick}
           >
-            {session
-              ? `${session.user?.name}님 오늘은 어디로 떠나보실래요?`
-              : "당신의 공간을 공유하세요"}
+            <div className={styles.hostingText}>
+              {session
+                ? `${session.user?.name}님 오늘은 어디로 떠나보실래요?`
+                : "당신의 공간을 공유하세요"}
+            </div>
           </div>
 
           <div className={styles.userMenu} onClick={handleMenuOpen}>
@@ -106,8 +109,9 @@ const LoginMenu = () => {
 
 //로그아웃메뉴
 const LogoutMenu = ({ session }: any) => {
-  console.log(session, "프롭스로받은세션")
+  // console.log(session, "프롭스로받은세션")
 
+  const router = useRouter()
   const isMenuOpen = useAtomValue(menuOpenAtom)
   const isRentModal = useAtomValue(rentModalAtom)
   const setIsMenuOpen = useSetAtom(menuOpenAtom)
@@ -124,11 +128,9 @@ const LogoutMenu = ({ session }: any) => {
   const logOutHandler = async () => {
     try {
       await signOut({
-        redirect: false,
+        redirect: true,
         callbackUrl: "/",
       })
-
-      toast.success("또 만났으면 좋겠어요!🤙")
       setIsMenuOpen(!isMenuOpen)
     } catch (error) {
       toast.error((error as any).message)
@@ -143,7 +145,12 @@ const LogoutMenu = ({ session }: any) => {
       <div className={styles.pointer} onClick={onClick}>
         호스팅
       </div>
-      <div className={styles.pointer} onClick={() => {}}>
+      <div
+        className={styles.pointer}
+        onClick={() => {
+          router.push("/wishList")
+        }}
+      >
         위시리스트
       </div>
       <div className={styles.pointer} onClick={() => {}}>

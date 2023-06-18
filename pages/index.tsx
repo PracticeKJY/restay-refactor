@@ -1,53 +1,48 @@
 import styles from "./index.module.css"
-import { useRecoilValue } from "recoil"
-import { nameAtom } from "./@recoil/store/state"
 import Container from "./@component/Container"
-import axios from "axios"
-import { useEffect, useState } from "react"
-import Image from "next/image"
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
+import { Suspense } from "react"
 import ListingsCard from "./@component/listings/ListingsCard"
+import { useAtomValue } from "jotai"
+import { fetchUrlAtom } from "./@jotai/store/state"
 
-type Data = {
-  category: string
-  locationValue: string
-  guestCount: number
-  roomCount: number
-  bathroomCount: number
-  imageSrc: string[] | undefined
-  price: number
-  title: string
-  description: string
-  userId: any
-  createdAt: any
-  _id: any
+// type Data = {
+//   category: string
+//   locationValue: string
+//   guestCount: number
+//   roomCount: number
+//   bathroomCount: number
+//   imageSrc: string[] | undefined
+//   price: number
+//   title: string
+//   description: string
+//   userId: any
+//   createdAt: any
+//   _id: any
+// }
+
+const ListingCard = () => {
+  const axiosAtom = useAtomValue(fetchUrlAtom)
+  return (
+    <div className={styles.listingsContainer}>
+      {axiosAtom.map((data: any) => {
+        return <ListingsCard key={data._id} userId={data._id} data={data} />
+      })}
+    </div>
+  )
+}
+
+const Loading = () => {
+  return <div>로딩중...</div>
 }
 
 export default function Home() {
-  const [listings, setListings] = useState<Data[]>([])
-  const [hasFavorite, setHasFavorite] = useState(false)
-  useEffect(() => {
-    const getListings = async () => {
-      try {
-        const response = await axios.get<Data[]>("/api/listings/getListings")
-        setListings(response.data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-
-    getListings()
-  }, [])
-
   return (
     <>
-      <Container>
-        <div className={styles.listingsContainer}>
-          {listings.map((data: any) => {
-            return <ListingsCard key={data._id} userId={data._id} data={data} />
-          })}
-        </div>
-      </Container>
+      <Suspense fallback={<Loading />}>
+        <Container>
+          <ListingCard />
+        </Container>
+      </Suspense>
     </>
   )
 }

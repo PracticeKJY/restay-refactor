@@ -1,0 +1,10 @@
+.listingsContainer {
+  min-height: 100.3vh;
+  padding-top: 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* 그리드 센터정렬 = justify-content:center, align-item=center랑 동일 */
+  place-items: center;
+  gap: 2rem;
+}

@@ -6,7 +6,7 @@
 .listingsWrapper {
   display: block;
   position: relative;
-  max-width: 350px;
+  max-width: 300px;
   border-radius: 12px;
   cursor: pointer;
 }
@@ -19,7 +19,7 @@
 }
 
 .listingsTitle {
-  width: 350px;
+  width: 300px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -36,17 +36,17 @@
 .aiOutlineHeart {
   position: absolute;
   z-index: 10;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   cursor: pointer;
-  fill: #f43f5e;
+  fill: black;
 }
 .aiFillHeart {
   position: absolute;
   z-index: 10;
-  top: 10px;
-  right: 10px;
-  fill: #f43f5e;
+  top: 15px;
+  right: 15px;
+  fill: red;
   opacity: 0.7;
   cursor: pointer;
 }
@@ -82,4 +82,39 @@
 
 .visibleButton {
   opacity: 1;
+}
+
+.bodyContentContainer {
+  padding: 20px 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 300px;
+}
+
+.makeNewWishListButton {
+  border-width: 1px;
+  border-style: solid;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
+.bodyContentWrapper {
+  padding: 2px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.plusFaviriteIconWrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  border: 1px solid #e2e2e2;
+}
+.makeNewWishListText {
+  font-weight: 600;
 }

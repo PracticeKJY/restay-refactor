@@ -29,6 +29,7 @@
 .userMenuOpen {
   width: 160px;
   position: absolute;
+  z-index: 20;
   right: 0;
   background: white;
   display: flex;
@@ -56,6 +57,11 @@
 }
 @media (max-width: 768px) {
   .userMenuText {
+    display: none;
+  }
+}
+@media (max-width: 1300px) {
+  .hostingText {
     display: none;
   }
 }
