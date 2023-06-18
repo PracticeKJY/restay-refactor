@@ -2,12 +2,14 @@
 
 import styles from "./WishListCard.module.css"
 
-import { useAtomValue } from "jotai"
-import { Suspense } from "react"
+import { useAtom, useAtomValue } from "jotai"
+import { Suspense, useEffect } from "react"
 import { wishListAtom } from "../@jotai/store/state"
 import Container from "../@component/Container"
 import ListingsCard from "../@component/listings/ListingsCard"
 import { useSession } from "next-auth/react"
+import Card from "./Card"
+import axios from "axios"
 
 const Content = () => {
   const { data: session } = useSession()
@@ -20,18 +22,23 @@ const Content = () => {
   })
 
   return (
-    <div className={styles.listingsContainer}>
-      {wishListData.map((data: any) => {
-        return (
-          <ListingsCard
-            key={data._id}
-            userId={data._id}
-            data={data.favoriteData[0]}
-            wishList={true}
-          />
-        )
-      })}
-    </div>
+    <>
+      <div className={styles.wishListContainer}>
+        <div className={styles.wishListTitle}>위시리스트</div>
+        <div className={styles.listingsContainer}>
+          {wishListData.map((data: any) => {
+            return (
+              <Card
+                key={data._id}
+                userId={data._id}
+                title={data.wishListTitle}
+                data={data.favoriteData[0]}
+              />
+            )
+          })}
+        </div>
+      </div>
+    </>
   )
 }
 
