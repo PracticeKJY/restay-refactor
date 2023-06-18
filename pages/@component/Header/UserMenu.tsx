@@ -149,6 +149,7 @@ const LogoutMenu = ({ session }: any) => {
         className={styles.pointer}
         onClick={() => {
           router.push("/wishList")
+          setIsMenuOpen(!isMenuOpen)
         }}
       >
         위시리스트
