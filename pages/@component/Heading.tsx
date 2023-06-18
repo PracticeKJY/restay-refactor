@@ -4,7 +4,7 @@ import { FC } from "react"
 
 interface HeadingProps {
   title: string
-  subTitle: string
+  subTitle?: string
   center?: boolean
 }
 
