@@ -19,8 +19,6 @@ import { useAtomValue, useSetAtom } from "jotai"
 const LoginModal = () => {
   const { data: session } = useSession()
 
-  console.log(session, "세션은뭐나올까요?")
-
   const [isLoading, setIsLoading] = useState(false)
   const isLoginModal = useAtomValue(loginModalAtom)
   const isRegisterModal = useAtomValue(registerModalAtom)

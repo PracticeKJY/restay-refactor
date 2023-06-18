@@ -16,7 +16,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
     const db = (await connectDB).db("Restay")
     const result = await db.collection("users").insertOne(req.body)
-    console.log(result)
     res.redirect(302, "/")
   }
 }

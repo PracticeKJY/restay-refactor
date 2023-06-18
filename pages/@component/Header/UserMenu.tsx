@@ -109,8 +109,6 @@ const LoginMenu = () => {
 
 //로그아웃메뉴
 const LogoutMenu = ({ session }: any) => {
-  // console.log(session, "프롭스로받은세션")
-
   const router = useRouter()
   const isMenuOpen = useAtomValue(menuOpenAtom)
   const isRentModal = useAtomValue(rentModalAtom)

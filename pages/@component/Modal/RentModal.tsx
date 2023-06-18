@@ -231,7 +231,6 @@ const RentModal = () => {
       </div>
     )
   }
-  console.log(imageSrc, "src 뭐라나옴?")
 
   // STEP.DESCRIPTION
   if (step === STEPS.DESCRIPTION) {
