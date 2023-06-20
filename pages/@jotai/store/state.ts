@@ -1,3 +1,4 @@
+import { paymentOptionData } from "@/pages/reservation/[id]/paymentOptionData"
 import axios from "axios"
 import { atom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
@@ -22,6 +23,36 @@ wishListModalAtom.debugLabel = "wishListModalAtom"
 export const selectedCardAtom = atom("")
 selectedCardAtom.debugLabel = "selectedCardAtom"
 
+type Data = {
+  category: string
+  locationValue: string
+  guestCount: number
+  roomCount: number
+  bathroomCount: number
+  imageSrc: string[] | undefined
+  price: number
+  title: string
+  description: string
+  userId: any
+  createdAt: any
+  _id: string
+}
+export const DetailListingAtom = atomWithStorage<Data>("Listings", {
+  category: "",
+  locationValue: "",
+  guestCount: 0,
+  roomCount: 0,
+  bathroomCount: 0,
+  imageSrc: undefined,
+  price: 0,
+  title: "",
+  description: "",
+  userId: undefined,
+  createdAt: undefined,
+  _id: "",
+})
+selectedCardAtom.debugLabel = "DetailListingAtom"
+
 // export const favoriteAtom = atom(false)
 // favoriteAtom.debugLabel = "favoriteAtom"
 
@@ -30,6 +61,12 @@ startDateAtom.debugLabel = "startDateAtom"
 
 export const endDateAtom = atom(null)
 endDateAtom.debugLabel = "endDateAtom"
+export const nextDateAtom = atom((get) => {
+  const currentDate = get(startDateAtom)
+  return new Date(currentDate.valueOf() + 24 * 60 * 60 * 1000)
+})
+
+nextDateAtom.debugLabel = "nextDateAtom"
 
 export const calendarOpenAtom = atom(false)
 calendarOpenAtom.debugLabel = "calendarOpenAtom"
@@ -101,3 +138,18 @@ export const duplicateFavoriteDataAtom = atom((get) => {
   })
 })
 duplicateFavoriteDataAtom.debugLabel = "duplicateFavoriteDataAtom"
+
+export const paymentOptionAtom = atom(paymentOptionData[0])
+paymentOptionAtom.debugLabel = "paymentOptionAtom"
+
+interface reservationProductAtomProps {
+  email: string
+  product: any
+  startDay: string
+  endDay: string
+}
+
+export const reservationProductAtom = atomWithStorage<
+  reservationProductAtomProps[]
+>("reservationProduct", [])
+reservationProductAtom.debugLabel = "reservationProductAtom"
