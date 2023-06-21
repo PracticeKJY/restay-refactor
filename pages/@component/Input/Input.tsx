@@ -14,6 +14,7 @@ interface InputProps {
   required?: boolean
   register: UseFormRegister<FieldValues>
   errors: FieldErrors
+  placeHolder?: string
 }
 
 const Input: FC<InputProps> = ({
@@ -25,6 +26,7 @@ const Input: FC<InputProps> = ({
   required,
   register,
   errors,
+  placeHolder,
 }) => {
   const [inputFocused, setInputFocused] = useState(false)
 
@@ -80,7 +82,7 @@ const Input: FC<InputProps> = ({
               }
             : {}),
         })}
-        placeholder=""
+        placeholder={placeHolder}
         onFocus={handleOnFocus}
         onBlur={handleOnBlur}
       />

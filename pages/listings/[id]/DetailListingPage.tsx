@@ -66,7 +66,10 @@ const DetailListingPage: FC<DetailListingPageProps> = ({
             </div>
             <div className={styles.bodyContainer} ref={bodyRef}>
               <ListingsInfo listingData={listingData} userInfo={userInfo} />
-              <ListingsReservation price={listingData.price} />
+              <ListingsReservation
+                price={listingData.price}
+                listingData={listingData}
+              />
             </div>
             <div className={styles.mapInfoWrapper}>
               <div className={styles.mapInfo} ref={mapRef}>

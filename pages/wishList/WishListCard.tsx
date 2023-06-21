@@ -2,14 +2,13 @@
 
 import styles from "./WishListCard.module.css"
 
-import { useAtom, useAtomValue } from "jotai"
-import { Suspense, useEffect } from "react"
+import { useAtomValue } from "jotai"
+import { Suspense } from "react"
 import { wishListAtom } from "../@jotai/store/state"
 import Container from "../@component/Container"
-import ListingsCard from "../@component/listings/ListingsCard"
 import { useSession } from "next-auth/react"
 import Card from "./Card"
-import axios from "axios"
+import Loading from "../Loading"
 
 const Content = () => {
   const { data: session } = useSession()
@@ -33,6 +32,7 @@ const Content = () => {
                 userId={data._id}
                 title={data.wishListTitle}
                 data={data.favoriteData[0]}
+                disable={true}
               />
             )
           })}
@@ -45,7 +45,7 @@ const Content = () => {
 const WishListCard = () => {
   return (
     <Container>
-      <Suspense fallback={<div>로딩중...</div>}>
+      <Suspense fallback={<Loading />}>
         <Content />
       </Suspense>
     </Container>

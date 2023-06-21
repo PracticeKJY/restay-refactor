@@ -137,7 +137,12 @@ const LogoutMenu = ({ session }: any) => {
 
   return (
     <>
-      <div className={styles.pointer} onClick={() => {}}>
+      <div
+        className={styles.pointer}
+        onClick={() => {
+          router.push("/trips")
+        }}
+      >
         여행
       </div>
       <div className={styles.pointer} onClick={onClick}>

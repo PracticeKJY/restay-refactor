@@ -55,9 +55,7 @@ const SelectedCheckIn = ({
   startDate: Date | null
   endDate: Date | null
 }) => {
-  const calculateDate: number =
-    parseInt(moment(endDate).format("D")) -
-    parseInt(moment(startDate).format("D"))
+  const calculateDate: number = moment(endDate).diff(moment(startDate), "days")
 
   return (
     <>

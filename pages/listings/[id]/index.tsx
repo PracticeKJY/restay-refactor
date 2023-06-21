@@ -2,6 +2,8 @@ import axios from "axios"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import DetailListingPage from "./DetailListingPage"
+import { DetailListingAtom } from "@/pages/@jotai/store/state"
+import { useAtom } from "jotai"
 
 type Data = {
   category: string
@@ -20,7 +22,7 @@ type Data = {
 
 const Listings = () => {
   const router = useRouter()
-  const [DetailListing, setDetailListing] = useState<Data>()
+  const [DetailListing, setDetailListing] = useAtom(DetailListingAtom)
   const [userInfo, setUserInfo] = useState<Data>()
   const [isLoading, setIsLoading] = useState(true)
 

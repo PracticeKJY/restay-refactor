@@ -14,21 +14,26 @@ import DatePickerComponent from "../DatePicker/DatePickerComponent"
 import { FC } from "react"
 import moment from "moment"
 import { useAtomValue, useSetAtom } from "jotai"
+import { useRouter } from "next/navigation"
 
 interface ListingsReservationProps {
   price: number
+  listingData: any
 }
-
-const ListingsReservation: FC<ListingsReservationProps> = ({ price }) => {
+const ListingsReservation: FC<ListingsReservationProps> = ({
+  price,
+  listingData,
+}) => {
+  const router = useRouter()
   const startDate = useAtomValue(startDateAtom)
   const endDate = useAtomValue(endDateAtom)
   const restayCharge = useAtomValue(restayChargeAtom)
   const toggle = useAtomValue(calendarOpenAtom)
   const setToggle = useSetAtom(calendarOpenAtom)
 
+  const validationEndDate = moment(endDate).format("M.D")
   const calculateDate: number = endDate
-    ? parseInt(moment(endDate).format("D")) -
-      parseInt(moment(startDate).format("D"))
+    ? moment(endDate).diff(moment(startDate), "days")
     : 1
 
   const localePrice = price.toLocaleString("ko-KR")
@@ -68,7 +73,16 @@ const ListingsReservation: FC<ListingsReservationProps> = ({ price }) => {
           onClick={toggleHandler}
         />
         {toggle && <DatePickerComponent />}
-        <Button label={"예약하기"} />
+        <Button
+          label={"예약하기"}
+          onClick={() => {
+            if (validationEndDate === "Invalid date") {
+              return alert("예약일을 다시 선택해주세요")
+            }
+
+            router.push(`/reservation/${listingData._id}`)
+          }}
+        />
         <div className={styles.reservationInfoContainer}>
           <div className={styles.reservationInfoRule}>
             예약 확정 전에는 요금이 청구되지 않습니다.

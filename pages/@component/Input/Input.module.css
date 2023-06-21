@@ -61,3 +61,24 @@
 .errorText {
   color: #f43f5e;
 }
+
+.input::-webkit-input-placeholder {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.input::-moz-placeholder {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+.input:-ms-input-placeholder {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+.input:-moz-placeholder {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+.input::placeholder {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
