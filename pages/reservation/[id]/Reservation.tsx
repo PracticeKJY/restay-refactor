@@ -13,9 +13,10 @@ import {
   DetailListingAtom,
   endDateAtom,
   nextDateAtom,
+  reservationProductAtom,
   startDateAtom,
 } from "@/pages/@jotai/store/state"
-import { useAtomValue } from "jotai"
+import { useAtom, useAtomValue } from "jotai"
 import PriceInfo from "./PriceInfo"
 import Button from "@/pages/@component/Button"
 import axios from "axios"
@@ -35,6 +36,10 @@ const Reservation = () => {
   const apiStartDay = moment(startDate).format("M.D")
   const apiEndDay = moment(endDate).format("M.D")
 
+  const [reservationProduct, setReservationProduct] = useAtom(
+    reservationProductAtom,
+  )
+
   const onClick = async () => {
     try {
       const modifyFormData = {
@@ -43,8 +48,10 @@ const Reservation = () => {
         startDay: apiStartDay,
         endDay: apiEndDay,
       }
-
       await axios.post("/api/reservation/reservation", modifyFormData)
+      setReservationProduct((prevData) => {
+        return [...prevData, modifyFormData]
+      })
       toast.success("예약되었습니다.")
       router.push("/")
     } catch (e) {
