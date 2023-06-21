@@ -17,9 +17,14 @@ SwiperCore.use([Navigation])
 interface SwiperComponentProps {
   data: any
   isHover: any
+  disable?: boolean
 }
 
-const SwiperComponent: FC<SwiperComponentProps> = ({ data, isHover }: any) => {
+const SwiperComponent: FC<SwiperComponentProps> = ({
+  data,
+  isHover,
+  disable = false,
+}: any) => {
   const router = useRouter()
 
   const productCards = data.imageSrc.map((src: string, index: any) => {
@@ -56,7 +61,8 @@ const SwiperComponent: FC<SwiperComponentProps> = ({ data, isHover }: any) => {
       >
         {productCards}
       </Swiper>
-      <FavoriteButton data={data} />
+      {disable ? "" : <FavoriteButton data={data} />}
+      {/* <FavoriteButton data={data} /> */}
       <button
         className={`${styles.prevButton} ${
           isHover ? styles.visibleButton : ""
