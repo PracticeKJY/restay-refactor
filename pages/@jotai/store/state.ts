@@ -143,7 +143,7 @@ export const paymentOptionAtom = atom(paymentOptionData[0])
 paymentOptionAtom.debugLabel = "paymentOptionAtom"
 
 interface reservationProductAtomProps {
-  email: string
+  email: string | undefined | null
   product: any
   startDay: string
   endDay: string

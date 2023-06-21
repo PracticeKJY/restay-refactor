@@ -1,0 +1,47 @@
+.tripsContainer {
+  min-height: 100.3vh;
+  /* width: 100%; */
+  margin: 0 calc(40% - 300px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.tripsTitle {
+  padding-top: 6rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.listingsContainer {
+  padding-top: 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* 그리드 센터정렬 = justify-content:center, align-item=center랑 동일 */
+  /* place-items: center; */
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .tripsContainer {
+    margin: 0 calc(10% - 40px);
+  }
+}
+@media (max-width: 1100px) {
+  .tripsContainer {
+    margin: 0 calc(10% - 40px);
+  }
+  .listingsContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 769px) {
+  .tripsContainer {
+    margin: 0 calc(25% - 10px);
+  }
+  .listingsContainer {
+    grid-template-columns: 1fr;
+  }
+}
