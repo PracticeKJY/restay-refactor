@@ -4,16 +4,14 @@ import Container from "../Container"
 import styles from "./Categories.module.css"
 import { TbBeach, TbMountain, TbPool } from "react-icons/tb"
 import {
-  GiBarn,
   GiBoatFishing,
-  GiCactus,
-  GiCastle,
   GiCaveEntrance,
   GiForestCamp,
   GiIsland,
   GiWindmill,
 } from "react-icons/gi"
 import { FaSkiing } from "react-icons/fa"
+import { MdPets } from "react-icons/md"
 import { BsSnow } from "react-icons/bs"
 import { IoDiamond } from "react-icons/io5"
 import { MdOutlineVilla } from "react-icons/md"
@@ -32,14 +30,9 @@ export const categories = [
     description: "This property is modern!",
   },
   {
-    label: "시골",
-    icon: TbMountain,
-    description: "This property is in the countryside!",
-  },
-  {
-    label: "수영장",
-    icon: TbPool,
-    description: "This is property has a beautiful pool!",
+    label: "애견동반",
+    icon: MdPets,
+    description: "This property is in arctic environment!",
   },
   {
     label: "섬",
@@ -56,11 +49,15 @@ export const categories = [
     icon: FaSkiing,
     description: "This property has skiing activies!",
   },
-
   {
-    label: "동굴",
-    icon: GiCaveEntrance,
-    description: "This property is in a spooky cave!",
+    label: "수영장",
+    icon: TbPool,
+    description: "This is property has a beautiful pool!",
+  },
+  {
+    label: "시골",
+    icon: TbMountain,
+    description: "This property is in the countryside!",
   },
   {
     label: "캠핑",
@@ -73,29 +70,14 @@ export const categories = [
     description: "This property is brand new and luxurious!",
   },
   {
+    label: "동굴",
+    icon: GiCaveEntrance,
+    description: "This property is in a spooky cave!",
+  },
+  {
     label: "풍차",
     icon: GiWindmill,
     description: "This property is has windmills!",
-  },
-  {
-    label: "북극 지역",
-    icon: BsSnow,
-    description: "This property is in arctic environment!",
-  },
-  {
-    label: "사막",
-    icon: GiCactus,
-    description: "This property is in the desert!",
-  },
-  {
-    label: "헛간",
-    icon: GiBarn,
-    description: "This property is in a barn!",
-  },
-  {
-    label: "캐슬",
-    icon: GiCastle,
-    description: "This property is an ancient castle!",
   },
 ]
 
