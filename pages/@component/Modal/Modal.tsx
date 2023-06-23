@@ -40,7 +40,7 @@ const Modal: FC<ModalProps> = ({
       document.body.style.cssText = ` 
       width:100%;
       padding-right:12px; 
-      overflow-y:hidden`
+      overflow:hidden`
     }
     return () => {
       document.body.style.cssText = ""
