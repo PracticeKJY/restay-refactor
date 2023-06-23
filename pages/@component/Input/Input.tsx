@@ -45,7 +45,9 @@ const Input: FC<InputProps> = ({
         {label}
       </label>
       <input
-        className={`${styles.input} ${inputFocused ? styles.inputFocus : ""}
+        className={`${styles.input} ${inputFocused ? styles.inputFocus : ""} ${
+          formatPrice ? styles.formatPrice : ""
+        }
         ${errors[id] ? styles.inputError : ""}
         `}
         id={id}
