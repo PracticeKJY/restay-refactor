@@ -4,6 +4,7 @@ import { Suspense } from "react"
 import ListingsCard from "./@component/listings/ListingsCard"
 import { useAtomValue } from "jotai"
 import { fetchUrlAtom } from "./@jotai/store/state"
+import Loading from "./Loading"
 
 // type Data = {
 //   category: string
@@ -29,10 +30,6 @@ const ListingCard = () => {
       })}
     </div>
   )
-}
-
-const Loading = () => {
-  return <div>로딩중...</div>
 }
 
 export default function Home() {
