@@ -13,3 +13,9 @@
 .categoryWrapper::-webkit-scrollbar {
   display: none; /* 크롬, 사파리, 오페라, 엣지 */
 }
+
+@media (max-width: 500px) {
+  .categoryWrapper {
+    display: none;
+  }
+}

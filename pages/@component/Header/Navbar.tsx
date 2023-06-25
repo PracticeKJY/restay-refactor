@@ -7,16 +7,18 @@ import Categories from "./Categories"
 
 const Navbar = () => {
   return (
-    <div className={styles.navbarWrapper}>
-      <Container>
-        <div className={styles.navbarMenu}>
-          <Logo />
-          <Search />
-          <UserMenu />
-        </div>
-      </Container>
+    <>
+      <div className={styles.navbarWrapper}>
+        <Container>
+          <div className={styles.navbarMenu}>
+            <Logo />
+            <Search />
+            <UserMenu />
+          </div>
+        </Container>
+      </div>
       <Categories />
-    </div>
+    </>
   )
 }
 
