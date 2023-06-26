@@ -22,62 +22,62 @@ export const categories = [
   {
     label: "해변 근처",
     icon: TbBeach,
-    description: "This property is close to the beach!",
+    description: "해수욕장 혹은 바다가 근처에 있는 숙소입니다.",
   },
   {
     label: "빌라",
     icon: MdOutlineVilla,
-    description: "This property is modern!",
+    description: "모던하고 프라이빗한 공간들이 준비되어 있어요.",
   },
   {
     label: "애견동반",
     icon: MdPets,
-    description: "This property is in arctic environment!",
+    description: "반려동물 동반이 허용되는 숙소입니다.",
   },
   {
     label: "섬",
     icon: GiIsland,
-    description: "This property is on an island!",
+    description: "근처에 섬에 관한 관광지들이 있어요.",
   },
   {
     label: "호수",
     icon: GiBoatFishing,
-    description: "This property is near a lake!",
+    description: "은은하고 멋진 호수 뷰를 즐길수 있는 숙소입니다.",
   },
   {
     label: "스키",
     icon: FaSkiing,
-    description: "This property has skiing activies!",
+    description: "근처에 스키를 즐길 수 있는 공간들이 있어요.",
   },
   {
     label: "수영장",
     icon: TbPool,
-    description: "This is property has a beautiful pool!",
+    description: "프라이빗한 풀이 포함된 숙소입니다.",
   },
   {
     label: "시골",
     icon: TbMountain,
-    description: "This property is in the countryside!",
+    description: "시골 느낌을 경험할 수 있는 숙소입니다.",
   },
   {
     label: "캠핑",
     icon: GiForestCamp,
-    description: "This property offers camping activities!",
+    description: "캠핑 혹은 카라반을 즐길 수 있는 숙소입니다.",
   },
   {
     label: "특별한 시설",
     icon: IoDiamond,
-    description: "This property is brand new and luxurious!",
+    description: "특별한 경험을 체험할 수 있는 숙소입니다.",
   },
   {
     label: "동굴",
     icon: GiCaveEntrance,
-    description: "This property is in a spooky cave!",
+    description: "근처에 동굴에 관한 관광지들이 있어요",
   },
   {
     label: "풍차",
     icon: GiWindmill,
-    description: "This property is has windmills!",
+    description: "근처에 풍차에 관한 관광지들이 있어요",
   },
 ]
 
