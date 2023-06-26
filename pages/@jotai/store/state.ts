@@ -74,13 +74,29 @@ calendarOpenAtom.debugLabel = "calendarOpenAtom"
 export const restayChargeAtom = atom(3000)
 restayChargeAtom.debugLabel = "restayChargeAtom"
 
-export const fetchUrlAtom = atom(async () => {
-  const response = await axios.get(
-    "http://localhost:3000/api/listings/getListings",
-  )
-  const data = response.data
-  return data
-})
+// export const fetchUrlAtom = atom(async () => {
+//   const response = await axios.get(
+//     "http://localhost:3000/api/listings/getListings",
+//   )
+//   const data = response.data
+//   return data
+// })
+
+interface fetchUrlatomProps {
+  title: string
+  description: string
+  imageSrc: string[]
+  category: string
+  roomCount: number
+  bathroomCount: number
+  guestCount: number
+  locationValue: string
+  price: number
+  userId: string
+  createdAt: string
+}
+
+export const fetchUrlAtom = atom<fetchUrlatomProps[]>([])
 fetchUrlAtom.debugLabel = "fetchUrlAtom"
 
 export const localStorageDataAtom = atom([])
