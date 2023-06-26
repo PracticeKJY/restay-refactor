@@ -28,9 +28,9 @@ const CategoryBox: FC<CategoryBoxProps> = ({ icon: Icon, label, selected }) => {
       category: label,
     }
 
-    if (params?.get("category") === label) {
-      delete updatedQuery.category
-    }
+    // if (params?.get("category") === label) {
+    //   delete updatedQuery.category
+    // }
 
     const url = qs.stringifyUrl(
       {

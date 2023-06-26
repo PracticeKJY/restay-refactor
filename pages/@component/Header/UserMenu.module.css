@@ -46,22 +46,28 @@
   box-shadow: 0 5px 20px -2px rgb(226, 225, 225);
 }
 
-/* .loginComponent {
-  cursor: pointer;
-}
-.registerComponent {
-  cursor: pointer;
-} */
 .pointer {
   cursor: pointer;
 }
+
+@media (max-width: 1300px) {
+  .hostingText {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .userMenuText {
     display: none;
   }
 }
-@media (max-width: 1300px) {
-  .hostingText {
+
+@media (max-width: 500px) {
+  .userMenu {
+    border: 0;
+  }
+
+  .userMenu img {
     display: none;
   }
 }

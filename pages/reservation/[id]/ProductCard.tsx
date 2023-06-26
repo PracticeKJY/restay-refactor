@@ -20,9 +20,9 @@ const ProductCardInfo = ({ detailListing }: any) => {
       />
       <div className={styles.productInfo}>
         <div>
-          <p className={styles.categoryInfo}>
+          <div className={styles.categoryInfo}>
             <span>{detailListing.category}</span>
-          </p>
+          </div>
           <div className={styles.titleInfo}>
             <div className={styles.fcPlanner}>
               <FcPlanner size={14} />
