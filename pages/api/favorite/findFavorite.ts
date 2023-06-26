@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 
-import connectDB from "@/pages/@lib/mongoDB"
+import connectDB from "@/pages/api/mongoDB"
 import { authOptions } from "pages/api/auth/[...nextauth]"
 import { getServerSession } from "next-auth/next"
 

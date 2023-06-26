@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 
-import connectDB from "@/pages/@lib/mongoDB"
+import connectDB from "@/pages/api/mongoDB"
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -8,7 +8,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const result = await db
       .collection("favorite")
       .find(
-        { "listingsId": { $exists: true } },
+        { listingsId: { $exists: true } },
         { projection: { email: 1, id: 1, _id: 0 } },
       )
       .toArray()

@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 
-import connectDB from "@/pages/@lib/mongoDB"
+import connectDB from "@/pages/api/mongoDB"
 import { ObjectId } from "mongodb"
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
