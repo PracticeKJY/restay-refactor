@@ -4,9 +4,62 @@
 }
 
 .navbarMenu {
+  padding-left: 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: 3px;
+  /* justify-content: space-around; */
+  gap: 4rem;
+}
+
+.logoSearchWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 4rem;
+}
+
+@media (min-width: 1200px) and (max-width: 1300px) {
+  .navbarMenu {
+    width: 100%;
+    gap: 12rem;
+  }
+  .logoSearchWrapper {
+    /* width: 100%; */
+    gap: 6rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .logoSearchWrapper {
+    width: 100%;
+    gap: 2rem;
+  }
+  .navbarMenu {
+    width: 100%;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .logoSearchWrapper {
+    /* width: 100%; */
+    gap: 0;
+  }
+  .navbarMenu {
+    width: 100%;
+    gap: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbarMenu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+  }
+  .logoSearchWrapper {
+    width: 320px;
+    gap: 0;
+  }
 }
