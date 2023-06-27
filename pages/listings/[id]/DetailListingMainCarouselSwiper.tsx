@@ -19,7 +19,7 @@ import "swiper/css/navigation"
 interface DetailListingMainCarouselSwiperProps {
   listingData: {
     category: string
-    locationValue: string
+    location: string
     guestCount: number
     roomCount: number
     bathroomCount: number
@@ -30,6 +30,7 @@ interface DetailListingMainCarouselSwiperProps {
     userId: any
     createdAt: any
     _id: string
+    latlngData: any
   }
 }
 

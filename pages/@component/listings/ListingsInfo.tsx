@@ -9,7 +9,7 @@ import Avatar from "../Header/Avatar"
 interface ListingsInfoProps {
   listingData: {
     category: string
-    locationValue: string
+    location: string
     guestCount: number
     roomCount: number
     bathroomCount: number
@@ -20,6 +20,7 @@ interface ListingsInfoProps {
     userId: any
     createdAt: any
     _id: string
+    latlngData: any
   }
   userInfo: any
 }

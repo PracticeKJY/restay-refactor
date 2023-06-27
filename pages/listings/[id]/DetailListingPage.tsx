@@ -2,9 +2,7 @@
 
 import styles from "./DetailListingPage.module.css"
 
-import { FC, useMemo, useRef } from "react"
-import useCountries from "@/pages/@hooks/useCountries"
-import dynamic from "next/dynamic"
+import { FC, useRef } from "react"
 
 import Container from "@/pages/@component/Container"
 import ListingsInfo from "@/pages/@component/listings/ListingsInfo"
@@ -12,11 +10,12 @@ import ListingsReservation from "@/pages/@component/listings/ListingsReservation
 import DetailListingHeading from "./DetailListingHeading"
 import DetailListingMainCarouselSwiper from "./DetailListingMainCarouselSwiper"
 import MiniHeader from "./MiniHeader"
+import KakaoMap from "@/pages/@component/KakaoMap"
 
 interface DetailListingMainCarouselSwiperProps {
   listingData: {
     category: string
-    locationValue: string
+    location: string
     guestCount: number
     roomCount: number
     bathroomCount: number
@@ -27,6 +26,7 @@ interface DetailListingMainCarouselSwiperProps {
     userId: any
     createdAt: any
     _id: string
+    latlngData: any
   }
 }
 
@@ -41,15 +41,11 @@ const DetailListingPage: FC<DetailListingPageProps> = ({
   const topRef = useRef(null)
   const bodyRef = useRef(null)
   const mapRef = useRef(null)
-  const { getByValue } = useCountries()
-  const location = getByValue(listingData.locationValue)
-  const MapComponent = useMemo(
-    () =>
-      dynamic(() => import("@/pages/@component/MapComponent"), {
-        ssr: false,
-      }),
-    [location],
-  )
+
+  const center = {
+    lat: Number(listingData.latlngData.lat),
+    lng: Number(listingData.latlngData.lng),
+  }
 
   return (
     <>
@@ -74,7 +70,7 @@ const DetailListingPage: FC<DetailListingPageProps> = ({
             <div className={styles.mapInfoWrapper}>
               <div className={styles.mapInfo} ref={mapRef}>
                 <div className={styles.mapInfoTitle}>호스팅 위치</div>
-                <MapComponent center={location?.latlng} />
+                <KakaoMap center={center} />
               </div>
             </div>
           </div>

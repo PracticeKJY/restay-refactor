@@ -2,27 +2,12 @@ import styles from "./index.module.css"
 import Container from "./@component/Container"
 import { Suspense, useEffect, useState } from "react"
 import ListingsCard from "./@component/listings/ListingsCard"
-import { useAtom, useAtomValue } from "jotai"
+import { useAtom } from "jotai"
 import { fetchUrlAtom } from "./@jotai/store/state"
 import Loading from "./Loading"
 import axios from "axios"
 import { useRouter } from "next/router"
 import Empty from "./@component/Empty"
-
-// type Data = {
-//   category: string
-//   locationValue: string
-//   guestCount: number
-//   roomCount: number
-//   bathroomCount: number
-//   imageSrc: string[] | undefined
-//   price: number
-//   title: string
-//   description: string
-//   userId: any
-//   createdAt: any
-//   _id: any
-// }
 
 const ListingCard = () => {
   const [fetchUrl, setFetchUrl] = useAtom(fetchUrlAtom)

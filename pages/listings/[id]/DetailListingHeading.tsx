@@ -2,13 +2,12 @@
 
 import { FC } from "react"
 import styles from "./DetailListingHeading.module.css"
-import useCountries from "@/pages/@hooks/useCountries"
 import Heading from "@/pages/@component/Heading"
 
 interface DetailListingHeadingProps {
   listingData: {
     category: string
-    locationValue: string
+    location: string
     guestCount: number
     roomCount: number
     bathroomCount: number
@@ -19,6 +18,7 @@ interface DetailListingHeadingProps {
     userId: any
     createdAt: any
     _id: string
+    latlngData: any
   }
   userInfo: any
 }
@@ -26,16 +26,12 @@ interface DetailListingHeadingProps {
 const DetailListingHeading: FC<DetailListingHeadingProps> = ({
   listingData,
 }) => {
-  const { getByValue } = useCountries()
-  const location = getByValue(listingData.locationValue)
+  const location = listingData.location
 
   return (
     <div className={styles.infoContainer}>
       <div className={styles.headingContainer}>
-        <Heading
-          title={listingData.title}
-          subTitle={`${location?.region}, ${location?.label}`}
-        />
+        <Heading title={listingData.title} subTitle={location} />
       </div>
 
       <div className={styles.comment}>

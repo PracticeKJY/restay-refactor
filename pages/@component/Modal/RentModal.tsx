@@ -2,14 +2,12 @@
 
 import styles from "./RentModal.module.css"
 import Modal from "./Modal"
-import { rentModalAtom } from "@/pages/@jotai/store/state"
+import { latlngAtom, rentModalAtom } from "@/pages/@jotai/store/state"
 import { useMemo, useState } from "react"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import Heading from "../Heading"
 import { categories } from "./../Header/Categories"
 import CategoryInput from "../Input/CategoryInput"
-import CountrySelect from "../Input/CountrySelect"
-import dynamic from "next/dynamic"
 import Counter from "../Input/Counter"
 import ImageUpload from "./../Input/ImageUpload"
 import Input from "../Input/Input"
@@ -19,6 +17,8 @@ import toast from "react-hot-toast"
 import { useSession } from "next-auth/react"
 import { useAtomValue, useSetAtom } from "jotai"
 import TextArea from "../Input/TextArea"
+import KakaoMap from "../KakaoMap"
+import DaumPost from "../DaumPost"
 
 // enum? 관련된 상수들을 그룹화하고 식별하기 위해 사용됩니다. 특히, enum은 서로 연관된 상수의 집합을 정의하는 데 유용합니다. 이렇게 정의된 enum은 TypeScript 코드에서 해당 상수를 사용할 수 있게 되며, 가독성과 유지보수의 편의성을 높여줍니다.
 // TypeScript에서는 enum 상수에 대한 값을 따로 지정하지 않으면, 0부터 시작하여 순차적인 값(0, 1, 2, ...)이 자동으로 할당됩니다
@@ -47,6 +47,7 @@ const RentModal = () => {
   const [step, setStep] = useState(STEPS.CATEGORY)
   const isRentModal = useAtomValue(rentModalAtom)
   const SetIsRentModal = useSetAtom(rentModalAtom)
+  const latlng = useAtomValue(latlngAtom)
 
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
@@ -78,13 +79,6 @@ const RentModal = () => {
   const roomCount = watch("roomCount")
   const bathroomCount = watch("bathroomCount")
   const imageSrc = watch("imageSrc")
-  const MapComponent = useMemo(
-    () =>
-      dynamic(() => import("../MapComponent"), {
-        ssr: false,
-      }),
-    [location],
-  )
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -107,7 +101,8 @@ const RentModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     const emailData = session?.user?.email
-    const modifyFormData = { ...data, emailData }
+    const latlngData = latlng
+    const modifyFormData = { ...data, emailData, latlngData }
 
     if (step !== STEPS.PRICE) {
       return onNext()
@@ -179,11 +174,11 @@ const RentModal = () => {
           title="어디에 위치하고 있나요?"
           subTitle="게스트들이 찾을 수 있도록 위치를 알려주세요"
         />
-        <CountrySelect
+        <DaumPost
           value={location}
           onChange={(value) => setCustomValue("location", value)}
         />
-        <MapComponent center={location?.latlng} />
+        <KakaoMap />
       </div>
     )
   }

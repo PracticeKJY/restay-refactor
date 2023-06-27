@@ -1,17 +1,14 @@
 "use client"
 
-import { FC, useState } from "react"
 import { useRouter } from "next/navigation"
 import styles from "./ListingsCard.module.css"
-import useCountries from "@/pages/@hooks/useCountries"
 
 const CardInfo = ({ data }: any) => {
   const router = useRouter()
-  const { getByValue } = useCountries()
-  const location = getByValue(data.locationValue)
+  const location = data.location
+  const [si, gu] = location.split(" ")
 
   const localePrice = data.price.toLocaleString("ko-KR")
-
   return (
     <div
       onClick={() => {
@@ -19,7 +16,7 @@ const CardInfo = ({ data }: any) => {
       }}
     >
       <div className={styles.listingsLocation}>
-        {location?.region}, {location?.label}
+        {gu} {si} , 한국
       </div>
       <div className={styles.listingsCategory}>{data.category}</div>
       <div className={styles.listingsTitle}>{data.title}</div>

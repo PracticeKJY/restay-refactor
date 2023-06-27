@@ -17,6 +17,7 @@ type Data = {
   description: string
   userId: any
   createdAt: any
+  latlngData: any
   _id: string
 }
 

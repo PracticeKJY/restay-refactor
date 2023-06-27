@@ -153,7 +153,7 @@
   padding: 2rem 5rem;
   position: fixed;
   top: 0%;
-  z-index: 60;
+  z-index: 260;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 0px !important;
 }
