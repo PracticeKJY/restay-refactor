@@ -4,7 +4,7 @@ import connectDB from "@/pages/api/mongoDB"
 
 type Data = {
   category: string
-  locationValue: string
+  location: string
   guestCount: number
   roomCount: number
   bathroomCount: number
@@ -12,10 +12,8 @@ type Data = {
   price: number
   title: string
   description: string
+  latlngData: any
 }
-
-import { NextResponse } from "next/server"
-import { ObjectId } from "mongodb"
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   try {

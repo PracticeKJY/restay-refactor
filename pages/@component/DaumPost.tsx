@@ -10,7 +10,7 @@ import DaumPostCode from "react-daum-postcode"
 
 interface DaumPostProps {
   value?: string
-  onChange: (value) => void
+  onChange: (value: any) => void
 }
 
 const DaumPost: FC<DaumPostProps> = ({ value, onChange }) => {

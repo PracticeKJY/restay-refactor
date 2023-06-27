@@ -1,10 +1,9 @@
-import { FaAngleDown, FaApplePay } from "react-icons/fa"
-import { AiOutlineCreditCard, AiOutlineCheck } from "react-icons/ai"
+import { FaApplePay } from "react-icons/fa"
+import { AiOutlineCreditCard } from "react-icons/ai"
 import { SiSamsungpay, SiKakao } from "react-icons/si"
 import { BsPhone } from "react-icons/bs"
-import { IconType } from "react-icons"
 
-export const paymentOptionData = [
+const paymentOptionData = [
   {
     label: "신용카드 또는 체크카드",
     icon: AiOutlineCreditCard,
@@ -26,3 +25,5 @@ export const paymentOptionData = [
     icon: BsPhone,
   },
 ]
+
+export default paymentOptionData
