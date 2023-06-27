@@ -25,7 +25,7 @@ selectedCardAtom.debugLabel = "selectedCardAtom"
 
 type Data = {
   category: string
-  locationValue: string
+  location: string
   guestCount: number
   roomCount: number
   bathroomCount: number
@@ -36,10 +36,11 @@ type Data = {
   userId: any
   createdAt: any
   _id: string
+  latlngData: any
 }
 export const DetailListingAtom = atomWithStorage<Data>("Listings", {
   category: "",
-  locationValue: "",
+  location: "",
   guestCount: 0,
   roomCount: 0,
   bathroomCount: 0,
@@ -50,8 +51,9 @@ export const DetailListingAtom = atomWithStorage<Data>("Listings", {
   userId: undefined,
   createdAt: undefined,
   _id: "",
+  latlngData: { lat: 0, lng: 0 },
 })
-selectedCardAtom.debugLabel = "DetailListingAtom"
+DetailListingAtom.debugLabel = "DetailListingAtom"
 
 // export const favoriteAtom = atom(false)
 // favoriteAtom.debugLabel = "favoriteAtom"
@@ -90,10 +92,11 @@ interface fetchUrlatomProps {
   roomCount: number
   bathroomCount: number
   guestCount: number
-  locationValue: string
+  location: string
   price: number
   userId: string
   createdAt: string
+  latlngData: any
 }
 
 export const fetchUrlAtom = atom<fetchUrlatomProps[]>([])
@@ -169,3 +172,11 @@ export const reservationProductAtom = atomWithStorage<
   reservationProductAtomProps[]
 >("reservationProduct", [])
 reservationProductAtom.debugLabel = "reservationProductAtom"
+
+interface latlngAtomProps {
+  lat: number
+  lng: number
+}
+
+export const latlngAtom = atom<latlngAtomProps>({ lat: 0, lng: 0 })
+latlngAtom.debugLabel = "latlngAtom"
