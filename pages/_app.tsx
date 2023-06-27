@@ -8,6 +8,7 @@ import { SessionProvider } from "next-auth/react"
 import Footer from "./@component/Footer/Footer"
 import { Provider, createStore } from "jotai"
 import { DevTools } from "jotai-devtools"
+import ClientOnly from "./@component/ClientOnly"
 
 const gowunDodum = Gowun_Dodum({
   weight: "400",
@@ -30,17 +31,19 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <meta name="description" content={metadata.description} />
         <link rel="icon" href="/restay.png" />
       </Head>
-      <ToasterProvider />
-      <Provider store={customStore}>
-        <DevTools store={customStore} />
-        <SessionProvider session={session} basePath="/api/auth">
-          <main className={gowunDodum.className}>
-            <Navbar />
-            <Component {...pageProps} />
-            <Footer />
-          </main>
-        </SessionProvider>
-      </Provider>
+      <ClientOnly>
+        <ToasterProvider />
+        <Provider store={customStore}>
+          <DevTools store={customStore} />
+          <SessionProvider session={session} basePath="/api/auth">
+            <main className={gowunDodum.className}>
+              <Navbar />
+              <Component {...pageProps} />
+              <Footer />
+            </main>
+          </SessionProvider>
+        </Provider>
+      </ClientOnly>
     </>
   )
 }
