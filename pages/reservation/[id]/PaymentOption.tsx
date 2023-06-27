@@ -4,7 +4,7 @@ import styles from "./Reservation.module.css"
 import { FC } from "react"
 import { IconType } from "react-icons"
 import { useAtomValue } from "jotai"
-import { paymentOptionAtom } from "@/pages/@jotai/store/state"
+import { paymentOptionAtom } from "../../../jotai/@store/state"
 import { AiOutlineCheck } from "react-icons/ai"
 
 interface paymentOptionProps {

@@ -2,7 +2,7 @@
 import { FC } from "react"
 import styles from "./KakaoMap.module.css"
 import { Map, MapMarker } from "react-kakao-maps-sdk"
-import { latlngAtom } from "../@jotai/store/state"
+import { latlngAtom } from "../../jotai/@store/state"
 import { useAtomValue } from "jotai"
 
 interface KakaoMapProps {

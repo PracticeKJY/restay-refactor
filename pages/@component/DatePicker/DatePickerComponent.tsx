@@ -7,7 +7,7 @@ import {
   calendarOpenAtom,
   endDateAtom,
   startDateAtom,
-} from "@/pages/@jotai/store/state"
+} from "../../../jotai/@store/state"
 import Button from "../Button"
 import Image from "next/image"
 import { getMonth, getYear } from "date-fns"

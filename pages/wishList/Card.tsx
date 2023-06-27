@@ -3,9 +3,6 @@
 import styles from "./Card.module.css"
 import SwiperComponent from "../@component/listings/SwiperComponent"
 import { FC, useState } from "react"
-import { useAtomValue } from "jotai"
-import { nextDateAtom } from "../@jotai/store/state"
-import moment from "moment"
 
 interface CardProps {
   data: any

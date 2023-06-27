@@ -2,7 +2,7 @@
 
 import { useAtomValue } from "jotai"
 import styles from "./Trips.module.css"
-import { reservationProductAtom } from "../@jotai/store/state"
+import { reservationProductAtom } from "../../jotai/@store/state"
 import { useSession } from "next-auth/react"
 import { Suspense } from "react"
 import Container from "../@component/Container"

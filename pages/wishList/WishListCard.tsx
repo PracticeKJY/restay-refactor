@@ -4,7 +4,7 @@ import styles from "./WishListCard.module.css"
 
 import { useAtomValue } from "jotai"
 import { Suspense } from "react"
-import { wishListAtom } from "../@jotai/store/state"
+import { wishListAtom } from "../../jotai/@store/state"
 import Container from "../@component/Container"
 import { useSession } from "next-auth/react"
 import Card from "./Card"

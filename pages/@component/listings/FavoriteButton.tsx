@@ -5,7 +5,7 @@ import styles from "./ListingsCard.module.css"
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 
 import { useAtom } from "jotai"
-import { favoriteAtom, wishListAtom } from "@/pages/@jotai/store/state"
+import { favoriteAtom, wishListAtom } from "../../../jotai/@store/state"
 import { useSession } from "next-auth/react"
 import Modal from "../Modal/Modal"
 import Heading from "../Heading"

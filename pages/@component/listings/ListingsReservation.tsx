@@ -8,7 +8,7 @@ import {
   restayChargeAtom,
   endDateAtom,
   startDateAtom,
-} from "@/pages/@jotai/store/state"
+} from "../../../jotai/@store/state"
 import CheckIn from "../DatePicker/CheckIn"
 import DatePickerComponent from "../DatePicker/DatePickerComponent"
 import { FC } from "react"

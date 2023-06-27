@@ -1,5 +1,4 @@
-import { paymentOptionData } from "@/pages/reservation/[id]/paymentOptionData"
-import axios from "axios"
+import paymentOptionData from "../../localData/paymentOptionData"
 import { atom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
 

@@ -1,9 +1,7 @@
 "use client"
 
-import { useAtom } from "jotai"
 import styles from "./Reservation.module.css"
 import Image from "next/image"
-import { DetailListingAtom } from "@/pages/@jotai/store/state"
 import { FcPlanner } from "react-icons/fc"
 
 const ProductCardInfo = ({ detailListing }: any) => {

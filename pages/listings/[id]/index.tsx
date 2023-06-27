@@ -2,7 +2,7 @@ import axios from "axios"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import DetailListingPage from "./DetailListingPage"
-import { DetailListingAtom } from "@/pages/@jotai/store/state"
+import { DetailListingAtom } from "../../../jotai/@store/state"
 import { useAtom } from "jotai"
 
 type Data = {

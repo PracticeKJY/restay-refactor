@@ -8,7 +8,7 @@ import {
   menuOpenAtom,
   registerModalAtom,
   rentModalAtom,
-} from "@/pages/@jotai/store/state"
+} from "../../../jotai/@store/state"
 import LoginModal from "../Modal/LoginModal"
 import RegisterModal from "../Modal/RegisterModal"
 import { signOut, useSession } from "next-auth/react"

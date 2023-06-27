@@ -15,7 +15,7 @@ import {
   nextDateAtom,
   reservationProductAtom,
   startDateAtom,
-} from "@/pages/@jotai/store/state"
+} from "../../../jotai/@store/state"
 import { useAtom, useAtomValue } from "jotai"
 import PriceInfo from "./PriceInfo"
 import Button from "@/pages/@component/Button"

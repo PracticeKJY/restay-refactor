@@ -1,6 +1,6 @@
 "use client"
 import styles from "./LoginModal.module.css"
-import { loginModalAtom, registerModalAtom } from "@/pages/@jotai/store/state"
+import { loginModalAtom, registerModalAtom } from "../../../jotai/@store/state"
 import { SubmitHandler, FieldValues, useForm } from "react-hook-form"
 import Heading from "../Heading"
 import Input from "../Input/Input"

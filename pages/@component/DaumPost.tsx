@@ -4,7 +4,7 @@ import styles from "./DaumPost.module.css"
 
 import axios from "axios"
 import { useSetAtom } from "jotai"
-import { latlngAtom } from "../@jotai/store/state"
+import { latlngAtom } from "../../jotai/@store/state"
 import { FC, useState } from "react"
 import DaumPostCode from "react-daum-postcode"
 

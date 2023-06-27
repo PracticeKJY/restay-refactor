@@ -2,7 +2,7 @@
 
 import styles from "./RentModal.module.css"
 import Modal from "./Modal"
-import { latlngAtom, rentModalAtom } from "@/pages/@jotai/store/state"
+import { latlngAtom, rentModalAtom } from "../../../jotai/@store/state"
 import { useMemo, useState } from "react"
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import Heading from "../Heading"

@@ -1,10 +1,6 @@
 "use client"
 
-import {
-  endDateAtom,
-  restayChargeAtom,
-  startDateAtom,
-} from "@/pages/@jotai/store/state"
+import { restayChargeAtom } from "../../../jotai/@store/state"
 import styles from "./Reservation.module.css"
 import { useAtomValue } from "jotai"
 import moment from "moment"
