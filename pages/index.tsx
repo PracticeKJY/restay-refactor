@@ -18,7 +18,7 @@ const ListingCard = () => {
     const getListing = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:3000/api/listings/getListings",
+          "/api/listings/getListings",
           router.query,
         )
         const data = response.data
