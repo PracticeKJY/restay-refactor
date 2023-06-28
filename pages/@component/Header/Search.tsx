@@ -90,7 +90,7 @@ const Search = () => {
     <div className={styles.container}>
       {!showSearch ? (
         <div className={styles.searchWrapper}>
-          <div className={styles.searchText}>
+          <div className={styles.searchText} onClick={onClick}>
             어디든지, 언제든지 <span>Restay</span>와 함께 떠나보는 건 어떨까요?
           </div>
           <button className={styles.biSearchWrapper} onClick={onClick}>
