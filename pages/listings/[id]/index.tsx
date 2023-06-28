@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import DetailListingPage from "./DetailListingPage"
 import { DetailListingAtom } from "../../../jotai/@store/state"
 import { useAtom } from "jotai"
+import Spinner from "@/pages/Spinner"
 
 type Data = {
   category: string
@@ -62,7 +63,7 @@ const Listings = () => {
   }, [DetailListing])
 
   if (isLoading || !DetailListing || !userInfo) {
-    return <div>로딩중입니다...</div>
+    return <Spinner />
   }
 
   return <DetailListingPage listingData={DetailListing} userInfo={userInfo} />

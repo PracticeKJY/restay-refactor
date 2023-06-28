@@ -45,9 +45,7 @@ const Content = () => {
 const WishListCard = () => {
   return (
     <Container>
-      <Suspense fallback={<Loading />}>
-        <Content />
-      </Suspense>
+      <Content />
     </Container>
   )
 }

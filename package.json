@@ -38,6 +38,7 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.8.0",
     "react-kakao-maps-sdk": "^1.1.9",
+    "react-spinners": "^0.13.8",
     "recoil": "^0.7.7",
     "swiper": "^9.3.2",
     "typescript": "5.0.4"

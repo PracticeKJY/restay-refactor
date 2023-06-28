@@ -1,13 +1,13 @@
 import styles from "./index.module.css"
 import Container from "./@component/Container"
-import { Suspense, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import ListingsCard from "./@component/listings/ListingsCard"
 import { useAtom } from "jotai"
 import { fetchUrlAtom } from "../jotai/@store/state"
-import Loading from "./Loading"
 import axios from "axios"
 import { useRouter } from "next/router"
 import Empty from "./@component/Empty"
+import Spinner from "./Spinner"
 
 const ListingCard = () => {
   const [fetchUrl, setFetchUrl] = useAtom(fetchUrlAtom)
@@ -43,7 +43,9 @@ const ListingCard = () => {
 
   return (
     <>
-      {fetchUrl.length > 0 ? (
+      {isLoading ? (
+        <Spinner />
+      ) : fetchUrl.length > 0 ? (
         <div className={styles.container}>
           {searchResult}
           <div className={styles.listingsContainer}>
@@ -64,11 +66,9 @@ const ListingCard = () => {
 export default function Home() {
   return (
     <>
-      <Suspense fallback={<Loading />}>
-        <Container>
-          <ListingCard />
-        </Container>
-      </Suspense>
+      <Container>
+        <ListingCard />
+      </Container>
     </>
   )
 }

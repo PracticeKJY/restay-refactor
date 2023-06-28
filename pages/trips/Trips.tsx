@@ -43,9 +43,7 @@ const Content = () => {
 const Trips = () => {
   return (
     <Container>
-      <Suspense fallback={<Loading />}>
-        <Content />
-      </Suspense>
+      <Content />
     </Container>
   )
 }
