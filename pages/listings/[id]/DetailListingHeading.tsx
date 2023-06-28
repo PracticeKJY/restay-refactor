@@ -20,7 +20,6 @@ interface DetailListingHeadingProps {
     _id: string
     latlngData: any
   }
-  userInfo: any
 }
 
 const DetailListingHeading: FC<DetailListingHeadingProps> = ({

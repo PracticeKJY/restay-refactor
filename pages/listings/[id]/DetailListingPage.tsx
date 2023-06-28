@@ -55,10 +55,7 @@ const DetailListingPage: FC<DetailListingPageProps> = ({
           <div className={styles.contentContainer}>
             <div className={styles.mainCarousel}>
               <DetailListingMainCarouselSwiper listingData={listingData} />
-              <DetailListingHeading
-                listingData={listingData}
-                userInfo={userInfo}
-              />
+              <DetailListingHeading listingData={listingData} />
             </div>
             <div className={styles.bodyContainer} ref={bodyRef}>
               <ListingsInfo listingData={listingData} userInfo={userInfo} />
