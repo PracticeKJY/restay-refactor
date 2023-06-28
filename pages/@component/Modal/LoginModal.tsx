@@ -7,7 +7,6 @@ import Input from "../Input/Input"
 import Modal from "./Modal"
 import Button from "../Button"
 import { FcGoogle } from "react-icons/fc"
-import { AiFillGithub } from "react-icons/ai"
 import { RiKakaoTalkFill } from "react-icons/ri"
 
 import { signIn, useSession } from "next-auth/react"
@@ -105,14 +104,6 @@ const LoginModal = () => {
           icon={FcGoogle}
           onClick={() => {
             signIn("google")
-          }}
-        />
-        <Button
-          outline
-          label={"Github로 시작하기"}
-          icon={AiFillGithub}
-          onClick={() => {
-            signIn("github")
           }}
         />
         <Button
