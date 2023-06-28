@@ -19,13 +19,13 @@ type Data = {
   userId: any
   createdAt: any
   latlngData: any
-  _id: string
+  userName: string
+  userImage: string
 }
 
 const Listings = () => {
   const router = useRouter()
   const [DetailListing, setDetailListing] = useAtom(DetailListingAtom)
-  const [userInfo, setUserInfo] = useState<Data>()
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -45,29 +45,10 @@ const Listings = () => {
     getDetailListingData()
   }, [router.query])
 
-  useEffect(() => {
-    const getUserInfo = async () => {
-      try {
-        setIsLoading(true)
-        const response = await axios.post("/api/user/findUser", {
-          id: DetailListing?.userId,
-        })
-        setUserInfo(response.data)
-      } catch (error) {
-        console.error(error)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-    if (DetailListing) {
-      getUserInfo()
-    }
-  }, [DetailListing])
-
   return isLoading ? (
     <Spinner />
-  ) : DetailListing && userInfo ? (
-    <DetailListingPage listingData={DetailListing} userInfo={userInfo} />
+  ) : DetailListing ? (
+    <DetailListingPage listingData={DetailListing} />
   ) : (
     <div>에러페이지 입니다. -업데이트 예정-</div>
   )

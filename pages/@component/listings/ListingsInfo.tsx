@@ -19,13 +19,13 @@ interface ListingsInfoProps {
     description: string
     userId: any
     createdAt: any
-    _id: string
+    userName: string
+    userImage: string
     latlngData: any
   }
-  userInfo: any
 }
 
-const ListingsInfo: FC<ListingsInfoProps> = ({ listingData, userInfo }) => {
+const ListingsInfo: FC<ListingsInfoProps> = ({ listingData }) => {
   const [isMore, setIsMore] = useState(false)
 
   const findCategory = categories.filter((item) => {
@@ -38,7 +38,7 @@ const ListingsInfo: FC<ListingsInfoProps> = ({ listingData, userInfo }) => {
         <div className={styles.hostingInfoContainer}>
           <div className={styles.hostingInfoWrapper}>
             <h2 className={styles.hostingIntroduce}>
-              {userInfo.name} 님이 호스팅하는 숙소
+              {listingData.userName} 님이 호스팅하는 숙소
             </h2>
             <ol className={styles.countList}>
               <li>{`최대 인원 ${listingData.guestCount}명`}</li>
@@ -46,7 +46,7 @@ const ListingsInfo: FC<ListingsInfoProps> = ({ listingData, userInfo }) => {
               <li>{`욕실 ${listingData.bathroomCount}개`}</li>
             </ol>
           </div>
-          <Avatar accountImage={userInfo.image} width={60} height={60} />
+          <Avatar accountImage={listingData.userImage} width={60} height={60} />
         </div>
 
         <div className={styles.locationInfo}>

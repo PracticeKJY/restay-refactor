@@ -29,7 +29,8 @@ interface DetailListingMainCarouselSwiperProps {
     description: string
     userId: any
     createdAt: any
-    _id: string
+    userName: string
+    userImage: string
     latlngData: any
   }
 }

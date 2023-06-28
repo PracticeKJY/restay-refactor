@@ -41,7 +41,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       .collection("users")
       .findOne({ email: req.body.emailData })
 
-    const userId = result?._id
+    const userImage = result?.image
+    const userName = result?.name
     const data = {
       title,
       description,
@@ -53,7 +54,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       location,
       latlngData,
       price: parseInt(price, 10),
-      userId: userId,
+      userName,
+      userImage,
       createdAt: new Date(),
     }
 

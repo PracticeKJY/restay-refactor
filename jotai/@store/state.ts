@@ -34,7 +34,8 @@ type Data = {
   description: string
   userId: any
   createdAt: any
-  _id: string
+  userName: string
+  userImage: string
   latlngData: any
 }
 export const DetailListingAtom = atomWithStorage<Data>("Listings", {
@@ -49,7 +50,8 @@ export const DetailListingAtom = atomWithStorage<Data>("Listings", {
   description: "",
   userId: undefined,
   createdAt: undefined,
-  _id: "",
+  userName: "",
+  userImage: "",
   latlngData: { lat: 0, lng: 0 },
 })
 DetailListingAtom.debugLabel = "DetailListingAtom"

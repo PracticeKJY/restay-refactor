@@ -12,7 +12,7 @@ import DetailListingMainCarouselSwiper from "./DetailListingMainCarouselSwiper"
 import MiniHeader from "./MiniHeader"
 import KakaoMap from "@/pages/@component/KakaoMap"
 
-interface DetailListingMainCarouselSwiperProps {
+interface DetailListingPageProps {
   listingData: {
     category: string
     location: string
@@ -25,19 +25,13 @@ interface DetailListingMainCarouselSwiperProps {
     description: string
     userId: any
     createdAt: any
-    _id: string
     latlngData: any
+    userName: string
+    userImage: string
   }
 }
 
-interface DetailListingPageProps extends DetailListingMainCarouselSwiperProps {
-  userInfo: any
-}
-
-const DetailListingPage: FC<DetailListingPageProps> = ({
-  listingData,
-  userInfo,
-}) => {
+const DetailListingPage: FC<DetailListingPageProps> = ({ listingData }) => {
   const topRef = useRef(null)
   const bodyRef = useRef(null)
   const mapRef = useRef(null)
@@ -58,7 +52,7 @@ const DetailListingPage: FC<DetailListingPageProps> = ({
               <DetailListingHeading listingData={listingData} />
             </div>
             <div className={styles.bodyContainer} ref={bodyRef}>
-              <ListingsInfo listingData={listingData} userInfo={userInfo} />
+              <ListingsInfo listingData={listingData} />
               <ListingsReservation
                 price={listingData.price}
                 listingData={listingData}
