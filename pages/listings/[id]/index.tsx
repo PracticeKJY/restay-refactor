@@ -49,24 +49,28 @@ const Listings = () => {
     const getUserInfo = async () => {
       try {
         setIsLoading(true)
-        const response2 = await axios.post("/api/user/findUser", {
+        const response = await axios.post("/api/user/findUser", {
           id: DetailListing?.userId,
         })
-        setUserInfo(response2.data)
+        setUserInfo(response.data)
       } catch (error) {
         console.error(error)
       } finally {
         setIsLoading(false)
       }
     }
-    getUserInfo()
+    if (DetailListing) {
+      getUserInfo()
+    }
   }, [DetailListing])
 
-  if (isLoading || !DetailListing || !userInfo) {
-    return <Spinner />
-  }
-
-  return <DetailListingPage listingData={DetailListing} userInfo={userInfo} />
+  return isLoading ? (
+    <Spinner />
+  ) : DetailListing && userInfo ? (
+    <DetailListingPage listingData={DetailListing} userInfo={userInfo} />
+  ) : (
+    <div>에러페이지 입니다. -업데이트 예정-</div>
+  )
 }
 
 export default Listings
