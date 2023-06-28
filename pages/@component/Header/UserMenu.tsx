@@ -16,6 +16,7 @@ import toast from "react-hot-toast"
 import RentModal from "../Modal/RentModal"
 import { useAtomValue, useSetAtom } from "jotai"
 import { useRouter } from "next/navigation"
+import { useEffect, useRef } from "react"
 
 const UserMenu = () => {
   const { data: session, status: sessionStatus } = useSession()
@@ -24,17 +25,19 @@ const UserMenu = () => {
   const isRentModal = useAtomValue(rentModalAtom)
   const setIsMenuOpen = useSetAtom(menuOpenAtom)
   const SetIsRentModal = useSetAtom(rentModalAtom)
-
+  const isLoginModal = useAtomValue(loginModalAtom)
+  const userMenuOpenRef = useRef<HTMLDivElement>(null)
+  const userMenuRef = useRef<HTMLDivElement>(null)
   const handleMenuOpen = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
   const userMenu = session ? (
-    <div className={styles.userMenuOpen}>
+    <div ref={userMenuOpenRef} className={styles.userMenuOpen}>
       <LogoutMenu session={session} />
     </div>
   ) : (
-    <div className={styles.userMenuOpen}>
+    <div ref={userMenuOpenRef} className={styles.userMenuOpen}>
       <LoginMenu />
     </div>
   )
@@ -46,6 +49,21 @@ const UserMenu = () => {
     }
     SetIsRentModal(!isRentModal)
   }
+
+  useEffect(() => {
+    const handleClickOutside = (e: any) => {
+      if (
+        !userMenuOpenRef.current?.contains(e.target) &&
+        !userMenuRef.current?.contains(e.target)
+      ) {
+        setIsMenuOpen(false)
+      }
+    }
+    document.addEventListener("click", handleClickOutside)
+    return () => {
+      document.removeEventListener("click", handleClickOutside)
+    }
+  })
 
   return (
     <>
@@ -64,8 +82,11 @@ const UserMenu = () => {
                 : "당신의 공간을 공유하세요"}
             </div>
           </div>
-
-          <div className={styles.userMenu} onClick={handleMenuOpen}>
+          <div
+            ref={userMenuRef}
+            className={styles.userMenu}
+            onClick={handleMenuOpen}
+          >
             <AiOutlineMenu />
             <Avatar accountImage={session ? session.user?.image : ""} />
           </div>
@@ -80,6 +101,7 @@ export default UserMenu
 
 //로그인메뉴
 const LoginMenu = () => {
+  const isMenuOpen = useAtomValue(menuOpenAtom)
   const isLoginModal = useAtomValue(loginModalAtom)
   const isRegisterModal = useAtomValue(registerModalAtom)
   const isSetLoginModal = useSetAtom(loginModalAtom)
