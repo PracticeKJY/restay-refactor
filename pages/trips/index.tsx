@@ -1,8 +1,8 @@
-import Container from "../@component/Container"
+import withHead from "../@component/withHead"
 import Trips from "./Trips"
 
-const index = () => {
+const Index = () => {
   return <Trips />
 }
 
-export default index
+export default withHead(Index, "여행", "여행 페이지입니다.")
