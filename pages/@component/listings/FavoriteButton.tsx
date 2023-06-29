@@ -51,7 +51,7 @@ const FavoriteButton = ({ data }: any) => {
     }
 
     if (!session) {
-      return console.log("로그인하고 하세요")
+      return alert("로그인 후 이용해주세요.")
     }
   }
 
