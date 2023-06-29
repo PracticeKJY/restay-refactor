@@ -15,6 +15,7 @@ import { FC } from "react"
 import moment from "moment"
 import { useAtomValue, useSetAtom } from "jotai"
 import { useRouter } from "next/navigation"
+import { useSession } from "next-auth/react"
 
 interface ListingsReservationProps {
   price: number
@@ -24,6 +25,7 @@ const ListingsReservation: FC<ListingsReservationProps> = ({
   price,
   listingData,
 }) => {
+  const { data: session } = useSession()
   const router = useRouter()
   const startDate = useAtomValue(startDateAtom)
   const endDate = useAtomValue(endDateAtom)
@@ -76,6 +78,10 @@ const ListingsReservation: FC<ListingsReservationProps> = ({
         <Button
           label={"예약하기"}
           onClick={() => {
+            if (!session) {
+              return alert("로그인 후 이용해주세요.")
+            }
+
             if (validationEndDate === "Invalid date") {
               return alert("예약일을 다시 선택해주세요")
             }
