@@ -34,7 +34,10 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           content="문득 어디로 떠나고 싶을 땐 Restay!  "
         />
         <meta property="og:url" content={"https://restay.vercel.app"} />
-        <meta property="og:image" content={"/restay.png"} />
+        <meta
+          property="og:image"
+          content={"https://restay.vercel.app/restay.png"}
+        />
         <link rel="icon" href="/restay.png" />
       </Head>
       <ClientOnly>
