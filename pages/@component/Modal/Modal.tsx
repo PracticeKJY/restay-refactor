@@ -15,6 +15,7 @@ interface ModalProps {
   disabled?: boolean
   secondaryAction?: () => void
   secondaryActionLabel?: string
+  outline?: any
 }
 
 const Modal: FC<ModalProps> = ({
@@ -28,6 +29,7 @@ const Modal: FC<ModalProps> = ({
   disabled,
   secondaryAction,
   secondaryActionLabel,
+  outline,
 }) => {
   const [showModal, setShowModal] = useState(false)
   useEffect(() => {
@@ -56,15 +58,11 @@ const Modal: FC<ModalProps> = ({
   }, [onSubmit, disabled])
 
   const handleClose = useCallback(() => {
-    if (disabled) {
-      return
-    }
-
     setShowModal(false)
     setTimeout(() => {
       onClose()
     }, 300)
-  }, [onClose, disabled])
+  }, [onClose])
 
   const handleSecondaryAction = useCallback(() => {
     if (disabled || !secondaryAction) {
@@ -101,6 +99,7 @@ const Modal: FC<ModalProps> = ({
               />
             )}
             <Button
+              outline={outline}
               disabled={disabled}
               label={actionLabel}
               onClick={handleSubmit}

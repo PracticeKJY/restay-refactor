@@ -79,6 +79,8 @@ const RentModal = () => {
   const roomCount = watch("roomCount")
   const bathroomCount = watch("bathroomCount")
   const imageSrc = watch("imageSrc")
+  const title = watch("title")
+  const price = watch("price")
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -96,6 +98,16 @@ const RentModal = () => {
     setStep((value) => value - 1)
   }
   const onNext = () => {
+    if (step === STEPS.CATEGORY && category === "") {
+      return
+    }
+    if (step === STEPS.LOCATION && location === null) {
+      return
+    }
+    if (step === STEPS.IMAGES && imageSrc === "") {
+      return
+    }
+
     setStep((value) => value + 1)
   }
 
@@ -147,7 +159,7 @@ const RentModal = () => {
     <div className={styles.bodyContentContainer}>
       <Heading
         title="어떤 장소를 공유하실건가요?"
-        subTitle="카테고리를 골라주세요"
+        subTitle="다음 중 장소를 가장 잘 설명하는 것을 선택해주세요. "
       />
       <div className={styles.categoryWraaper}>
         {categories.map((item) => (
@@ -218,7 +230,7 @@ const RentModal = () => {
       <div className={styles.bodyContentContainer}>
         <Heading
           title="공유하실 장소의 사진들을 올려주세요."
-          subTitle="사진은 최대 4장까지 올릴 수 있어요. "
+          subTitle="사진은 최대 4장까지 올릴 수 있어요."
         />
         <ImageUpload
           value={imageSrc}
@@ -280,6 +292,43 @@ const RentModal = () => {
     )
   }
 
+  const outline = (() => {
+    if (step === STEPS.CATEGORY && category === "") {
+      return true
+    }
+    if (step === STEPS.LOCATION && location === null) {
+      return true
+    }
+    if (step === STEPS.IMAGES && imageSrc === "") {
+      return true
+    }
+    if (step === STEPS.DESCRIPTION && title === "") {
+      return true
+    }
+    if (step === STEPS.PRICE && price === 1) {
+      return true
+    }
+    return false
+  })()
+  const disabled = (() => {
+    if (step === STEPS.CATEGORY && category === "") {
+      return true
+    }
+    if (step === STEPS.LOCATION && location === null) {
+      return true
+    }
+    if (step === STEPS.IMAGES && imageSrc === "") {
+      return true
+    }
+    if (step === STEPS.DESCRIPTION && title === "") {
+      return true
+    }
+    if (step === STEPS.PRICE && price === 1) {
+      return true
+    }
+    return false
+  })()
+
   return (
     <Modal
       title="Restay할 준비가 되셨나요?"
@@ -290,6 +339,8 @@ const RentModal = () => {
       actionLabel={actionLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
       secondaryActionLabel={secondaryActionLabel}
+      disabled={disabled}
+      outline={outline}
     />
   )
 }
