@@ -30,7 +30,10 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={"https://restay.vercel.app/"} />
+        <meta
+          property="og:url"
+          content={"https://restay.vercel.app/mainLogo.svg"}
+        />
         <meta property="og:image" content={"/restay.png"} />
         <link rel="icon" href="/restay.png" />
       </Head>
