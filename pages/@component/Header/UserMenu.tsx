@@ -26,6 +26,7 @@ const UserMenu = () => {
   const setIsMenuOpen = useSetAtom(menuOpenAtom)
   const SetIsRentModal = useSetAtom(rentModalAtom)
   const isLoginModal = useAtomValue(loginModalAtom)
+  const isRegisterModal = useAtomValue(registerModalAtom)
   const userMenuOpenRef = useRef<HTMLDivElement>(null)
   const userMenuRef = useRef<HTMLDivElement>(null)
   const handleMenuOpen = () => {
@@ -92,6 +93,8 @@ const UserMenu = () => {
           </div>
         </div>
         {isMenuOpen && userMenu}
+        {isLoginModal && <LoginModal />}
+        {isRegisterModal && <RegisterModal />}
       </div>
     </>
   )
@@ -120,11 +123,9 @@ const LoginMenu = () => {
       <div className={styles.pointer} onClick={handleLoginModalOpen}>
         로그인
       </div>
-      {isLoginModal && <LoginModal />}
       <div className={styles.pointer} onClick={handleRegisterModalOpen}>
         회원가입
       </div>
-      {isRegisterModal && <RegisterModal />}
     </>
   )
 }

@@ -124,7 +124,7 @@ const LoginModal = () => {
         />
         <div className={styles.footerTextContainer}>
           <div className={styles.footerTextWraaper}>
-            <div>Restay이 처음이신가요?</div>
+            <div>Restay가 처음이신가요?</div>
             <button onClick={onClick} className={styles.footerTextButton}>
               회원가입
             </button>
