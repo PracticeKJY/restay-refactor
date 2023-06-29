@@ -177,3 +177,8 @@
   background-color: transparent;
   font-weight: 600;
 }
+
+.borderNone:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
