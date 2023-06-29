@@ -1,13 +1,13 @@
 .wishListContainer {
   min-height: 100.3vh;
-  /* width: 100%; */
   margin: 0 calc(40% - 300px);
+}
+
+.wishListWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
 }
-
 .wishListTitle {
   padding-top: 6rem;
   font-size: 2rem;
