@@ -11,12 +11,14 @@ interface EmptyStateProps {
   title?: string
   subtitle?: string
   showReset?: boolean
+  actionLabel?: string
 }
 
 const EmptyState: FC<EmptyStateProps> = ({
   title = "검색 결과 없음",
   subtitle = "일부 필터를 변경하거나 삭제하여 검색 지역을 조정해보세요.",
   showReset,
+  actionLabel = "확인",
 }) => {
   const router = useRouter()
 
@@ -24,7 +26,9 @@ const EmptyState: FC<EmptyStateProps> = ({
     <div className={styles.container}>
       <Heading center title={title} subTitle={subtitle} />
       <div className={styles.buttonWrapper}>
-        {showReset && <Button label="확인" onClick={() => router.push("/")} />}
+        {showReset && (
+          <Button label={actionLabel} onClick={() => router.push("/")} />
+        )}
       </div>
     </div>
   )
