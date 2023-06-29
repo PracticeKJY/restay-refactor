@@ -9,7 +9,6 @@ import Footer from "./@component/Footer/Footer"
 import { Provider, createStore } from "jotai"
 import { DevTools } from "jotai-devtools"
 import ClientOnly from "./@component/ClientOnly"
-
 const gowunDodum = Gowun_Dodum({
   weight: "400",
   style: "normal",
@@ -30,11 +29,12 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={"https://restay.vercel.app"} />
         <meta
-          property="og:image"
-          content={"https://restay.vercel.app/mainLogo.svg"}
+          property="og:description"
+          content="문득 어디로 떠나고 싶을 땐 Restay!  "
         />
+        <meta property="og:url" content={"https://restay.vercel.app"} />
+        <meta property="og:image" content={"/restay.png"} />
         <link rel="icon" href="/restay.png" />
       </Head>
       <ClientOnly>
