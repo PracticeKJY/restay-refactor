@@ -234,7 +234,7 @@ const RentModal = () => {
       <div className={styles.bodyContentContainer}>
         <Heading
           title="공유하실 공간을 설명해주세요."
-          subTitle="짧고 매콤한 표현으로 부탁드려요~!"
+          subTitle="숙소의 이름과 특징, 장점들을 적어주세요."
         />
         <div className={styles.inputWrapper}>
           <Input
@@ -264,7 +264,7 @@ const RentModal = () => {
       <div className={styles.bodyContentContainer}>
         <Heading
           title="가격을 정해주세요."
-          subTitle="1박당 가격으로 정하시면 되요"
+          subTitle="1박당 가격으로 적어주세요."
         />
         <Input
           id="price"
