@@ -1,8 +1,10 @@
 "use client"
 
-import { FC } from "react"
+import { FC, useState } from "react"
 import styles from "./Reservation.module.css"
+import "react-datepicker/dist/react-datepicker.css"
 import moment from "moment"
+import DatePickerComponent from "@/pages/@component/DatePicker/DatePickerComponent"
 
 interface InfoProps {
   startDate: Date
@@ -14,6 +16,18 @@ const Info: FC<InfoProps> = ({ startDate, endDate }) => {
   const startDay = moment(startDate).format("D")
   const endMonth = moment(endDate).format("M")
   const endDay = moment(endDate).format("D")
+  const [toggle, setToggle] = useState(false)
+
+  const onClick = () => {
+    setToggle(!toggle)
+  }
+
+  const datePicker = (
+    <>
+      <div className={styles.triangle}>{""}</div>
+      <DatePickerComponent onClick={onClick} />
+    </>
+  )
 
   return (
     <div className={styles.reservationWrapper}>
@@ -28,7 +42,14 @@ const Info: FC<InfoProps> = ({ startDate, endDate }) => {
                 : `${startMonth}월 ${startDay}일 ~ ${endMonth}월 ${endDay}일`}
             </div>
           </div>
-          <button className={styles.modifyButton}>수정</button>
+          <div className={styles.modifyDate}>
+            <button className={styles.modifyButton} onClick={onClick}>
+              수정
+            </button>
+            <div className={styles.modifyDateWrapper}>
+              {toggle && datePicker}
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -39,8 +39,33 @@
   font-size: 1.25rem;
   font-weight: 600;
 }
-.data {
+
+.triangle {
+  position: absolute;
+  top: -7px;
+  left: 310px;
+  width: 14px;
+  background-color: #f6f6f6;
+  height: 14px;
+  transform: rotate(135deg);
+  position: absolute;
+  z-index: 2000;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid #aeaeae;
+  border-left: 1px solid #aeaeae;
 }
+.modifyDate {
+  position: relative;
+}
+
+.modifyDateWrapper {
+  position: absolute;
+  top: 40px;
+  left: -296px;
+  z-index: 20;
+}
+
 .modifyButton {
   border: none;
   background: transparent;
