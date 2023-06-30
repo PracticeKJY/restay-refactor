@@ -1,3 +1,4 @@
+import withHead from "../@component/withHead"
 import WishListCard from "./WishListCard"
 
 // import { GetServerSideProps } from "next"
@@ -18,4 +19,4 @@ const WishList = () => {
   )
 }
 
-export default WishList
+export default withHead(WishList, "위시리스트", "위시리스트 페이지입니다.")
