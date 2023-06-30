@@ -1,7 +1,8 @@
+import withHead from "@/pages/@component/withHead"
 import Reservation from "./Reservation"
 
-const index = () => {
+const Index = () => {
   return <Reservation />
 }
 
-export default index
+export default withHead(Index, "예약 -Restay", "예약 페이지입니다.")

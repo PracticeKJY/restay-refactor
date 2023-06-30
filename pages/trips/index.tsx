@@ -5,4 +5,4 @@ const Index = () => {
   return <Trips />
 }
 
-export default withHead(Index, "여행", "여행 페이지입니다.")
+export default withHead(Index, "여행 -Restay", "여행 페이지입니다.")

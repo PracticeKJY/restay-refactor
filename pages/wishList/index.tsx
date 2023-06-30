@@ -19,4 +19,8 @@ const WishList = () => {
   )
 }
 
-export default withHead(WishList, "위시리스트", "위시리스트 페이지입니다.")
+export default withHead(
+  WishList,
+  "위시리스트 -Restay",
+  "위시리스트 페이지입니다.",
+)
