@@ -1,6 +1,6 @@
 .modalWrapper {
   position: fixed;
-  z-index: 50;
+  z-index: 250;
   top: 0;
   left: 0;
   width: 100%;
