@@ -31,10 +31,11 @@ const SwiperComponent: FC<SwiperComponentProps> = ({
     return (
       <SwiperSlide key={index}>
         <Image
-          width={300}
-          height={300}
+          priority
           alt=""
           src={src}
+          fill
+          sizes="(min-width:640px)50vw,100vw"
           className={styles.listingsImage}
           onClick={() => {
             router.push(`/listings/${data._id}`)

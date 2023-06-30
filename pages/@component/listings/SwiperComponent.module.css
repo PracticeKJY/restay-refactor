@@ -1,18 +1,20 @@
 .swiper {
   width: 100%;
-  height: 100%;
+  height: 300px;
+  border-radius: 12px;
 }
 
 .listingsWrapper {
   display: block;
   position: relative;
   max-width: 300px;
-  border-radius: 12px;
   cursor: pointer;
 }
 
 .listingsImage {
-  border-radius: 12px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
 }
 
 .prevButton {
