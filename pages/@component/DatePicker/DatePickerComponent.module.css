@@ -6,20 +6,18 @@
 .calendar {
   position: absolute !important;
   z-index: 10;
-  top: 0 !important;
-  left: 0;
   width: 380px;
-  height: 410px;
+  top: 0px !important;
+  left: -24px;
   font-size: 18px !important;
   display: flex !important;
   flex-direction: column !important;
 }
 
 .confirmDatePickerButton {
-  position: absolute;
   width: 300px;
-  right: 10%;
   padding: 10px 0;
+  margin: 0 auto;
 }
 
 .calendarHeaderWrapper {
@@ -32,8 +30,6 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  /* margin-top: 8px; */
-  /* width: 300px; */
 }
 
 .calendarHeaderPrevButton {

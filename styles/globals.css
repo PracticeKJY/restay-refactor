@@ -159,6 +159,11 @@ a:active {
   text-decoration: none;
 }
 
+.react-datepicker__children-container {
+  width: 380px !important;
+  margin: 0 !important;
+}
+
 /* 이전 달, 다음 달에 해당하는 날짜는 표시되지 않도록 속성주기 */
 .react-datepicker__day--outside-month {
   cursor: default;
@@ -207,8 +212,7 @@ a:active {
 }
 
 .react-datepicker__day--keyboard-selected {
-  background-color: #f43f5e !important;
-  color: white !important;
+  background-color: transparent !important;
 }
 .react-datepicker__day--in-selecting-range {
   background-color: #f3f3f3 !important;
