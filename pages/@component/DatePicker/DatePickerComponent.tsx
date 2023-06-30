@@ -14,13 +14,11 @@ import { getMonth, getYear } from "date-fns"
 import _ from "lodash"
 import { useAtomValue, useSetAtom } from "jotai"
 
-const DatePickerComponent = () => {
+const DatePickerComponent = ({ onClick }: any) => {
   const startDate = useAtomValue(startDateAtom)
   const endDate = useAtomValue(endDateAtom)
-  const toggle = useAtomValue(calendarOpenAtom)
   const setStartDate = useSetAtom(startDateAtom)
   const setEndDate = useSetAtom(endDateAtom)
-  const setToggle = useSetAtom(calendarOpenAtom)
 
   const years = _.range(2023, getYear(new Date()) + 1, 1)
   const months = [
@@ -42,10 +40,6 @@ const DatePickerComponent = () => {
     const [start, end] = dates
     setStartDate(start)
     setEndDate(end)
-  }
-
-  const toggleHandler = () => {
-    setToggle(!toggle)
   }
 
   return (
@@ -83,14 +77,13 @@ const DatePickerComponent = () => {
       selectsRange
       onChange={onChange}
       calendarClassName={styles.calendar} //달력커스텀
-      showPopperArrow={false}
       startDate={startDate}
       endDate={endDate}
       minDate={new Date()}
       inline
     >
       <div className={styles.confirmDatePickerButton}>
-        <Button label={"확인"} onClick={toggleHandler} outline />
+        <Button label={"확인"} onClick={onClick} outline />
       </div>
     </DatePicker>
   )

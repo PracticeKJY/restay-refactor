@@ -74,7 +74,7 @@ const ListingsReservation: FC<ListingsReservationProps> = ({
           endDate={endDate}
           onClick={toggleHandler}
         />
-        {toggle && <DatePickerComponent />}
+        {toggle && <DatePickerComponent onClick={toggleHandler} />}
         <Button
           label={"예약하기"}
           onClick={() => {
