@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import DetailListingPage from "./DetailListingPage"
 import { DetailListingAtom } from "../../../jotai/@store/state"
 import { useAtom } from "jotai"
@@ -28,14 +28,22 @@ const Listings = () => {
   const [DetailListing, setDetailListing] = useAtom(DetailListingAtom)
   const [isLoading, setIsLoading] = useState(true)
 
+  const updateDetailListing = useCallback(
+    (data: any) => {
+      setDetailListing(data)
+    },
+    [setDetailListing],
+  )
+
   useEffect(() => {
     const getDetailListingData = async () => {
       try {
+        setIsLoading(true)
         const response = await axios.post(
           "/api/listings/getListingInfo",
           router.query,
         )
-        setDetailListing(response.data)
+        updateDetailListing(response.data)
       } catch (error) {
         console.error(error)
       } finally {
@@ -43,14 +51,12 @@ const Listings = () => {
       }
     }
     getDetailListingData()
-  }, [router.query])
+  }, [router.query, updateDetailListing])
 
-  return isLoading ? (
+  return isLoading || DetailListing === null ? (
     <Spinner />
-  ) : DetailListing ? (
-    <DetailListingPage listingData={DetailListing} />
   ) : (
-    <div>에러페이지 입니다. -업데이트 예정-</div>
+    <DetailListingPage listingData={DetailListing} />
   )
 }
 
