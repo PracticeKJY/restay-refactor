@@ -32,3 +32,9 @@
 .footerTextButton:hover {
   text-decoration: underline;
 }
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .bodyContentContainer {
+    gap: 0.35rem;
+  }
+}

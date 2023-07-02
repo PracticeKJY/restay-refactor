@@ -24,7 +24,9 @@ const CategoryInput: FC<CategoryInput> = ({
         selected ? styles.isSelected : ""
       } }`}
     >
-      <Icon size={30} />
+      <div className={styles.iconWrapper}>
+        <Icon size={30} />
+      </div>
       <div className={styles.labelContainer}>{label}</div>
     </div>
   )

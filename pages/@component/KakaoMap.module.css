@@ -3,3 +3,9 @@
   border-radius: 0.5rem;
   z-index: 0;
 }
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .mapContainer {
+    height: 200px;
+  }
+}

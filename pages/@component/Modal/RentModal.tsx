@@ -203,24 +203,26 @@ const RentModal = () => {
           title="공유하실 장소에 몇가지 사항을 알려주세요."
           subTitle="어떠한 편의 시설들이 있나요?"
         />
-        <Counter
-          title={"게스트"}
-          subTitle={"총 인원수를 알려주세요."}
-          value={guestCount}
-          onChange={(value) => setCustomValue("guestCount", value)}
-        />
-        <Counter
-          title={"방"}
-          subTitle={"총 방의 갯수를 알려주세요."}
-          value={roomCount}
-          onChange={(value) => setCustomValue("roomCount", value)}
-        />
-        <Counter
-          title={"화장실"}
-          subTitle={"총 화장실의 갯수를 알려주세요."}
-          value={bathroomCount}
-          onChange={(value) => setCustomValue("bathroomCount", value)}
-        />
+        <div className={styles.counterWrapper}>
+          <Counter
+            title={"게스트"}
+            subTitle={"총 인원수를 알려주세요."}
+            value={guestCount}
+            onChange={(value) => setCustomValue("guestCount", value)}
+          />
+          <Counter
+            title={"방"}
+            subTitle={"총 방의 갯수를 알려주세요."}
+            value={roomCount}
+            onChange={(value) => setCustomValue("roomCount", value)}
+          />
+          <Counter
+            title={"화장실"}
+            subTitle={"총 화장실의 갯수를 알려주세요."}
+            value={bathroomCount}
+            onChange={(value) => setCustomValue("bathroomCount", value)}
+          />
+        </div>
       </div>
     )
   }

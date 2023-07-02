@@ -1,7 +1,7 @@
 "use client"
 
 import { FC } from "react"
-
+import styles from "./Heading.module.css"
 interface HeadingProps {
   title: string
   subTitle?: string
@@ -10,17 +10,9 @@ interface HeadingProps {
 
 const Heading: FC<HeadingProps> = ({ title, subTitle, center }) => {
   return (
-    <div style={{ textAlign: center ? "center" : "start" }}>
-      <div style={{ fontSize: "1.5rem", fontWeight: "700" }}>{title}</div>
-      <div
-        style={{
-          fontWeight: "300",
-          marginTop: "0.5rem",
-          color: "#737373",
-        }}
-      >
-        {subTitle}
-      </div>
+    <div className={`${center ? styles.center : styles.headingWrapper}`}>
+      <div className={styles.title}>{title}</div>
+      <div className={styles.subtitle}>{subTitle}</div>
     </div>
   )
 }
