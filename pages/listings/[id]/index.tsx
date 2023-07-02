@@ -5,10 +5,11 @@ import DetailListingPage from "./DetailListingPage"
 import { DetailListingAtom } from "../../../jotai/@store/state"
 import { useAtom } from "jotai"
 import Spinner from "@/pages/Spinner"
+import { GetServerSideProps, InferGetServerSidePropsType } from "next"
 
 type Data = {
   category: string
-  locationValue: string
+  location: string
   guestCount: number
   roomCount: number
   bathroomCount: number
@@ -23,40 +24,35 @@ type Data = {
   userImage: string
 }
 
-const Listings = () => {
-  const router = useRouter()
-  const [DetailListing, setDetailListing] = useAtom(DetailListingAtom)
+export const getServerSideProps: GetServerSideProps<{
+  listingDataProps: Data
+}> = async (context) => {
+  const id = context.params?.id
+  const res = await axios.post(
+    "http://localhost:3000/api/listings/getListingInfo",
+    { id: id },
+  )
+  const listingDataProps = res.data
+  return { props: { listingDataProps } }
+}
+
+const Listings = ({
+  listingDataProps,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [isLoading, setIsLoading] = useState(true)
 
-  const updateDetailListing = useCallback(
-    (data: any) => {
-      setDetailListing(data)
-    },
-    [setDetailListing],
-  )
-
   useEffect(() => {
-    const getDetailListingData = async () => {
-      try {
-        setIsLoading(true)
-        const response = await axios.post(
-          "/api/listings/getListingInfo",
-          router.query,
-        )
-        updateDetailListing(response.data)
-      } catch (error) {
-        console.error(error)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-    getDetailListingData()
-  }, [router.query, updateDetailListing])
+    setIsLoading(false)
+  }, [])
 
-  return isLoading || DetailListing === null ? (
-    <Spinner />
-  ) : (
-    <DetailListingPage listingData={DetailListing} />
+  return (
+    <>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <DetailListingPage listingData={listingDataProps} />
+      )}
+    </>
   )
 }
 
