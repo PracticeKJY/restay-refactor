@@ -28,6 +28,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
@@ -38,6 +39,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           property="og:image"
           content={"https://restay.vercel.app/mainLogo.svg"}
         />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <link rel="icon" href="/restay.png" />
       </Head>
       <ClientOnly>
