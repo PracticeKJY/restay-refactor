@@ -17,6 +17,7 @@ const ListingCard = () => {
   useEffect(() => {
     const getListing = async () => {
       try {
+        setIsLoading(true)
         const response = await axios.post(
           "/api/listings/getListings",
           router.query,
