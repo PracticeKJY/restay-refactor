@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps<{
 }> = async (context) => {
   const id = context.params?.id
   const res = await axios.post(
-    "http://localhost:3000/api/listings/getListingInfo",
+    "https://restay.vercel.app/api/listings/getListingInfo",
     { id: id },
   )
   const listingDataProps = res.data
