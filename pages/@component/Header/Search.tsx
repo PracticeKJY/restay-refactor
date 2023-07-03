@@ -93,7 +93,11 @@ const Search = () => {
           <div className={styles.searchText} onClick={onClick}>
             어디든지, 언제든지 <span>Restay</span>와 함께 떠나보는 건 어떨까요?
           </div>
-          <button className={styles.biSearchWrapper} onClick={onClick}>
+          <button
+            aria-label={"검색버튼"}
+            className={styles.biSearchWrapper}
+            onClick={onClick}
+          >
             <BiSearch size={18} />
           </button>
         </div>
@@ -114,6 +118,7 @@ const Search = () => {
             className={styles.biSearchWrapper}
             type="button"
             onClick={onClick}
+            aria-label={"검색버튼"}
           >
             <TiTimes size={18} />
           </button>
