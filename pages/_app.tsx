@@ -30,6 +30,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <meta name="description" content={metadata.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:type" content="website" />
+        <meta property="og:title" content={metadata.title} />
         <meta
           property="og:description"
           content="문득 어디로 떠나고 싶을 땐 Restay!  "
@@ -39,8 +40,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           property="og:image"
           content={"https://restay.vercel.app/mainLogo.svg"}
         />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="og:image:width" content="410" />
+        <meta property="og:image:height" content="200" />
         <link rel="icon" href="/restay.png" />
       </Head>
       <ClientOnly>
