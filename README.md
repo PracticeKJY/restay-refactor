@@ -336,7 +336,7 @@
         <p> 결제기능을 실제 구현하지 않고, 레이아웃만 구현하였습니다.</p>
       </td>
       <td width="500">
-        <img src="https://github.com/PracticeKJY/restay-refactor/assets/119389577/bd22ee76-ab81-4c0a-83bb-f2ebe6d76e9a"/>
+        <img src="https://github.com/PracticeKJY/restay-refactor/assets/119389577/871087a2-5d06-4b1c-a042-91e4db8afbbb"/>
       </td>        
     </tr>
     <tr>
