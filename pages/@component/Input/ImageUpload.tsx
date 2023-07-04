@@ -38,6 +38,9 @@ const ImageUpload: FC<ImageUploadProps> = ({ onChange, value }) => {
         uploadPreset="x8nx2u3v"
         options={{
           maxFiles: 4,
+          maxImageWidth: 300,
+          minImageHeight: 300,
+          maxImageHeight: 300,
         }}
       >
         {({ open }) => {
