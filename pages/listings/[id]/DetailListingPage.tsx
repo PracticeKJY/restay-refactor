@@ -60,7 +60,12 @@ const DetailListingPage: FC<DetailListingPageProps> = ({ listingData }) => {
             </div>
             <div className={styles.mapInfoWrapper}>
               <div className={styles.mapInfo} ref={mapRef}>
-                <div className={styles.mapInfoTitle}>호스팅 위치</div>
+                <div className={styles.mapInfoTitle}>
+                  호스팅 위치
+                  <div className={styles.mapInfoSubTitle}>
+                    로드뷰가 지원되지 않는 장소는 회색으로 표시됩니다.
+                  </div>
+                </div>
                 <KakaoMap center={center} />
               </div>
             </div>

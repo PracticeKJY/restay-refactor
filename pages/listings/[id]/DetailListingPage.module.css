@@ -146,6 +146,12 @@
   font-weight: 600;
 }
 
+.mapInfoSubTitle {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #aaa;
+}
+
 .displayNav {
   display: block;
   width: 100%;

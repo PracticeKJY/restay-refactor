@@ -1,11 +1,61 @@
 .mapContainer {
+  position: relative;
+}
+
+.test {
+  position: absolute;
+  z-index: 1;
+  width: 42px;
+  height: 42px;
+  top: 42px;
+  right: 38px;
+  border: none;
+  background: white;
+  border-radius: 4px;
+  background: url(https://t1.daumcdn.net/localimg/localimages/07/2018/pc/common/img_search.png)
+    0 -450px no-repeat;
+}
+
+.loadViewButton {
+  position: absolute;
+  z-index: 1;
+  top: 42px;
+  right: 38px;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.loadView {
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  right: 4px;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.mapWrapper {
+  height: 35vh;
+  border-radius: 0.5rem;
+  z-index: 0;
+}
+
+.roadViewWrapper {
   height: 35vh;
   border-radius: 0.5rem;
   z-index: 0;
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
-  .mapContainer {
+  .mapWrapper {
     height: 200px;
   }
 }
