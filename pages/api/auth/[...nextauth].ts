@@ -1,11 +1,11 @@
-import bcrypt from "bcrypt"
-import NextAuth, { AuthOptions } from "next-auth"
-import CredentialsProvider from "next-auth/providers/credentials"
-import GoogleProvider from "next-auth/providers/google"
-import NaverProvider from "next-auth/providers/naver"
-import KakaoProvider from "next-auth/providers/kakao"
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
-import connectDB from "@/pages/api/mongoDB"
+import bcrypt from "bcrypt";
+import NextAuth, { AuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
+import NaverProvider from "next-auth/providers/naver";
+import KakaoProvider from "next-auth/providers/kakao";
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import connectDB from "@/pages/api/mongoDB";
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -37,28 +37,23 @@ export const authOptions: AuthOptions = {
       //아이디,비번 맞으면 return 결과, 틀리면 return null 해야함
       async authorize(credentials, req) {
         if (!credentials?.email || !credentials?.password) {
-          throw new Error("Invalid credentials")
+          throw new Error("Invalid credentials");
         }
 
-        let db = (await connectDB).db("Restay")
-        let user: any = await db
-          .collection("users")
-          .findOne({ email: credentials.email })
+        let db = (await connectDB).db("Restay");
+        let user: any = await db.collection("users").findOne({ email: credentials.email });
 
         if (!user) {
-          throw new Error("해당 이메일은 없음")
+          throw new Error("해당 이메일은 없음");
         }
 
-        const pwcheck = await bcrypt.compare(
-          credentials.password,
-          user.password,
-        )
+        const pwcheck = await bcrypt.compare(credentials.password, user.password);
         if (!pwcheck) {
-          throw new Error("Invalid credentials")
+          throw new Error("Invalid credentials");
         }
 
         // return { id: user._id.toString(), name: user.name, email: user.email }
-        return user
+        return user;
       },
     }),
   ],
@@ -74,19 +69,19 @@ export const authOptions: AuthOptions = {
     //user변수는 DB의 유저정보담겨있고 token.user에 뭐 저장하면 jwt에 들어갑니다.
     jwt: async ({ token, user }: any) => {
       if (user) {
-        token.user = {}
-        token.user.name = user.name
-        token.user.email = user.email
-        token.user.image = user.image
+        token.user = {};
+        token.user.name = user.name;
+        token.user.email = user.email;
+        token.user.image = user.image;
       }
-      return token
+      return token;
     },
     //5. 유저 세션이 조회될 때 마다 실행되는 코드
     async session({ session, token }: any) {
       // Send properties to the client, like an access_token and user id from a provider.
-      session.user = token.user
-      session.providerType = token.providerType
-      return session
+      session.user = token.user;
+      session.providerType = token.providerType;
+      return session;
     },
   },
 
@@ -96,6 +91,6 @@ export const authOptions: AuthOptions = {
   debug: process.env.NODE_ENV === "development",
   secret: process.env.mongoDB_SECRET,
   adapter: MongoDBAdapter(connectDB),
-}
+};
 
-export default NextAuth(authOptions)
+export default NextAuth(authOptions);
