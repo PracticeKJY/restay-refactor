@@ -41,8 +41,6 @@ const DetailListingPage: FC<DetailListingPageProps> = ({ listingData }) => {
     lng: Number(listingData.latlngData.lng),
   };
 
-  console.log(center, "center");
-
   return (
     <>
       <MiniHeader topRef={topRef} bodyRef={bodyRef} mapRef={mapRef} />
