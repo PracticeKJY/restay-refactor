@@ -1,0 +1,55 @@
+.button {
+  position: relative;
+  width: 100%;
+  border-radius: 0.5rem;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.button:hover {
+  opacity: 0.8;
+}
+
+.Image {
+  position: absolute;
+  left: 1rem;
+  top: 0.75rem;
+}
+
+.isOutline {
+  background: white;
+  border-color: rgb(0 0 0);
+  color: rgb(0 0 0);
+}
+.nonOutline {
+  background: #f43f5e;
+  border-color: #f43f5e;
+  color: white;
+}
+.isSmall {
+  width: 20%;
+  padding: 0.25rem 0;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+  font-weight: 600;
+  border-width: 1px;
+}
+.nonSmall {
+  padding: 0.75rem 0;
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+  font-weight: 600;
+  border-width: 2px;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .nonSmall {
+    padding: 0.25rem 0.25rem 0.25rem 0.25rem;
+  }
+  .Image {
+    top: 0.25rem;
+  }
+}

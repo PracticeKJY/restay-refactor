@@ -1,0 +1,78 @@
+.userMenuWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+}
+
+.userMenu {
+  padding: 4px 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #e6e6e6;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.userMenu:hover {
+  background: #f5f5f5;
+}
+
+.userMenuText {
+  font-size: 0.925rem;
+  font-weight: 600;
+  padding-right: 24px;
+}
+
+.userMenuOpen {
+  width: 160px;
+  position: absolute;
+  z-index: 20;
+  right: 0;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5px;
+  padding: 0.75rem 1rem;
+  gap: 1rem;
+  font-size: 0.925rem;
+  font-weight: 600;
+  border: 1px solid #e6e6e6;
+  border-top: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px -2px rgb(226, 225, 225);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.pointer:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
+
+@media (max-width: 1300px) {
+  .hostingText {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .userMenuText {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .userMenu {
+    border: 0;
+  }
+
+  .userMenu img {
+    display: none;
+  }
+}

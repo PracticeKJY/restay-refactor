@@ -1,7 +1,7 @@
 "use client";
 import { FC, useEffect, useState } from "react";
 import styles from "./KakaoMap.module.css";
-import { Map, MapMarker, MapTypeControl, MapTypeId, Roadview, ZoomControl } from "react-kakao-maps-sdk";
+import { Map, MapMarker, MapTypeControl, MapTypeId, Roadview, ZoomControl, useKakaoLoader as useKakaoLoaderOrigin } from "react-kakao-maps-sdk";
 import { latlngAtom } from "../../jotai/@store/state";
 import { useAtomValue } from "jotai";
 import Image from "next/image";
@@ -18,6 +18,14 @@ const KakaoMap: FC<KakaoMapProps> = ({ center }) => {
     setToggle(!toggle);
   };
 
+  const useKakaoLoader = () => {
+    useKakaoLoaderOrigin({
+      appkey: process.env.NEXT_PUBLIC_KAKAO_JS_KEY as string,
+      libraries: ["clusterer", "drawing", "services"],
+    });
+  };
+
+  useKakaoLoader();
   return (
     <>
       <div className={styles.mapContainer}>

@@ -1,0 +1,63 @@
+.react-datepicker__header {
+  background-color: white;
+  border-bottom: none;
+}
+
+.calendar {
+  position: absolute !important;
+  z-index: 10;
+  width: 380px;
+  top: 0px !important;
+  left: -24px;
+  font-size: 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.confirmDatePickerButton {
+  width: 300px;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.calendarHeaderWrapper {
+  padding: 20px;
+  background-color: #f6f6f6;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.calendarHeaderPrevButton {
+  background-color: transparent;
+  position: absolute;
+  border: none;
+  left: 30px;
+  padding: 0 4px;
+}
+
+.calendarHeaderPrevButton:disabled {
+  filter: opacity(0.35) drop-shadow(0 0 0 #e2e2e2) !important;
+  cursor: default;
+}
+
+.calendarHeaderNextButton {
+  background-color: transparent;
+  position: absolute;
+  border: none;
+  right: 30px;
+  padding: 0 4px;
+}
+
+.calendarHeaderSelect {
+  border: none;
+}
+
+.calendarHeaderDateInfo {
+  font-size: 16px;
+  font-weight: 700;
+}

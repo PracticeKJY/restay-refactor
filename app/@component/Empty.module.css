@@ -1,0 +1,13 @@
+.container {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonWrapper {
+  width: 12rem;
+  margin-top: 1rem;
+}

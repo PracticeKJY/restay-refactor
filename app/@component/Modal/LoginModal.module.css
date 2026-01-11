@@ -1,0 +1,40 @@
+.bodyContentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footerContentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.footerTextContainer {
+  color: #737373;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 300;
+}
+
+.footerTextWraaper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerTextButton {
+  background: transparent;
+  border: none;
+}
+.footerTextButton:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .bodyContentContainer {
+    gap: 0.35rem;
+  }
+}

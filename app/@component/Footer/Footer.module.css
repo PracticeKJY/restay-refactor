@@ -1,0 +1,44 @@
+.footerContainer {
+  overflow: hidden;
+  clear: both;
+  position: relative;
+  margin-top: 120px;
+  padding: 63px 31px 40px 31px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: rgb(245, 245, 245);
+  font-size: 13px;
+  line-height: 20px;
+  color: #000;
+}
+
+.ulList {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  /* gap: 10px; */
+}
+
+.liList::after {
+  content: "ㅣ";
+  padding: 0 10px;
+}
+
+.serviceCenterInfo {
+  clear: both;
+  padding: 37px 0 24px 0;
+}
+
+.serviceCenterInfo b {
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.footerIconWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 20px;
+  padding: 20px 0 5px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}

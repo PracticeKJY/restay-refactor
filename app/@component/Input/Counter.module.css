@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-weight: 500;
+}
+.subTitle {
+  font-weight: 300;
+  color: #4b5563;
+}
+.counterButtonWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.counterButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #525252;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid #a3a3a3;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+.counterButton:hover {
+  opacity: 0.8;
+}
+.counterValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  font-weight: 300;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+  color: #525252;
+}

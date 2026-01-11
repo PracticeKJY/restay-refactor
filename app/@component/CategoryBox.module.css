@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  color: #737373;
+  border-bottom: 2px solid transparent;
+  overflow-x: scroll;
+  cursor: pointer;
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+}
+
+.container::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+.isSelected {
+  border-bottom-color: #262626;
+  color: #262626;
+}
+
+.container:hover {
+  color: #262626;
+  border-bottom: 2px solid #262626;
+}
+
+.labelWrapper {
+  font-weight: 500;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+}
+
+@media (max-width: 1200px) {
+  .labelWrapper {
+    display: none;
+  }
+}
