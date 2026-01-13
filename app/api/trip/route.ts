@@ -1,17 +1,17 @@
-// app/api/favorite/favorite/route.ts
 import clientPromise from "@/app/api/mongoDB";
 import { NextResponse } from "next/server";
 
-export const runtime = "nodejs"; // ⭐ MongoDB는 반드시 nodejs
+export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
+    const { email } = await req.json();
 
     const client = await clientPromise;
     const db = client.db("Restay");
 
-    const result = await db.collection("reservation").insertOne(body);
+    // const result = await db.collection("reservation").find({ email: session?.user?.email }).toArray();
+    const result = await db.collection("reservation").find({ email }).toArray();
 
     return NextResponse.json(result, { status: 200 });
   } catch (error) {

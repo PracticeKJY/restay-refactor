@@ -48,7 +48,9 @@ const FavoriteButton = ({ data, sessionEmail }: Props) => {
   });
 
   const handleSetFavorite = () => {
-    if (!isLoggedIn) {
+    console.log(sessionEmail, "sessionEmail");
+
+    if (!sessionEmail) {
       alert("로그인 후 이용해주세요.");
       return;
     }

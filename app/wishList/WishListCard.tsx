@@ -10,6 +10,8 @@ type Props = {
   sessionEmail: string | null;
 };
 
+// todo. 01.14 위시리스트 데이터 db 올라가는거 확인 후, 불러오기 및 데이터 바인딩
+
 const WishListCard = ({ sessionEmail }: Props) => {
   const wishList = useAtomValue(wishListAtom);
 

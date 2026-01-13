@@ -1,21 +1,22 @@
-"use client"
+"use client";
 
-import styles from "./Reservation.module.css"
-import Image from "next/image"
-import { FcPlanner } from "react-icons/fc"
+import Skeleton from "@/app/@component/Skeleton/Skeleton";
+import styles from "./Reservation.module.css";
+import Image from "next/image";
+import { FcPlanner } from "react-icons/fc";
 
 const ProductCardInfo = ({ detailListing }: any) => {
-  const imageSrc = detailListing?.imageSrc?.[0] ?? ""
+  const imageSrc = detailListing?.imageSrc?.[0];
 
   return (
     <div className={styles.productInfoWrapper}>
-      <Image
-        src={imageSrc}
-        alt=""
-        width={124}
-        height={106}
-        className={styles.productImage}
-      />
+      {imageSrc ? (
+        <Image src={imageSrc} alt="reservationImg" width={124} height={106} className={styles.productImage} />
+      ) : (
+        <>
+          <Skeleton variant="image" width={124} height={106} radius={12} />
+        </>
+      )}
       <div className={styles.productInfo}>
         <div>
           <div className={styles.categoryInfo}>
@@ -33,7 +34,7 @@ const ProductCardInfo = ({ detailListing }: any) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductCardInfo
+export default ProductCardInfo;

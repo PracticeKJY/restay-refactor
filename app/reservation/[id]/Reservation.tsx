@@ -48,14 +48,12 @@ const ReservationClient = ({ sessionEmail }: Props) => {
         product: detailListing,
         startDay: apiStartDay,
         endDay: apiEndDay,
+        email: sessionEmail,
       };
 
-      // ⚠️ email은 서버에서 auth()로 확정해야 함
-      const res = await POST<reservationProductAtomProps[]>("/api/reservation/reservation", payload);
+      const res = await POST<reservationProductAtomProps[]>("/api/reservation", payload);
 
       console.log(res.data, "resresresrserserser");
-
-      setReservationProduct((prev) => [...prev, payload]);
 
       toast.success("예약되었습니다.");
       router.push("/");

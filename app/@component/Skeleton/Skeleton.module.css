@@ -1,0 +1,35 @@
+.sk {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f5f5f5 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  background-position: 200% 0; /* 시작 위치 */
+}
+
+.animate {
+  animation: shimmer 1.5s linear infinite;
+}
+
+/* motion 줄이기 설정한 유저에겐 애니메이션 끔 */
+@media (prefers-reduced-motion: reduce) {
+  .animate {
+    animation: none;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.wrap {
+  width: auto;
+  height: fit-content;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}

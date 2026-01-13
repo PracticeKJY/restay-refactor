@@ -10,15 +10,16 @@ interface ListingsCardProps {
   data: any;
   userId: any;
   wishList?: boolean;
+  sessionEmail?: string;
 }
 
-const ListingsCard: FC<ListingsCardProps> = ({ data }) => {
+const ListingsCard: FC<ListingsCardProps> = ({ data, sessionEmail }) => {
   const [isHover, setIsHover] = useState(false);
 
   return (
     <>
       <div className={styles.listingsWrapper} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-        <SwiperComponent data={data} isHover={isHover} />
+        <SwiperComponent data={data} isHover={isHover} sessionEmail={sessionEmail} />
         <CardInfo data={data} />
       </div>
     </>

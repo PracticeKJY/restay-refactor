@@ -5,8 +5,6 @@ import { auth } from "@/auth";
 const Index = async () => {
   const session = await auth();
 
-  console.log(session?.user?.email, "이메일뭐라나오는데요?");
-
   return <Reservation sessionEmail={session?.user?.email ?? ""} />;
 };
 

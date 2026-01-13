@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 
 export type ReservationProps = {
   _id: ObjectId;
-  email: string;
+  email: string | null | undefined;
   product: Product;
   startDay: string;
   endDay: string;

@@ -14,9 +14,10 @@ interface HomeClientProps {
   searchParams: {
     category?: string;
   };
+  sessionEmail?: string;
 }
 
-export default function HomeClient({ searchParams }: HomeClientProps) {
+export default function HomeClient({ searchParams, sessionEmail }: HomeClientProps) {
   const [fetchUrl, setFetchUrl] = useAtom(fetchUrlAtom);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -53,7 +54,7 @@ export default function HomeClient({ searchParams }: HomeClientProps) {
       {searchResult}
       <div className={styles.listingsContainer}>
         {fetchUrl.map((data: any) => (
-          <ListingsCard key={data._id} userId={data._id} data={data} />
+          <ListingsCard key={data._id} userId={data._id} data={data} sessionEmail={sessionEmail} />
         ))}
       </div>
     </div>

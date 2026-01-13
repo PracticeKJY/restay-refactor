@@ -1,8 +1,10 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useCallback, useEffect } from "react";
 import DetailListingPage from "./DetailListingPage";
 import { notFound } from "next/navigation";
+import { useAtom } from "jotai";
+import { DetailListingAtom } from "@/jotai/@store/state";
 
 interface DetailListingClientProps {
   sessionEmail?: string;
@@ -26,6 +28,19 @@ interface DetailListingClientProps {
 }
 
 const DetailListingClient: FC<DetailListingClientProps> = ({ sessionEmail, listingData }) => {
+  const [detailListing, setDetailListing] = useAtom(DetailListingAtom);
+
+  const updateDetailListing = useCallback(
+    (data: any) => {
+      setDetailListing(data);
+    },
+    [setDetailListing]
+  );
+
+  useEffect(() => {
+    updateDetailListing(listingData);
+  }, [updateDetailListing, listingData]);
+
   if (!listingData) return notFound();
 
   return <DetailListingPage sessionEmail={sessionEmail} listingData={listingData} />;

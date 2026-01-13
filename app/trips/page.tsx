@@ -6,6 +6,8 @@ import Container from "@/app/@component/Container";
 import Empty from "@/app/@component/Empty";
 import Trips from "./Trips";
 import { ReservationProps } from "@/types/reservation";
+import { POST } from "@/app/@http/request";
+import { reservationProductAtomProps } from "@/jotai/@store/state";
 
 export const runtime = "nodejs";
 
@@ -21,21 +23,19 @@ export default async function Page() {
     );
   }
 
-  const client = await clientPromise;
-  const db = client.db("Restay");
+  const res = await POST<reservationProductAtomProps[]>(`${process.env.NEXTAUTH_URL ?? ""}/api/trip`, {
+    email: session.user.email,
+  });
 
-  const result = await db.collection("reservation").find({ email: session.user.email }).toArray();
-
-  const serializedResult: ReservationProps[] = result.map((item: any) => ({
+  const serializedResult = res.data.map((item) => ({
     ...item,
-    _id: item._id.toString(),
+    _id: item.product._id.toString(),
   }));
 
   return (
     <Container>
       <div className={styles.tripsWrapper}>
         <div className={styles.tripsTitle}>예약확정내역</div>
-
         <div className={serializedResult.length > 0 ? styles.listingsContainer : ""}>
           {serializedResult.length > 0 ? (
             serializedResult.map((result) => <Trips key={String(result._id)} result={result} />)
