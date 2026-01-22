@@ -1,29 +1,67 @@
 "use client";
 
 import styles from "./WishListCard.module.css";
-import { useAtomValue } from "jotai";
-import { wishListAtom } from "../../jotai/@store/state";
 import Card from "./Card";
 import Empty from "../@component/Empty";
+import { useEffect, useState } from "react";
+import { GET } from "@/app/@http/request";
+import Spinner from "@/app/@component/Spinner/Spinner";
 
-type Props = {
-  sessionEmail: string | null;
-};
+export interface WishListProps {
+  _id: string;
+  id: string;
+  wishListTitle: string;
+  listing: Listing;
+}
 
-// todo. 01.14 위시리스트 데이터 db 올라가는거 확인 후, 불러오기 및 데이터 바인딩
+export interface Listing {
+  _id: string;
+  title: string;
+  description: string;
+  imageSrc: string[];
+  category: string;
+  roomCount: number;
+  bathroomCount: number;
+  guestCount: number;
+  price: number;
+  userId: string;
+  createdAt: string;
+  latlngData: {
+    lat: string;
+    lng: string;
+  };
+  location: string;
+  userImage: string;
+  userName: string;
+}
 
-const WishListCard = ({ sessionEmail }: Props) => {
-  const wishList = useAtomValue(wishListAtom);
+const WishListCard = () => {
+  const [wishList, setWishList] = useState<WishListProps[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const getFavoriteList = async () => {
+      try {
+        setIsLoading(true);
+        const res = await GET<WishListProps[]>("/api/favorite/findFavorite");
+        setWishList(res.data);
+      } catch (e) {
+        console.log(e);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  const wishListData = wishList.filter((item) => {
-    if (!sessionEmail) return false;
-    return item.email === sessionEmail;
-  });
+    getFavoriteList();
+  }, []);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div className={styles.wishListContainer}>
-      {wishListData.length > 0 ? (
-        <WishListProduct wishListData={wishListData} />
+      {wishList?.length > 0 ? (
+        <WishListProduct wishListData={wishList} />
       ) : (
         <Empty title="첫 번째 위시리스트를 만들어 주세요!" subtitle="하트 아이콘을 누르시고 가고싶은 숙소를 위시리스트에 저장하세요." actionLabel="숙소 검색하기" showReset />
       )}
@@ -31,13 +69,13 @@ const WishListCard = ({ sessionEmail }: Props) => {
   );
 };
 
-const WishListProduct = ({ wishListData }: { wishListData: any[] }) => {
+const WishListProduct = ({ wishListData }: { wishListData: WishListProps[] }) => {
   return (
     <div className={styles.wishListWrapper}>
       <div className={styles.wishListTitle}>위시리스트</div>
       <div className={styles.listingsContainer}>
-        {wishListData.map((data: any) => (
-          <Card key={data._id} userId={data._id} title={data.wishListTitle} data={data.favoriteData?.[0]} disable={true} />
+        {wishListData.map((data: WishListProps) => (
+          <Card key={data._id} userId={data._id} title={data.wishListTitle} data={data.listing} disable={true} />
         ))}
       </div>
     </div>

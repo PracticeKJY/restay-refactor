@@ -76,7 +76,7 @@ export default async function ListingDetailPage({ params }: ListingDetailPagePro
 //   listingDataProps,
 // }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 //   const [isLoading, setIsLoading] = useState(true)
-//   const [detailListing, setDetailListing] = useAtom(DetailListingAtom)
+  // const [detailListing, setDetailListing] = useAtom(DetailListingAtom)
 
 //   const updateDetailListing = useCallback(
 //     (data: any) => {

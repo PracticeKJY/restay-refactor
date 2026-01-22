@@ -23,7 +23,7 @@ export async function GET() {
       .collection("favorite")
       .aggregate([
         // ✅ 유저별 필터 (보안 필수)
-        { $match: { userEmail } },
+        { $match: { email: userEmail } },
 
         // string id → ObjectId 변환 (안전)
         {
@@ -52,15 +52,15 @@ export async function GET() {
         { $unwind: "$listing" },
 
         // 반환 필드 제한 (성능/보안)
-        {
-          $project: {
-            _id: 1,
-            id: 1,
-            userEmail: 1,
-            createdAt: 1,
-            listing: 1,
-          },
-        },
+        // {
+        //   $project: {
+        //     _id: 1,
+        //     id: 1,
+        //     userEmail: 1,
+        //     createdAt: 1,
+        //     listing: 1,
+        //   },
+        // },
       ])
       .toArray();
 
