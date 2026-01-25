@@ -12,6 +12,7 @@
     "@auth/mongodb-adapter": "^3.11.1",
     "@mantine/core": "^6.0.22",
     "@mantine/hooks": "^6.0.22",
+    "@supabase/supabase-js": "^2.91.0",
     "@types/lodash": "^4.14.195",
     "@types/node": "20.2.3",
     "@types/react": "18.2.6",

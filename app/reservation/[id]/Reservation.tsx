@@ -51,13 +51,39 @@ const ReservationClient = ({ sessionEmail }: Props) => {
         email: sessionEmail,
       };
 
-      const res = await POST<reservationProductAtomProps[]>("/api/reservation", payload);
+      // 1) 예약 생성
+      const res = await POST<any>("/api/reservation", payload);
+
+      // ✅ 2) 예약 성공 후: reservationId 뽑기 (필드명은 아래 중 하나일 가능성이 큼)
+      const reservationId = res?.data?.insertedId;
+
+      if (!reservationId) {
+        console.warn("예약 id가 응답에 없습니다. 채팅방을 생성할 수 없습니다.", res?.data);
+      } else {
+        // ✅ 3) 예약 성공 직후: 채팅방 자동 생성
+        const chatRes = await fetch("/api/chat/get-or-create", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include", // ⭐⭐⭐ 중요: NextAuth 쿠키 포함
+          body: JSON.stringify({ reservationId: String(reservationId) }),
+        });
+
+        const chatJson = await chatRes.json();
+
+        if (!chatRes.ok) {
+          console.error("채팅방 생성 실패:", chatJson);
+        } else {
+          console.log("채팅방 생성 완료:", chatJson.conversationId);
+          // 원하면 여기서 바로 메시지 페이지로 이동도 가능:
+          // router.push(`/messages/${chatJson.conversationId}`);
+        }
+      }
 
       console.log(res.data, "resresresrserserser");
 
       toast.success("예약되었습니다.");
-      router.push("/");
-    } catch {
+      // router.push("/");
+    } catch (e) {
       toast.error("예약에 실패했어요.");
     }
   };
