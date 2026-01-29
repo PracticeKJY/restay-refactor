@@ -4,8 +4,23 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 import type { Conversation } from "@/types/chat";
-import ensureSupabaseSession from "@/lib/ensureSupabaseSession";
-import Spinner from "@/pages/Spinner";
+
+async function ensureSupabaseSession() {
+  const { data } = await supabaseBrowser.auth.getSession();
+  if (data.session) return;
+
+  const res = await fetch("/api/session/supabase");
+  const json = await res.json();
+
+  if (!res.ok) {
+    throw new Error(json?.error ?? "Failed to get supabase session");
+  }
+
+  await supabaseBrowser.auth.setSession({
+    access_token: json.access_token,
+    refresh_token: json.refresh_token,
+  });
+}
 
 const MessagesPage = () => {
   const [list, setList] = useState<Conversation[]>([]);
@@ -16,13 +31,13 @@ const MessagesPage = () => {
       try {
         setLoading(true);
 
-        // NextAuth 로그인 기반으로 Supabase 세션 세팅
+        // ✅ NextAuth 로그인 기반으로 Supabase 세션 세팅
         await ensureSupabaseSession();
 
-        // 이제 토큰 없이도 RLS + Realtime 가능
+        // ✅ 이제 토큰 없이도 RLS + Realtime 가능
         const { data, error } = await supabaseBrowser
           .from("conversations")
-          .select("id, created_at, reservation_id, listing_id,host_email,guest_email, last_message_at, last_message_text")
+          .select("id, created_at, last_message_at, last_message_text")
           .order("last_message_at", { ascending: false, nullsFirst: false });
 
         if (error) {
@@ -40,7 +55,7 @@ const MessagesPage = () => {
     })();
   }, []);
 
-  if (loading) return <Spinner />;
+  if (loading) return <div style={{ padding: 16 }}>로딩중...</div>;
 
   return (
     <div style={{ padding: 16 }}>
@@ -50,18 +65,14 @@ const MessagesPage = () => {
         <p>대화방이 없습니다.</p>
       ) : (
         <ul style={{ display: "grid", gap: 8, padding: 0, listStyle: "none" }}>
-          {list.map((c) => {
-            console.log(c, "c?");
-
-            return (
-              <li key={c.id} style={{ border: "1px solid #ddd", borderRadius: 8, padding: 12 }}>
-                <Link href={`/messages/${c.id}`} style={{ textDecoration: "none" }}>
-                  {/* <div style={{ fontWeight: 600 }}>{c.last_message_text ?? "(메시지 없음)"}</div> */}
-                  <div style={{ opacity: 0.7, fontSize: 12 }}>{c.created_at}</div>
-                </Link>
-              </li>
-            );
-          })}
+          {list.map((c) => (
+            <li key={c.id} style={{ border: "1px solid #ddd", borderRadius: 8, padding: 12 }}>
+              <Link href={`/messages/${c.id}`} style={{ textDecoration: "none" }}>
+                <div style={{ fontWeight: 600 }}>{c.last_message_text ?? "(메시지 없음)"}</div>
+                <div style={{ opacity: 0.7, fontSize: 12 }}>{c.last_message_at ?? c.created_at}</div>
+              </Link>
+            </li>
+          ))}
         </ul>
       )}
     </div>

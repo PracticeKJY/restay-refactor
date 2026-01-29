@@ -1,33 +1,39 @@
-"use client"
+"use client";
 
-import styles from "./Reservation.module.css"
+import styles from "./Reservation.module.css";
 
-import Image from "next/image"
-import { FaAngleDown } from "react-icons/fa"
-import { FC, useState } from "react"
-import { useAtom, useAtomValue } from "jotai"
-import { paymentOptionAtom } from "../../../jotai/@store/state"
-import paymentOptionData from "../../../localData/paymentOptionData"
-import ReservationInput from "./ReservationInput"
-import PaymentOption from "./PaymentOption"
-import { IconType } from "react-icons"
+import Image from "next/image";
+import { useState } from "react";
+import paymentOptionData from "../../../localData/paymentOptionData";
+import ReservationInput from "./ReservationInput";
+import PaymentDropDownHeader from "@/app/reservation/components/PaymentDropDownHeader";
+import PaymentDropDownList from "@/app/reservation/components/PaymentDropDownList";
+import { useSetAtom } from "jotai";
+import { paymentTypeAtom } from "@/jotai/@store/state";
 
-const Payment = () => {
-  const paymentOptions = paymentOptionData
-  const [inputValue, setInputValue] = useState("")
-  const [formattedValue, setFormattedValue] = useState("")
+interface PaymentProps {
+  type: "creditCard" | "kakaoPay" | "tossPayments";
+}
+
+const Payment = ({ type }: PaymentProps) => {
+  const paymentOptions = paymentOptionData;
+
+  const setType = useSetAtom(paymentTypeAtom);
+
+  const [inputValue, setInputValue] = useState("");
+  const [formattedValue, setFormattedValue] = useState("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/[^0-9]/g, "")
+    const value = e.target.value.replace(/[^0-9]/g, "");
 
-    let formatted = ""
+    let formatted = "";
     for (let i = 0; i < value.length; i += 4) {
-      const chunk = value.substring(i, i + 4)
-      if (chunk) formatted += `${chunk} `
+      const chunk = value.substring(i, i + 4);
+      if (chunk) formatted += `${chunk} `;
     }
-    setInputValue(value)
-    setFormattedValue(formatted.trim())
-  }
+    setInputValue(value);
+    setFormattedValue(formatted.trim());
+  };
 
   return (
     <div className={styles.paymentContainer}>
@@ -54,77 +60,13 @@ const Payment = () => {
             placeholder={"0000 0000 0000 0000"}
           />
           <div className={styles.expirationAndCVVWrapper}>
-            <ReservationInput
-              title={"만료일"}
-              id={"expirationDate"}
-              placeholder={"MM / YY"}
-            />
+            <ReservationInput title={"만료일"} id={"expirationDate"} placeholder={"MM / YY"} />
             <ReservationInput title={"CVV"} id={"CVV"} placeholder={"123"} />
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Payment
-
-//PaymentDropDownHeader component
-const PaymentDropDownHeader = () => {
-  const paymentOption = useAtomValue(paymentOptionAtom)
-  return (
-    <>
-      <input id="dropdown" type="checkbox" />
-      <label className={styles.dropdownLabel} htmlFor="dropdown">
-        <div className={styles.paymentOptionText}>
-          <PaymentOption
-            icon={paymentOption.icon}
-            label={paymentOption.label}
-            isCheck={false}
-          />
-        </div>
-        <FaAngleDown className={styles.dropDownIcon} />
-      </label>
-    </>
-  )
-}
-
-//PaymentDropDownList Component
-
-interface PaymentDropDownProps {
-  paymentOptions: {
-    label: string
-    icon: IconType
-  }[]
-}
-
-const PaymentDropDownList: FC<PaymentDropDownProps> = ({ paymentOptions }) => {
-  const [paymentOption, setPaymentOption] = useAtom(paymentOptionAtom)
-  const [isCheck, setIsCheck] = useState(false)
-
-  return (
-    <div className={styles.dropdownContent}>
-      <ul>
-        {paymentOptions.map((option, index) => {
-          return (
-            <li key={index}>
-              <PaymentOption
-                key={index}
-                label={option.label}
-                icon={option.icon}
-                isCheck={isCheck}
-                onClick={() => {
-                  setPaymentOption({
-                    label: option.label,
-                    icon: option.icon,
-                  })
-                  setIsCheck(true)
-                }}
-              />
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-  )
-}
+export default Payment;

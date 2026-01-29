@@ -1,3 +1,4 @@
+import { PaymentType } from "@/lib/portone-v1";
 import paymentOptionData from "../../localData/paymentOptionData";
 import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
@@ -175,3 +176,5 @@ interface latlngAtomProps {
 
 export const latlngAtom = atom<latlngAtomProps>({ lat: 0, lng: 0 });
 latlngAtom.debugLabel = "latlngAtom";
+
+export const paymentTypeAtom = atom<PaymentType>("mobilians_card");
