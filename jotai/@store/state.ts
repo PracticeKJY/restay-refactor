@@ -156,9 +156,6 @@ export const duplicateFavoriteDataAtom = atom((get) => {
 });
 duplicateFavoriteDataAtom.debugLabel = "duplicateFavoriteDataAtom";
 
-export const paymentOptionAtom = atom(paymentOptionData[0]);
-paymentOptionAtom.debugLabel = "paymentOptionAtom";
-
 export interface reservationProductAtomProps {
   email: string | undefined | null;
   product: any;

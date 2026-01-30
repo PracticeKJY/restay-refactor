@@ -1,40 +1,42 @@
 "use client";
 
-import { paymentOptionAtom } from "@/jotai/@store/state";
-import { useAtom } from "jotai";
+import { paymentTypeAtom } from "@/jotai/@store/state";
+import { useAtom, useSetAtom } from "jotai";
 import { FC, useState } from "react";
 import styles from "../[id]/Reservation.module.css";
 import { IconType } from "react-icons";
-import PaymentOption from "@/pages/reservation/[id]/PaymentOption";
+import { PAYMENT_CONFIG, PaymentType } from "@/lib/portone-v1";
+import PaymentOption from "@/app/reservation/components/PaymentOption";
 
 interface PaymentDropDownProps {
   paymentOptions: {
     label: string;
     icon: IconType;
   }[];
+  isCheck: boolean;
+  setIsCheck: (isCheck: boolean) => void;
 }
 
-const PaymentDropDownList: FC<PaymentDropDownProps> = ({ paymentOptions }) => {
-  const [paymentOption, setPaymentOption] = useAtom(paymentOptionAtom);
-  const [isCheck, setIsCheck] = useState(false);
+const PaymentDropDownList: FC<PaymentDropDownProps> = ({ paymentOptions, isCheck = false, setIsCheck }) => {
+  const [type, setType] = useAtom(paymentTypeAtom);
+
+  const PAYMENT_TYPES = Object.keys(PAYMENT_CONFIG) as PaymentType[];
 
   return (
-    <div className={styles.dropdownContent}>
+    <div className={styles.dropdownContent} style={{ display: isCheck ? "block" : "none" }}>
       <ul>
-        {paymentOptions.map((option, index) => {
+        {PAYMENT_TYPES.map((typeKey, index) => {
+          const cfg = PAYMENT_CONFIG[typeKey];
+
           return (
             <li key={index}>
               <PaymentOption
                 key={index}
-                label={option.label}
-                icon={option.icon}
-                isCheck={isCheck}
+                label={cfg.displayName}
+                icon={cfg.icon}
                 onClick={() => {
-                  setPaymentOption({
-                    label: option.label,
-                    icon: option.icon,
-                  });
-                  setIsCheck(true);
+                  setType(typeKey);
+                  setIsCheck(false);
                 }}
               />
             </li>

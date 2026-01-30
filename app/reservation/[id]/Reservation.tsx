@@ -62,7 +62,7 @@ const ReservationClient = ({ sessionEmail }: Props) => {
       {
         // channelKey: "channel-key-47324dab-4852-486f-8609-e271df2a9dbd", //KAKAO PAY
         // channelKey: "channel-key-27c3997e-b4c1-4153-8fc1-79998dbd188c", //TOSS PAYMENTS
-        channelKey: "channel-key-384ddc45-075d-4214-9924-74b3a32d9d2d", // PHONE (다날)
+        // channelKey: "channel-key-384ddc45-075d-4214-9924-74b3a32d9d2d", // PHONE (다날)
         // channelKey: "channel-key-f497eaee-73d0-47b2-997d-da551c45e050", // CARD (모빌리언스)
         // pg: "kakaopay", // 예: "kakaopay", "tosspayments", "nice", "html5_inicis" 등
         pay_method: "card",

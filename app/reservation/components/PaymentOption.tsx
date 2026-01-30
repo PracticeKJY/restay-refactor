@@ -1,42 +1,41 @@
-"use client"
+"use client";
 
-import styles from "./Reservation.module.css"
-import { FC } from "react"
-import { IconType } from "react-icons"
-import { useAtomValue } from "jotai"
-import { paymentOptionAtom } from "../../../jotai/@store/state"
-import { AiOutlineCheck } from "react-icons/ai"
+import styles from "../[id]/Reservation.module.css";
+import { FC } from "react";
+import Image, { StaticImageData } from "next/image";
 
 interface paymentOptionProps {
-  label: string
-  icon: IconType
-  isCheck?: boolean
-  onClick?: () => void
+  label: string;
+  icon: StaticImageData;
+  onClick?: () => void;
 }
 
-const PaymentOption: FC<paymentOptionProps> = ({
-  icon: Icon,
-  label,
-  isCheck,
-  onClick,
-}) => {
-  const paymentOption = useAtomValue(paymentOptionAtom)
-
+const PaymentOption: FC<paymentOptionProps> = ({ icon: Icon, label, onClick }) => {
   return (
     <>
       <div className={styles.paymentOptionListWrapper} onClick={onClick}>
         <div className={styles.paymentOptionList}>
-          <Icon size={30} />
+          <div
+            style={{
+              position: "relative",
+              width: "30px",
+              height: "30px",
+            }}>
+            <Image
+              src={Icon}
+              alt={label}
+              fill
+              sizes="full"
+              style={{
+                objectFit: "contain",
+              }}
+            />
+          </div>
           <span>{label}</span>
         </div>
-        {isCheck && paymentOption.label === label ? (
-          <AiOutlineCheck size={20} />
-        ) : (
-          ""
-        )}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default PaymentOption
+export default PaymentOption;
