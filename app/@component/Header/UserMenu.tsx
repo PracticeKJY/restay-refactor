@@ -152,9 +152,10 @@ const LogoutMenu = ({ session }: { session: Session }) => {
         }}>
         위시리스트
       </div>
-      <div className={styles.pointer} onClick={() => router.push("/messages")}>
+      {/* 메세지(채팅) 수정중 */}
+      {/* <div className={styles.pointer} onClick={() => router.push("/messages")}>
         메세지
-      </div>
+      </div> */}
       <div className={styles.pointer} onClick={logOutHandler}>
         로그아웃
       </div>
