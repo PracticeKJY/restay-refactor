@@ -8,18 +8,9 @@ import paymentOptionData from "../../../localData/paymentOptionData";
 import ReservationInput from "./ReservationInput";
 import PaymentDropDownHeader from "@/app/reservation/components/PaymentDropDownHeader";
 import PaymentDropDownList from "@/app/reservation/components/PaymentDropDownList";
-import { useSetAtom } from "jotai";
-import { paymentTypeAtom } from "@/jotai/@store/state";
-import DropDown from "@/app/@component/DropDown/DropDown";
 
-interface PaymentProps {
-  type: "creditCard" | "kakaoPay" | "tossPayments";
-}
-
-const Payment = ({ type }: PaymentProps) => {
+const Payment = () => {
   const paymentOptions = paymentOptionData;
-
-  // const setType = useSetAtom(paymentTypeAtom);
 
   const [isCheck, setIsCheck] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -49,7 +40,6 @@ const Payment = ({ type }: PaymentProps) => {
       </div>
       <div className={styles.paymentOptionContainer}>
         <div className={styles.paymentOptionDropDown}>
-          <DropDown />
           <PaymentDropDownHeader isCheck={isCheck} setIsCheck={setIsCheck} />
           <PaymentDropDownList paymentOptions={paymentOptions} isCheck={isCheck} setIsCheck={setIsCheck} />
         </div>

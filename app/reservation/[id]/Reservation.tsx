@@ -11,13 +11,14 @@ import Rule from "./Rule";
 import ProductCardInfo from "./ProductCard";
 import PriceInfo from "./PriceInfo";
 
-import { DetailListingAtom, endDateAtom, nextDateAtom, reservationProductAtom, reservationProductAtomProps, startDateAtom } from "../../../jotai/@store/state";
+import { DetailListingAtom, endDateAtom, nextDateAtom, paymentTypeAtom, reservationProductAtom, reservationProductAtomProps, startDateAtom } from "../../../jotai/@store/state";
 
 import { useAtom, useAtomValue } from "jotai";
 import { useRouter, useParams } from "next/navigation";
 import toast from "react-hot-toast";
 import moment from "moment";
 import { POST } from "@/app/@http/request";
+import { PAYMENT_CONFIG, PaymentType } from "@/lib/portone-v1";
 
 interface Props {
   sessionEmail: string | null;
@@ -39,6 +40,9 @@ const ReservationClient = ({ sessionEmail }: Props) => {
   const nextDate = useAtomValue(nextDateAtom);
 
   const [reservationProduct, setReservationProduct] = useAtom(reservationProductAtom);
+  const [type, setType] = useAtom(paymentTypeAtom);
+
+  const paymentConfig = PAYMENT_CONFIG[type];
 
   const apiStartDay = moment(startDate).format("M.D");
   const apiEndDay = moment(endDate ?? nextDate).format("M.D");
@@ -60,11 +64,7 @@ const ReservationClient = ({ sessionEmail }: Props) => {
     // 3) 결제창 오픈
     window.IMP.request_pay(
       {
-        // channelKey: "channel-key-47324dab-4852-486f-8609-e271df2a9dbd", //KAKAO PAY
-        // channelKey: "channel-key-27c3997e-b4c1-4153-8fc1-79998dbd188c", //TOSS PAYMENTS
-        // channelKey: "channel-key-384ddc45-075d-4214-9924-74b3a32d9d2d", // PHONE (다날)
-        // channelKey: "channel-key-f497eaee-73d0-47b2-997d-da551c45e050", // CARD (모빌리언스)
-        // pg: "kakaopay", // 예: "kakaopay", "tosspayments", "nice", "html5_inicis" 등
+        channelKey: paymentConfig.channelKey,
         pay_method: "card",
         merchant_uid: `reservation_${Date.now()}`,
         name: "예약 결제",
@@ -77,13 +77,58 @@ const ReservationClient = ({ sessionEmail }: Props) => {
         // rsp.success: 결제 성공 여부
         if (rsp.success) {
           // rsp.imp_uid / rsp.merchant_uid 등이 옴
-
           console.log("결제 성공:", rsp);
-
           // ✅ 실무 필수: 여기서 서버로 imp_uid/merchant_uid 보내서 결제 검증하세요
           // await fetch("/api/payment/complete", { method:"POST", body: JSON.stringify({ imp_uid: rsp.imp_uid, merchant_uid: rsp.merchant_uid }) })
 
-          toast.success("결제 성공!");
+          if (!sessionEmail) {
+            toast.error("로그인 후 이용해주세요.");
+            return;
+          }
+
+          try {
+            const payload = {
+              product: detailListing,
+              startDay: apiStartDay,
+              endDay: apiEndDay,
+              email: sessionEmail,
+            };
+
+            // 1) 예약 생성
+            const res = await POST<any>("/api/reservation", payload);
+
+            // ✅ 2) 예약 성공 후: reservationId 뽑기 (필드명은 아래 중 하나일 가능성이 큼)
+            const reservationId = res?.data?.insertedId;
+
+            if (!reservationId) {
+              console.warn("예약 id가 응답에 없습니다. 채팅방을 생성할 수 없습니다.", res?.data);
+            } else {
+              // ✅ 3) 예약 성공 직후: 채팅방 자동 생성
+              const chatRes = await fetch("/api/chat/get-or-create", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include", // ⭐⭐⭐ 중요: NextAuth 쿠키 포함
+                body: JSON.stringify({ reservationId: String(reservationId) }),
+              });
+
+              const chatJson = await chatRes.json();
+
+              if (!chatRes.ok) {
+                console.error("채팅방 생성 실패:", chatJson);
+              } else {
+                console.log("채팅방 생성 완료:", chatJson.conversationId);
+                // 원하면 여기서 바로 메시지 페이지로 이동도 가능:
+                // router.push(`/messages/${chatJson.conversationId}`);
+              }
+            }
+
+            console.log(res.data, "resresresrserserser");
+
+            toast.success("예약되었습니다.");
+            router.push("/");
+          } catch (e) {
+            toast.error("예약에 실패했어요.");
+          }
         } else {
           console.log("결제 실패/취소:", rsp);
           toast.error(rsp.error_msg ?? "결제가 취소/실패했습니다.");
@@ -92,58 +137,6 @@ const ReservationClient = ({ sessionEmail }: Props) => {
     );
   };
 
-  // 01.29 before) 결제 기능
-  // const onClick = async () => {
-  //   if (!sessionEmail) {
-  //     toast.error("로그인 후 이용해주세요.");
-  //     return;
-  //   }
-
-  //   try {
-  //     const payload = {
-  //       product: detailListing,
-  //       startDay: apiStartDay,
-  //       endDay: apiEndDay,
-  //       email: sessionEmail,
-  //     };
-
-  //     // 1) 예약 생성
-  //     const res = await POST<any>("/api/reservation", payload);
-
-  //     // ✅ 2) 예약 성공 후: reservationId 뽑기 (필드명은 아래 중 하나일 가능성이 큼)
-  //     const reservationId = res?.data?.insertedId;
-
-  //     if (!reservationId) {
-  //       console.warn("예약 id가 응답에 없습니다. 채팅방을 생성할 수 없습니다.", res?.data);
-  //     } else {
-  //       // ✅ 3) 예약 성공 직후: 채팅방 자동 생성
-  //       const chatRes = await fetch("/api/chat/get-or-create", {
-  //         method: "POST",
-  //         headers: { "Content-Type": "application/json" },
-  //         credentials: "include", // ⭐⭐⭐ 중요: NextAuth 쿠키 포함
-  //         body: JSON.stringify({ reservationId: String(reservationId) }),
-  //       });
-
-  //       const chatJson = await chatRes.json();
-
-  //       if (!chatRes.ok) {
-  //         console.error("채팅방 생성 실패:", chatJson);
-  //       } else {
-  //         console.log("채팅방 생성 완료:", chatJson.conversationId);
-  //         // 원하면 여기서 바로 메시지 페이지로 이동도 가능:
-  //         // router.push(`/messages/${chatJson.conversationId}`);
-  //       }
-  //     }
-
-  //     console.log(res.data, "resresresrserserser");
-
-  //     toast.success("예약되었습니다.");
-  //     // router.push("/");
-  //   } catch (e) {
-  //     toast.error("예약에 실패했어요.");
-  //   }
-  // };
-
   return (
     <Container>
       <div className={styles.reservationContainer}>
@@ -151,11 +144,10 @@ const ReservationClient = ({ sessionEmail }: Props) => {
           <div className={styles.title}>예약 요청</div>
 
           <Info startDate={startDate} endDate={endDate ?? nextDate} />
-          <Payment type="tossPayments" />
+          <Payment />
           <Refund />
           <Rule />
 
-          {/* <Button label="예약 요청" onClick={onClick} /> */}
           <Button label="예약 요청" onClick={onClickPay} />
         </div>
 

@@ -4,7 +4,7 @@
 import styles from "@/app/page.module.css";
 import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
-import { fetchUrlAtom, fetchUrlatomProps } from "@/jotai/@store/state";
+import { fetchUrlAtom, fetchUrlatomProps, paymentTypeAtom } from "@/jotai/@store/state";
 import Spinner from "@/app/@component/Spinner/Spinner";
 import Empty from "@/app/@component/Empty";
 import ListingsCard from "@/app/@component/listings/ListingsCard";
@@ -20,6 +20,12 @@ interface HomeClientProps {
 export default function HomeClient({ searchParams, sessionEmail }: HomeClientProps) {
   const [fetchUrl, setFetchUrl] = useAtom(fetchUrlAtom);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [type, setType] = useAtom(paymentTypeAtom);
+
+  useEffect(() => {
+    setType("mobilians_card");
+  }, []);
 
   const category = searchParams?.category;
 
