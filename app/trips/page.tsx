@@ -21,8 +21,8 @@ export default async function Page() {
     );
   }
 
-  // const res = await POST<reservationProductAtomProps[]>(`${process.env.NEXTAUTH_URL ?? ""}/api/trip`, {
-  const res = await POST<reservationProductAtomProps[]>(`/api/trip`, {
+  const res = await POST<reservationProductAtomProps[]>(`${process.env.NEXTAUTH_URL!}/api/trip`, {
+    // const res = await POST<reservationProductAtomProps[]>(`/api/trip`, {
     email: session.user.email,
   });
 
