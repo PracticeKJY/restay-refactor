@@ -2,11 +2,11 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 
-import KakaoScript from "@/app/@script/kakao-script";
-import Providers from "@/app/@provider/Provider";
-import Footer from "@/app/@component/Footer/Footer";
-import NavbarSC from "@/app/@component/Header/NavbarSC";
-import PortOneScript from "@/app/@script/portOne-script";
+import KakaoScript from "@/app/script/kakao-script";
+import Providers from "@/app/provider/Provider";
+import Footer from "@/app/component/Footer/Footer";
+import NavbarSC from "@/app/component/Header/NavbarSC";
+import PortOneScript from "@/app/script/portone-script";
 
 export const viewport = {
   width: "device-width",

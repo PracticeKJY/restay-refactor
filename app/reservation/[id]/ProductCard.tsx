@@ -1,6 +1,6 @@
 "use client";
 
-import Skeleton from "@/app/@component/Skeleton/Skeleton";
+import Skeleton from "@/app/component/Skeleton/Skeleton";
 import styles from "./Reservation.module.css";
 import Image from "next/image";
 import { FcPlanner } from "react-icons/fc";

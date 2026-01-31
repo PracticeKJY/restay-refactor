@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import withHead from "../@component/withHead";
+import withHead from "../component/withHead";
 import WishListCard from "./WishListCard";
 
 // import { GetServerSideProps } from "next"
@@ -21,7 +21,7 @@ const WishList = async () => {
 
   return (
     <div>
-      <WishListCard sessionEmail={session?.user?.email ?? ""} />
+      <WishListCard />
     </div>
   );
 };

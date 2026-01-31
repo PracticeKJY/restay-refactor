@@ -1,4 +1,4 @@
-import withHead from "@/pages/@component/withHead";
+import withHead from "@/app/component/withHead";
 import MessageRoomPage from "@/app/messages/[id]/MessageRoomPage";
 
 const Index = async ({ params }: { params: Promise<{ id: string }> }) => {

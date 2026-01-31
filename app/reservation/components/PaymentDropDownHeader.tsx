@@ -23,7 +23,7 @@ const PaymentDropDownHeader = ({ isCheck, setIsCheck }: PaymentDropDownHeaderPro
         setIsCheck(!isCheck);
       }}>
       <div className={styles.paymentOptionText}>
-        <PaymentOption icon={paymentOption.icon} label={paymentOption.displayName} isCheck={isCheck} />
+        <PaymentOption icon={paymentOption.icon} label={paymentOption.displayName} />
       </div>
       <FaAngleDown
         className={styles.dropDownIcon}

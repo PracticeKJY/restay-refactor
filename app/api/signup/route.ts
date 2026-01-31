@@ -1,5 +1,5 @@
 // app/api/auth/signup/route.ts
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 import clientPromise from "@/app/api/mongoDB";
 

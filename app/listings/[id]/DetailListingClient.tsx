@@ -34,7 +34,7 @@ const DetailListingClient: FC<DetailListingClientProps> = ({ sessionEmail, listi
     (data: any) => {
       setDetailListing(data);
     },
-    [setDetailListing]
+    [setDetailListing],
   );
 
   useEffect(() => {

@@ -1,12 +1,10 @@
 // app/trips/page.tsx
 import styles from "./Trips.module.css";
 import { auth } from "@/auth";
-import clientPromise from "@/app/api/mongoDB";
-import Container from "@/app/@component/Container";
-import Empty from "@/app/@component/Empty";
+import Container from "@/app/component/Container";
+import Empty from "@/app/component/Empty";
 import Trips from "./Trips";
-import { ReservationProps } from "@/types/reservation";
-import { POST } from "@/app/@http/request";
+import { POST } from "@/app/http/request";
 import { reservationProductAtomProps } from "@/jotai/@store/state";
 
 export const runtime = "nodejs";

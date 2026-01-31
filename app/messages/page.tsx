@@ -5,7 +5,7 @@ import Link from "next/link";
 import { supabaseBrowser } from "@/lib/supabase-browser";
 import type { Conversation } from "@/types/chat";
 import ensureSupabaseSession from "@/lib/ensureSupabaseSession";
-import Spinner from "@/pages/Spinner";
+import Spinner from "@/app/component/Spinner/Spinner";
 
 const MessagesPage = () => {
   const [list, setList] = useState<Conversation[]>([]);

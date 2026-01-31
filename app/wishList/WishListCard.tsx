@@ -2,10 +2,10 @@
 
 import styles from "./WishListCard.module.css";
 import Card from "./Card";
-import Empty from "../@component/Empty";
+import Empty from "../component/Empty";
 import { useEffect, useState } from "react";
-import { GET } from "@/app/@http/request";
-import Spinner from "@/app/@component/Spinner/Spinner";
+import { GET } from "@/app/http/request";
+import Spinner from "@/app/component/Spinner/Spinner";
 
 export interface WishListProps {
   _id: string;

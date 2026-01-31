@@ -4,16 +4,13 @@ import styles from "./DetailListingPage.module.css";
 
 import { FC, useRef } from "react";
 
-// import Container from "@/pages/@component/Container";
-// import ListingsInfo from "@/pages/@component/listings/ListingsInfo";
 import DetailListingHeading from "./DetailListingHeading";
 import DetailListingMainCarouselSwiper from "./DetailListingMainCarouselSwiper";
 import MiniHeader from "./MiniHeader";
-// import KakaoMap from "@/pages/@component/KakaoMap";
-import ListingsReservation from "@/app/@component/listings/ListingsReservation";
-import Container from "@/app/@component/Container";
-import ListingsInfo from "@/app/@component/listings/ListingsInfo";
-import KakaoMap from "@/app/@component/KakaoMap";
+import ListingsReservation from "@/app/component/listings/ListingsReservation";
+import Container from "@/app/component/Container";
+import ListingsInfo from "@/app/component/listings/ListingsInfo";
+import KakaoMap from "@/app/component/KakaoMap";
 
 interface DetailListingPageProps {
   sessionEmail?: string;

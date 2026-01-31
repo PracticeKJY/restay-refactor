@@ -1,4 +1,4 @@
-import withHead from "@/pages/@component/withHead";
+import withHead from "@/app/component/withHead";
 import Reservation from "./Reservation";
 import { auth } from "@/auth";
 

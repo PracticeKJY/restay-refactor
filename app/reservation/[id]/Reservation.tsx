@@ -2,8 +2,8 @@
 
 import styles from "./Reservation.module.css";
 
-import Container from "@/app/@component/Container";
-import Button from "@/app/@component/Button";
+import Container from "@/app/component/Container";
+import Button from "@/app/component/Button";
 import Info from "./Info";
 import Payment from "./Payment";
 import Refund from "./Refund";
@@ -17,7 +17,7 @@ import { useAtom, useAtomValue } from "jotai";
 import { useRouter, useParams } from "next/navigation";
 import toast from "react-hot-toast";
 import moment from "moment";
-import { POST } from "@/app/@http/request";
+import { POST } from "@/app/http/request";
 import { PAYMENT_CONFIG, PaymentType } from "@/lib/portone-v1";
 
 interface Props {
