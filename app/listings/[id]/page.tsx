@@ -16,7 +16,8 @@ export default async function ListingDetailPage({ params }: ListingDetailPagePro
 
   const { id } = await params;
 
-  const res = await fetch(`${process.env.NEXTAUTH_URL ?? ""}/api/listings/${id}`, {
+  // const res = await fetch(`${process.env.NEXTAUTH_URL ?? ""}/api/listings/${id}`, {
+  const res = await fetch(`/api/listings/${id}`, {
     method: "GET",
   });
 
