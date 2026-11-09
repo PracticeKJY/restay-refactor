@@ -20,3 +20,5 @@
   font-size: 1.5rem;
   font-weight: 600;
 }
+
+@media (max-width: 1023px) { .cardContainer, .cardWrapper { min-width: 0; max-width: 100%; } .listingsWrapper { width: 100%; margin-inline: auto; } .cardTitle { overflow-wrap: anywhere; } }

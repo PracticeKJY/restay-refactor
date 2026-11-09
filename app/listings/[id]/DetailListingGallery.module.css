@@ -1,0 +1,85 @@
+.swiperWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 560px;
+  min-width: 0;
+  margin-inline: auto;
+}
+
+.mainFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 560 / 348;
+  max-height: min(348px, 55svh);
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.swiper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mainSlide {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.productCards,
+.productCardsListImage {
+  object-fit: cover;
+}
+
+.swiperList {
+  width: 100%;
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+.swiperSlide {
+  height: auto;
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.active {
+  opacity: 1;
+}
+
+.thumbnailFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 6 / 5;
+  max-height: 100px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.prevButton,
+.nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #222;
+  font-weight: 600;
+}
+
+.prevButton { left: 8px; }
+.nextButton { right: 8px; }
+
+@media (max-width: 767px) {
+  .swiperWrapper { gap: 8px; }
+  .prevButton, .nextButton { width: 36px; height: 36px; }
+}

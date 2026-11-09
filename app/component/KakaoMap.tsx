@@ -1,7 +1,9 @@
 "use client";
-import { FC, useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
+
+import { FC, useState } from "react";
 import styles from "./KakaoMap.module.css";
-import { Map, MapMarker, MapTypeControl, MapTypeId, Roadview, ZoomControl } from "react-kakao-maps-sdk";
+import { Map, MapMarker, MapTypeControl, Roadview, ZoomControl, useKakaoLoader } from "react-kakao-maps-sdk";
 import { latlngAtom } from "../../jotai/@store/state";
 import { useAtomValue } from "jotai";
 import Image from "next/image";
@@ -11,12 +13,21 @@ interface KakaoMapProps {
 }
 
 const KakaoMap: FC<KakaoMapProps> = ({ center }) => {
+  const t = useTranslations("Common");
+
+  const [loading, error] = useKakaoLoader({
+    appkey: process.env.NEXT_PUBLIC_KAKAO_JS_KEY ?? "",
+    libraries: ["services", "clusterer"],
+  });
   const latlng = useAtomValue(latlngAtom);
   const [toggle, setToggle] = useState(false);
   const centerWithRadius = { ...center, radius: 500 };
   const onToggle = () => {
     setToggle(!toggle);
   };
+
+  if (error) return <div role="status" className={styles.mapWrapper}>{t("couldNotLoadTheMap")}</div>;
+  if (loading) return <div role="status" className={styles.mapWrapper}>{t("loadingTheMap")}</div>;
 
   return (
     <>

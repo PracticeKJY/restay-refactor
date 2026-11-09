@@ -1,43 +1,52 @@
 "use client";
+import { useTranslations } from "next-intl";
+
 
 import styles from "./SwiperComponent.module.css";
 
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Swiper as SwiperType, Navigation } from "swiper";
 import { FC, useRef } from "react";
+import type { ListingCardMediaData } from "@/types/listing-card";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import FavoriteButton from "./FavoriteButton";
-import FavoriteButtonSC from "@/app/component/listings/FavoriteButtonSC";
 
 interface SwiperComponentProps {
-  data: any;
-  isHover: any;
+  data: ListingCardMediaData;
+  isHover: boolean;
   disable?: boolean;
   sessionEmail?: string;
+  priority?: boolean;
 }
 
-const SwiperComponent: FC<SwiperComponentProps> = ({ data, isHover, disable = false, sessionEmail }: any) => {
+const SwiperComponent: FC<SwiperComponentProps> = ({ data, isHover, disable = false, sessionEmail, priority = false }) => {
+  const t = useTranslations("Listings");
+  const controls = useTranslations("Common");
+
   SwiperCore.use([Navigation]);
 
   const router = useRouter();
 
-  const productCards = data.imageSrc.map((src: string, index: any) => {
+  const productCards = data.imageSrc.map((src, index) => {
     return (
       <SwiperSlide key={index}>
         <Image
-          priority
-          alt=""
+          priority={priority && index === 0}
+          alt={t("listingPhoto", { p0: index + 1 })}
           src={src}
           fill
-          sizes="(min-width:640px)50vw,100vw"
+          sizes="(max-width: 640px) calc(100vw - 16px), 300px"
           className={styles.listingsImage}
           onClick={() => {
             router.push(`/listings/${data._id}`);
           }}
+          role="link"
+          tabIndex={0}
+          onKeyDown={(event) => { if (event.key === "Enter") router.push(`/listings/${data._id}`); }}
         />
       </SwiperSlide>
     );
@@ -61,10 +70,10 @@ const SwiperComponent: FC<SwiperComponentProps> = ({ data, isHover, disable = fa
       </Swiper>
       {disable ? "" : <FavoriteButton data={data} sessionEmail={sessionEmail} />}
       {/* <FavoriteButton data={data} /> */}
-      <button className={`${styles.prevButton} ${isHover ? styles.visibleButton : ""}`} onClick={() => swiperRef.current?.slidePrev()}>
+      <button type="button" aria-label={controls("previous")} className={`${styles.prevButton} ${isHover ? styles.visibleButton : ""}`} onClick={() => swiperRef.current?.slidePrev()}>
         {"<"}
       </button>
-      <button className={`${styles.nextButton} ${isHover ? styles.visibleButton : ""}`} onClick={() => swiperRef.current?.slideNext()}>
+      <button type="button" aria-label={controls("next")} className={`${styles.nextButton} ${isHover ? styles.visibleButton : ""}`} onClick={() => swiperRef.current?.slideNext()}>
         {">"}
       </button>
     </>

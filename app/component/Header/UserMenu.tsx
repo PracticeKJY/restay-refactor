@@ -1,17 +1,16 @@
 // app/@component/UserMenu/UserMenuClient.tsx
 "use client";
+import { useTranslations } from "next-intl";
 
 import Avatar from "./Avatar";
 import styles from "./UserMenu.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { loginModalAtom, menuOpenAtom, registerModalAtom, rentModalAtom } from "../../../jotai/@store/state";
-import LoginModal from "../Modal/LoginModal";
-import RegisterModal from "../Modal/RegisterModal";
+import dynamic from "next/dynamic";
 import toast from "react-hot-toast";
-import RentModal from "../Modal/RentModal";
 import { useAtomValue, useSetAtom } from "jotai";
-import { useRouter } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useRouter } from "@/i18n/navigation";
+import { useEffect, useRef, type ReactNode } from "react";
 import type { Session } from "next-auth";
 import { signOut } from "next-auth/react";
 
@@ -19,8 +18,20 @@ type Props = {
   session: Session | null;
 };
 
+const LoginModal = dynamic(() => import("../Modal/LoginModal"));
+const RegisterModal = dynamic(() => import("../Modal/RegisterModal"));
+const RentModal = dynamic(() => import("../Modal/RentModal"));
+
+function MenuAction({ children, onClick }: { children: ReactNode; onClick: () => void }) {
+  return (
+    <button type="button" className={`${styles.pointer} ${styles.menuAction}`} onClick={onClick}>
+      {children}
+    </button>
+  );
+}
+
 const UserMenu = ({ session }: Props) => {
-  const isAuthed = !!session?.user && !session?.error;
+  const t = useTranslations("Navigation");
 
   const isMenuOpen = useAtomValue(menuOpenAtom);
   const isRentModal = useAtomValue(rentModalAtom);
@@ -71,10 +82,23 @@ const UserMenu = ({ session }: Props) => {
       <div style={{ position: "relative" }}>
         <div className={styles.userMenuWrapper}>
           <div className={`${styles.userMenuText} ${session && !isRentModal ? styles.pointer : ""}`} onClick={onClickHosting}>
-            <div className={styles.hostingText}>{session ? `${session.user?.name ?? "회원"}님 오늘은 어디로 떠나보실래요?` : "당신의 공간을 공유하세요"}</div>
+            <div className={styles.hostingText}>{session ? t("whereWouldYouLikeToGoToday", { p0: session.user?.name ?? t("member") }) : t("shareYourSpace")}</div>
           </div>
 
-          <div ref={userMenuRef} className={styles.userMenu} onClick={handleMenuOpen}>
+          <div
+            ref={userMenuRef}
+            role="button"
+            tabIndex={0}
+            aria-label={t("menu")}
+            aria-expanded={isMenuOpen}
+            className={styles.userMenu}
+            onClick={handleMenuOpen}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                handleMenuOpen();
+              }
+            }}>
             <AiOutlineMenu />
             <Avatar accountImage={session?.user?.image ?? ""} />
           </div>
@@ -93,6 +117,8 @@ export default UserMenu;
 // ---------------------------
 // 로그인 메뉴
 const LoginMenu = () => {
+  const t = useTranslations("Navigation");
+
   const isLoginModal = useAtomValue(loginModalAtom);
   const isRegisterModal = useAtomValue(registerModalAtom);
   const setLoginModal = useSetAtom(loginModalAtom);
@@ -100,12 +126,8 @@ const LoginMenu = () => {
 
   return (
     <>
-      <div className={styles.pointer} onClick={() => setLoginModal(!isLoginModal)}>
-        로그인
-      </div>
-      <div className={styles.pointer} onClick={() => setRegisterModal(!isRegisterModal)}>
-        회원가입
-      </div>
+      <MenuAction onClick={() => setLoginModal(!isLoginModal)}>{t("logIn")}</MenuAction>
+      <MenuAction onClick={() => setRegisterModal(!isRegisterModal)}>{t("signUp")}</MenuAction>
     </>
   );
 };
@@ -113,6 +135,8 @@ const LoginMenu = () => {
 // ---------------------------
 // 로그아웃 메뉴
 const LogoutMenu = ({ session }: { session: Session }) => {
+  const t = useTranslations("Navigation");
+
   const router = useRouter();
   const isMenuOpen = useAtomValue(menuOpenAtom);
   const isRentModal = useAtomValue(rentModalAtom);
@@ -132,33 +156,23 @@ const LogoutMenu = ({ session }: { session: Session }) => {
       router.push("/");
       router.refresh();
     } catch (error) {
-      toast.error((error as any)?.message ?? "로그아웃 실패");
+      toast.error((error as any)?.message ?? t("couldNotLogOut"));
     }
   };
 
   return (
     <>
-      <div className={styles.pointer} onClick={() => router.push("/trips")}>
-        여행
-      </div>
-      <div className={styles.pointer} onClick={onClickHosting}>
-        호스팅
-      </div>
-      <div
-        className={styles.pointer}
+      <MenuAction onClick={() => router.push("/trips")}>{t("trips")}</MenuAction>
+      <MenuAction onClick={onClickHosting}>{t("hosting")}</MenuAction>
+      <MenuAction
         onClick={() => {
           router.push("/wishList");
           setIsMenuOpen(!isMenuOpen);
         }}>
-        위시리스트
-      </div>
-      {/* 메세지(채팅) 수정중 */}
-      {/* <div className={styles.pointer} onClick={() => router.push("/messages")}>
-        메세지
-      </div> */}
-      <div className={styles.pointer} onClick={logOutHandler}>
-        로그아웃
-      </div>
+        {t("wishlist")}
+      </MenuAction>
+      <MenuAction onClick={() => { router.push("/messages"); setIsMenuOpen(false); }}>{t("messages")}</MenuAction>
+      <MenuAction onClick={logOutHandler}>{t("logOut")}</MenuAction>
     </>
   );
 };

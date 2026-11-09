@@ -1,6 +1,11 @@
 import { auth } from "@/auth";
-import withHead from "../component/withHead";
-import WishListCard from "./WishListCard";
+import { pageMetadata } from "@/i18n/metadata";
+import WishListCard from "@/app/wishList/WishListCard";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return pageMetadata(locale, "/wishList", "wishlist", true);
+}
 
 // import { GetServerSideProps } from "next"
 // export const getServerSideProps: GetServerSideProps<{
@@ -26,4 +31,4 @@ const WishList = async () => {
   );
 };
 
-export default withHead(WishList, "위시리스트 -Restay", "위시리스트 페이지입니다.");
+export default WishList;

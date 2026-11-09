@@ -18,6 +18,10 @@ const PaymentDropDownHeader = ({ isCheck, setIsCheck }: PaymentDropDownHeaderPro
 
   return (
     <div
+      role="button"
+      tabIndex={0}
+      aria-expanded={isCheck}
+      onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setIsCheck(!isCheck); } }}
       className={styles.dropdownLabel}
       onClick={() => {
         setIsCheck(!isCheck);

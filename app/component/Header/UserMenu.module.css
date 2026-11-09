@@ -50,6 +50,9 @@
   cursor: pointer;
 }
 
+.menuAction { border: 0; padding: 0; background: transparent; color: inherit; text-align: left; font: inherit; }
+@media (max-width: 1023px) { .menuAction { min-height: 44px; } }
+
 .pointer:hover {
   text-decoration: underline;
   text-underline-offset: 0.5rem;

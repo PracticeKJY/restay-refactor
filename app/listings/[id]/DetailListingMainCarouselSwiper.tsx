@@ -1,6 +1,10 @@
 "use client";
+import type { DetailListingAtomProps } from "@/jotai/@store/state";
 
-import styles from "./DetailListingPage.module.css";
+import { useTranslations } from "next-intl";
+
+
+import styles from "./DetailListingGallery.module.css";
 
 import { FC, useRef, useState } from "react";
 
@@ -12,51 +16,42 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 interface DetailListingMainCarouselSwiperProps {
-  listingData: {
-    category: string;
-    location: string;
-    guestCount: number;
-    roomCount: number;
-    bathroomCount: number;
-    imageSrc: string[] | undefined;
-    price: number;
-    title: string;
-    description: string;
-    userId: any;
-    createdAt: any;
-    userName: string;
-    userImage: string;
-    latlngData: any;
-  };
+  listingData: DetailListingAtomProps;
 }
 
 const DetailListingMainCarouselSwiper: FC<DetailListingMainCarouselSwiperProps> = ({ listingData }) => {
+  const t = useTranslations("Listings");
+  const controls = useTranslations("Common");
+
   SwiperCore.use([Navigation]);
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   const swiperRef = useRef<SwiperType>();
   const [slideIndex, setslideIndex] = useState(0);
 
-  const findSwiperIndexHandler = (swiper: any) => {
+  const findSwiperIndexHandler = (swiper: SwiperType) => {
     setslideIndex(swiper.realIndex);
   };
 
-  const productCards = listingData.imageSrc?.map((src: string, index: any) => {
+  const productCards = listingData.imageSrc?.map((src, index) => {
     return (
-      <SwiperSlide key={index}>
-        <Image width={560} height={348} alt="" src={src} className={styles.productCards} priority />
+      <SwiperSlide key={index} className={styles.mainSlide}>
+        <Image fill alt={t("listingPhoto", { p0: index + 1 })} src={src} className={styles.productCards} priority={index === 0} sizes="(max-width: 640px) calc(100vw - 16px), 560px" />
       </SwiperSlide>
     );
   });
-  const productCardsList = listingData.imageSrc?.map((src: string, index: any) => {
+  const productCardsList = listingData.imageSrc?.map((src, index) => {
     return (
       <SwiperSlide key={index} className={`${styles.swiperSlide} ${slideIndex === index ? styles.active : ""}`}>
-        <Image width={120} height={100} alt="" src={src} className={styles.productCardsListImage} priority />
+        <div className={styles.thumbnailFrame}>
+          <Image fill alt={t("listingPhoto", { p0: index + 1 })} src={src} className={styles.productCardsListImage} sizes="(max-width: 640px) 25vw, 120px" />
+        </div>
       </SwiperSlide>
     );
   });
 
   return (
     <div className={styles.swiperWrapper}>
+      <div className={styles.mainFrame}>
       <Swiper
         className={styles.swiper}
         onSlideChange={findSwiperIndexHandler}
@@ -73,9 +68,16 @@ const DetailListingMainCarouselSwiper: FC<DetailListingMainCarouselSwiperProps> 
         }}>
         {productCards}
       </Swiper>
+        <button type="button" aria-label={controls("previous")} className={styles.prevButton} onClick={() => swiperRef.current?.slidePrev()}>
+          {"<"}
+        </button>
+        <button type="button" aria-label={controls("next")} className={styles.nextButton} onClick={() => swiperRef.current?.slideNext()}>
+          {">"}
+        </button>
+      </div>
       <Swiper
         onSwiper={setThumbsSwiper}
-        spaceBetween={0}
+        spaceBetween={12}
         slidesPerView={4}
         freeMode={true}
         loop
@@ -84,12 +86,6 @@ const DetailListingMainCarouselSwiper: FC<DetailListingMainCarouselSwiperProps> 
         className={styles.swiperList}>
         {productCardsList}
       </Swiper>
-      <button className={styles.prevButton} onClick={() => swiperRef.current?.slidePrev()}>
-        {"<"}
-      </button>
-      <button className={styles.nextButton} onClick={() => swiperRef.current?.slideNext()}>
-        {">"}
-      </button>
     </div>
   );
 };

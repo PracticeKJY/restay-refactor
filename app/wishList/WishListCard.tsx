@@ -1,4 +1,6 @@
 "use client";
+import { useTranslations } from "next-intl";
+
 
 import styles from "./WishListCard.module.css";
 import Card from "./Card";
@@ -36,6 +38,8 @@ export interface Listing {
 }
 
 const WishListCard = () => {
+  const t = useTranslations("Common");
+
   const [wishList, setWishList] = useState<WishListProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -63,16 +67,18 @@ const WishListCard = () => {
       {wishList?.length > 0 ? (
         <WishListProduct wishListData={wishList} />
       ) : (
-        <Empty title="첫 번째 위시리스트를 만들어 주세요!" subtitle="하트 아이콘을 누르시고 가고싶은 숙소를 위시리스트에 저장하세요." actionLabel="숙소 검색하기" showReset />
+        <Empty title={t("createYourFirstWishlist")} subtitle={t("tapTheHeartToSavePlacesYou")} actionLabel={t("findAStay")} showReset />
       )}
     </div>
   );
 };
 
 const WishListProduct = ({ wishListData }: { wishListData: WishListProps[] }) => {
+  const t = useTranslations("Common");
+
   return (
     <div className={styles.wishListWrapper}>
-      <div className={styles.wishListTitle}>위시리스트</div>
+      <div className={styles.wishListTitle}>{t("wishlist")}</div>
       <div className={styles.listingsContainer}>
         {wishListData.map((data: WishListProps) => (
           <Card key={data._id} userId={data._id} title={data.wishListTitle} data={data.listing} disable={true} />

@@ -1,16 +1,22 @@
 "use client"
+import { useTranslations } from "next-intl";
+
 
 import { forwardRef, useEffect, useRef, useState } from "react"
 import styles from "./Search.module.css"
 import { BiSearch } from "react-icons/bi"
 import { TiTimes } from "react-icons/ti"
 import { categories } from "./Categories"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "@/i18n/navigation"
 import qs from "query-string"
 import { useCallback } from "react"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
+import { useCategoryCopy } from "@/i18n/useCategoryCopy"
 
 const Search = () => {
+  const t = useTranslations("Navigation");
+
   const [inputText, setInputText] = useState("")
   const [showModal, setShowModal] = useState(false)
   const [showSearch, setShowSearch] = useState(false)
@@ -62,7 +68,7 @@ const Search = () => {
       }
 
       if (updatedQuery.category === "") {
-        alert("검색어를 입력해주세요.")
+        alert(t("pleaseEnterASearchTerm"))
       }
 
       const url = qs.stringifyUrl(
@@ -77,7 +83,7 @@ const Search = () => {
       setShowModal(false)
       setInputText("")
     },
-    [params, inputText, router],
+    [params, inputText, router, t],
   )
 
   const onClick = () => {
@@ -91,10 +97,9 @@ const Search = () => {
       {!showSearch ? (
         <div className={styles.searchWrapper}>
           <div className={styles.searchText} onClick={onClick}>
-            어디든지, 언제든지 <span>Restay</span>와 함께 떠나보는 건 어떨까요?
-          </div>
+            {t("anywhereAnytime")} <span>Restay</span>{t("whereWillYouGoNext")}</div>
           <button
-            aria-label={"검색버튼"}
+            aria-label={t("search")}
             className={styles.biSearchWrapper}
             onClick={onClick}
           >
@@ -110,7 +115,8 @@ const Search = () => {
             className={styles.input}
             type="text"
             value={inputText}
-            placeholder="떠나고 싶은 곳의 키워드를 적어주세요."
+            placeholder={t("enterAKeywordForYourNextDestination")}
+            aria-label={t("search")}
             onFocus={() => setShowModal(true)}
             onChange={handleInputChange}
           />
@@ -118,7 +124,7 @@ const Search = () => {
             className={styles.biSearchWrapper}
             type="button"
             onClick={onClick}
-            aria-label={"검색버튼"}
+            aria-label={t("search")}
           >
             <TiTimes size={18} />
           </button>
@@ -140,12 +146,15 @@ interface RecommendSearchProps {
 
 const RecommendSearch = forwardRef<HTMLDivElement, RecommendSearchProps>(
   ({ setShowModal }, ref) => {
+  const t = useTranslations("Navigation");
+  const categoryCopy = useCategoryCopy();
+
     return (
       <div className={styles.recommendSearchContainer} ref={ref}>
         <div className={styles.test}>
           <div className={styles.recommendSearchWrapper}>
             <div className={styles.absolute}>
-              <div className={styles.recommendSearchTitle}>추천 검색어</div>
+              <div className={styles.recommendSearchTitle}>{t("suggestedSearches")}</div>
               <ul className={styles.recommendSearchListWrapper}>
                 {categories.map((data, index) => {
                   return (
@@ -155,7 +164,7 @@ const RecommendSearch = forwardRef<HTMLDivElement, RecommendSearchProps>(
                         className={styles.recommendSearchList}
                         onClick={() => setShowModal(false)}
                       >
-                        {data.label}
+                        {categoryCopy(data.label)}
                       </Link>
                     </li>
                   )

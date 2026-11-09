@@ -1,4 +1,8 @@
 "use client";
+import type { DetailListingAtomProps } from "@/jotai/@store/state";
+
+import { useTranslations } from "next-intl";
+
 
 import styles from "./DetailListingPage.module.css";
 
@@ -14,25 +18,12 @@ import KakaoMap from "@/app/component/KakaoMap";
 
 interface DetailListingPageProps {
   sessionEmail?: string;
-  listingData: {
-    category: string;
-    location: string;
-    guestCount: number;
-    roomCount: number;
-    bathroomCount: number;
-    imageSrc: string[] | undefined;
-    price: number;
-    title: string;
-    description: string;
-    userId: any;
-    createdAt: any;
-    latlngData: any;
-    userName: string;
-    userImage: string;
-  };
+  listingData: DetailListingAtomProps;
 }
 
 const DetailListingPage: FC<DetailListingPageProps> = ({ sessionEmail, listingData }) => {
+  const t = useTranslations("Listings");
+
   const topRef = useRef(null);
   const bodyRef = useRef(null);
   const mapRef = useRef(null);
@@ -59,8 +50,7 @@ const DetailListingPage: FC<DetailListingPageProps> = ({ sessionEmail, listingDa
             <div className={styles.mapInfoWrapper}>
               <div className={styles.mapInfo} ref={mapRef}>
                 <div className={styles.mapInfoTitle}>
-                  호스팅 위치
-                  <div className={styles.mapInfoSubTitle}>로드뷰가 지원되지 않는 장소는 회색으로 표시됩니다.</div>
+                  {t("whereYouWillStay")}<div className={styles.mapInfoSubTitle}>{t("placesWithoutStreetViewAreShownIn")}</div>
                 </div>
                 <KakaoMap center={center} />
               </div>

@@ -1,16 +1,20 @@
 "use client";
+import { useLocale, useTranslations } from "next-intl";
+
 
 import styles from "./DatePickerComponent.module.css";
 import DatePicker from "react-datepicker";
-import { ko } from "date-fns/locale";
+import { ko, enUS } from "date-fns/locale";
 import { endDateAtom, startDateAtom } from "../../../jotai/@store/state";
 import Button from "../Button";
 import Image from "next/image";
 import { getMonth, getYear } from "date-fns";
-import _ from "lodash";
 import { useAtomValue, useSetAtom } from "jotai";
 
 const DatePickerComponent = ({ onClick }: any) => {
+  const t = useTranslations("Common");
+  const locale = useLocale();
+
   const startDate = useAtomValue(startDateAtom);
   const endDate = useAtomValue(endDateAtom);
   const setStartDate = useSetAtom(startDateAtom);
@@ -31,21 +35,21 @@ const DatePickerComponent = ({ onClick }: any) => {
 
         return (
           <div className={styles.calendarHeaderWrapper}>
-            <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled} className={styles.calendarHeaderPrevButton}>
+            <button type="button" aria-label={t("previous")} onClick={decreaseMonth} disabled={prevMonthButtonDisabled} className={styles.calendarHeaderPrevButton}>
               <Image src="/ico_arr_prev.png" alt="" width={16} height={20} />
             </button>
             <div className={styles.calendarHeaderDateInfo}>
-              <span>{currentYears}</span>
-              <span>년</span> <span>{months[currentMonth]}</span>
-              <span>월</span>
+              {locale === "en" ? new Intl.DateTimeFormat("en", { month: "long", year: "numeric" }).format(date) : <><span>{currentYears}</span>
+              <span>{t("year")}</span> <span>{months[currentMonth]}</span>
+              <span>{t("month")}</span></>}
             </div>
-            <button onClick={increaseMonth} disabled={nextMonthButtonDisabled} className={styles.calendarHeaderNextButton}>
+            <button type="button" aria-label={t("next")} onClick={increaseMonth} disabled={nextMonthButtonDisabled} className={styles.calendarHeaderNextButton}>
               <Image src="/ico_arr_next.png" alt="" width={16} height={20} />
             </button>
           </div>
         );
       }}
-      locale={ko}
+      locale={locale === "en" ? enUS : ko}
       selectsRange
       onChange={onChange}
       calendarClassName={styles.calendar} //달력커스텀
@@ -55,7 +59,7 @@ const DatePickerComponent = ({ onClick }: any) => {
       inline
     >
       <div className={styles.confirmDatePickerButton}>
-        <Button label={"확인"} onClick={onClick} outline />
+        <Button label={t("confirm")} onClick={onClick} outline />
       </div>
     </DatePicker>
   );

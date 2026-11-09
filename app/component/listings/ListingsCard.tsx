@@ -1,28 +1,25 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC } from "react";
 import styles from "./ListingsCard.module.css";
 
-import SwiperComponent from "./SwiperComponent";
+import ListingCardMedia from "./ListingCardMedia";
 import CardInfo from "./CardInfo";
+import type { ListingCardSummary } from "@/types/listing-card";
 
 interface ListingsCardProps {
-  data: any;
-  userId: any;
+  data: ListingCardSummary;
+  userId: string;
   wishList?: boolean;
   sessionEmail?: string;
+  priority?: boolean;
 }
 
-const ListingsCard: FC<ListingsCardProps> = ({ data, sessionEmail }) => {
-  const [isHover, setIsHover] = useState(false);
-
+const ListingsCard: FC<ListingsCardProps> = ({ data, sessionEmail, priority }) => {
   return (
-    <>
-      <div className={styles.listingsWrapper} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-        <SwiperComponent data={data} isHover={isHover} sessionEmail={sessionEmail} />
-        <CardInfo data={data} />
-      </div>
-    </>
+    <ListingCardMedia className={styles.listingsWrapper} data={data} sessionEmail={sessionEmail} priority={priority}>
+      <CardInfo data={data} />
+    </ListingCardMedia>
   );
 };
 

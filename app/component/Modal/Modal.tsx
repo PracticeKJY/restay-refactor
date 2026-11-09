@@ -1,5 +1,7 @@
 "use client"
-import { FC, useCallback, useEffect, useState } from "react"
+import { FC, useCallback, useEffect, useState, useRef, useId } from "react"
+import { useTranslations } from "next-intl"
+import { useDialogFocus } from "@/app/hooks/useDialogFocus"
 import styles from "./Modal.module.css"
 import { IoMdClose } from "react-icons/io"
 import Button from "../Button"
@@ -31,13 +33,19 @@ const Modal: FC<ModalProps> = ({
   secondaryActionLabel,
   outline,
 }) => {
+  const t = useTranslations("Common")
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const titleId = useId()
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current) }, [])
   const [showModal, setShowModal] = useState(false)
   useEffect(() => {
     setShowModal(isOpen)
   }, [isOpen])
 
-  //모달창을 띄었을 시, 외부 스크롤을 막는 로직
+  // Restore the previous inline styles when this dialog closes.
   useEffect(() => {
+    const previousStyle = document.body.style.cssText
     if (isOpen) {
       document.body.style.cssText = ` 
       width:100%;
@@ -45,7 +53,7 @@ const Modal: FC<ModalProps> = ({
       overflow:hidden`
     }
     return () => {
-      document.body.style.cssText = ""
+      document.body.style.cssText = previousStyle
     }
   }, [isOpen])
 
@@ -58,8 +66,10 @@ const Modal: FC<ModalProps> = ({
   }, [onSubmit, disabled])
 
   const handleClose = useCallback(() => {
+    if (closeTimer.current) return
     setShowModal(false)
-    setTimeout(() => {
+    closeTimer.current = setTimeout(() => {
+      closeTimer.current = null
       onClose()
     }, 300)
   }, [onClose])
@@ -72,6 +82,8 @@ const Modal: FC<ModalProps> = ({
     secondaryAction()
   }, [secondaryAction, disabled])
 
+  useDialogFocus(isOpen, dialogRef, handleClose)
+
   if (!isOpen) {
     return null
   }
@@ -80,12 +92,12 @@ const Modal: FC<ModalProps> = ({
 
   return (
     <div className={styles.modalWrapper}>
-      <div className={`${styles.modalContainer} ${modalTransitionClass}`}>
+      <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby={title ? titleId : undefined} aria-label={title ? undefined : actionLabel} tabIndex={-1} className={`${styles.modalContainer} ${modalTransitionClass}`}>
         <div className={styles.modalHeaderContainer}>
-          <button onClick={handleClose} className={styles.closeButton}>
+          <button type="button" aria-label={t("close")} onClick={handleClose} className={styles.closeButton}>
             <IoMdClose size={18} />
           </button>
-          <div>{title}</div>
+          <div id={titleId}>{title}</div>
         </div>
         <div className={styles.modalBodyContainer}>{body}</div>
         <div className={styles.modalFooterContainer}>

@@ -3,6 +3,13 @@
   border-bottom: 1px solid #e6e6e6;
 }
 
+.accountControls { display: flex; align-items: center; gap: .5rem; min-width: 0; }
+
+@media (max-width: 1023px) {
+  .navbarMenu { padding-left: 0; gap: 0.5rem; }
+  .logoSearchWrapper { flex: 1; min-width: 0; width: auto; }
+}
+
 .navbarMenu {
   padding-left: 2rem;
   display: flex;
@@ -63,3 +70,5 @@
     gap: 0;
   }
 }
+
+@media (max-width: 1023px) { .navbarMenu { padding-left: 0; gap: .5rem; } .logoSearchWrapper { flex: 1; min-width: 0; width: auto; } }

@@ -1,18 +1,21 @@
-"use client"
+import { useTranslations } from "next-intl";
 
-import Link from "next/link"
+
+import { Link } from "@/i18n/navigation"
 import styles from "./Footer.module.css"
 
 const FooterUl = () => {
+  const t = useTranslations("Footer");
+
   const footerUlList = [
-    "회사소개",
-    "이용약관",
-    "개인정보처리방침",
-    "소비자 분쟁해결 기준",
-    "사업자 정보확인",
-    "Restay 마케팅센터",
-    "액티비티 호스트센터",
-    "콘텐츠산업진흥법에의한 표시",
+    t("aboutUs"),
+    t("termsOfService"),
+    t("privacyPolicy"),
+    t("consumerDisputeResolution"),
+    t("businessInformation"),
+    t("restayMarketingCenter"),
+    t("activityHostCenter"),
+    t("contentIndustryDisclosures"),
   ]
 
   return (

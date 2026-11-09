@@ -108,3 +108,5 @@
   .modalFooterWrapper {
   }
 }
+
+@media (max-width: 1023px) { .modalContainer { width: min(600px, calc(100% - 16px)); max-height: 85dvh; overflow-y: auto; } .closeButton { min-width: 44px; min-height: 44px; left: .5rem; top: 0; } .modalHeaderContainer { min-height: 44px; padding-left: 3rem; padding-right: 1rem; } }

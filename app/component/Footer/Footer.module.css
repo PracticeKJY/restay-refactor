@@ -42,3 +42,5 @@
   padding: 20px 0 5px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
+
+@media (max-width: 1023px) { .footerContainer { padding-inline: 16px; overflow-wrap: anywhere; } .footerIconWrapper { flex-wrap: wrap; gap: 1rem; } }

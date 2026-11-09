@@ -3,7 +3,7 @@
 import Image from "next/image"
 import logo from "/public/mainLogo.svg"
 import styles from "./Logo.module.css"
-import { useRouter } from "next/navigation"
+import { useRouter } from "@/i18n/navigation"
 const Logo = () => {
   const router = useRouter()
   return (
@@ -17,6 +17,9 @@ const Logo = () => {
       width={100}
       src={logo}
       alt="Restay Logo"
+      role="link"
+      tabIndex={0}
+      onKeyDown={(event) => { if (event.key === "Enter") router.push("/") }}
     />
   )
 }

@@ -1,4 +1,6 @@
 "use client";
+import { useTranslations } from "next-intl";
+
 
 import styles from "./Reservation.module.css";
 
@@ -11,14 +13,14 @@ import Rule from "./Rule";
 import ProductCardInfo from "./ProductCard";
 import PriceInfo from "./PriceInfo";
 
-import { DetailListingAtom, endDateAtom, nextDateAtom, paymentTypeAtom, reservationProductAtom, reservationProductAtomProps, startDateAtom } from "../../../jotai/@store/state";
+import { DetailListingAtom, endDateAtom, nextDateAtom, paymentTypeAtom, startDateAtom } from "../../../jotai/@store/state";
 
-import { useAtom, useAtomValue } from "jotai";
-import { useRouter, useParams } from "next/navigation";
+import { useAtomValue } from "jotai";
+import { useRouter } from "@/i18n/navigation";
 import toast from "react-hot-toast";
 import moment from "moment";
 import { POST } from "@/app/http/request";
-import { PAYMENT_CONFIG, PaymentType } from "@/lib/portone-v1";
+import { PAYMENT_CONFIG } from "@/lib/portone-v1";
 
 interface Props {
   sessionEmail: string | null;
@@ -31,16 +33,16 @@ declare global {
 }
 
 const ReservationClient = ({ sessionEmail }: Props) => {
+  const t = useTranslations("Reservation");
+
   const router = useRouter();
-  const params = useParams<{ id: string }>();
 
   const detailListing = useAtomValue(DetailListingAtom);
   const startDate = useAtomValue(startDateAtom);
   const endDate = useAtomValue(endDateAtom);
   const nextDate = useAtomValue(nextDateAtom);
 
-  const [reservationProduct, setReservationProduct] = useAtom(reservationProductAtom);
-  const [type, setType] = useAtom(paymentTypeAtom);
+  const type = useAtomValue(paymentTypeAtom);
 
   const paymentConfig = PAYMENT_CONFIG[type];
 
@@ -54,7 +56,7 @@ const ReservationClient = ({ sessionEmail }: Props) => {
 
     // 1) 스크립트 로드 확인
     if (!window.IMP) {
-      toast.error("결제 모듈(IMP)이 아직 로드되지 않았습니다. 새로고침 후 다시 시도해주세요.");
+      toast.error(t("thePaymentModuleIsNotReadyRefresh"));
       return;
     }
 
@@ -82,7 +84,7 @@ const ReservationClient = ({ sessionEmail }: Props) => {
           // await fetch("/api/payment/complete", { method:"POST", body: JSON.stringify({ imp_uid: rsp.imp_uid, merchant_uid: rsp.merchant_uid }) })
 
           if (!sessionEmail) {
-            toast.error("로그인 후 이용해주세요.");
+            toast.error(t("pleaseLogInToContinue"));
             return;
           }
 
@@ -124,14 +126,14 @@ const ReservationClient = ({ sessionEmail }: Props) => {
 
             console.log(res.data, "resresresrserserser");
 
-            toast.success("예약되었습니다.");
+            toast.success(t("reservationCompleted"));
             router.push("/");
           } catch (e) {
-            toast.error("예약에 실패했어요.");
+            toast.error(t("couldNotCompleteTheReservation"));
           }
         } else {
           console.log("결제 실패/취소:", rsp);
-          toast.error(rsp.error_msg ?? "결제가 취소/실패했습니다.");
+          toast.error(rsp.error_msg ?? t("paymentWasCanceledOrFailed"));
         }
       },
     );
@@ -141,20 +143,20 @@ const ReservationClient = ({ sessionEmail }: Props) => {
     <Container>
       <div className={styles.reservationContainer}>
         <div className={styles.reservationInfo}>
-          <div className={styles.title}>예약 요청</div>
+          <div className={styles.title}>{t("requestToBook")}</div>
 
           <Info startDate={startDate} endDate={endDate ?? nextDate} />
           <Payment />
           <Refund />
           <Rule />
 
-          <Button label="예약 요청" onClick={onClickPay} />
+          <Button label={t("requestToBook")} onClick={onClickPay} />
         </div>
 
         <div className={styles.productCardContainer}>
           <div className={styles.productCardWrapper}>
             <ProductCardInfo detailListing={detailListing} />
-            <div className={styles.priceInfoHeading}>요금 세부 정보</div>
+            <div className={styles.priceInfoHeading}>{t("priceDetails")}</div>
             <PriceInfo price={detailListing.price} startDate={startDate} endDate={endDate ?? nextDate} />
           </div>
         </div>

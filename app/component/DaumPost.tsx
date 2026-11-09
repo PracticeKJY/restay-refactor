@@ -1,4 +1,6 @@
 "use client";
+import { useTranslations } from "next-intl";
+
 
 import styles from "./DaumPost.module.css";
 
@@ -14,6 +16,8 @@ interface DaumPostProps {
 }
 
 const DaumPost: FC<DaumPostProps> = ({ value, onChange }) => {
+  const t = useTranslations("Common");
+
   const setLatlng = useSetAtom(latlngAtom);
   const [showModal, setShowModal] = useState(false);
   const apiKey = process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID;
@@ -62,7 +66,7 @@ const DaumPost: FC<DaumPostProps> = ({ value, onChange }) => {
         onChange={(value) => {
           onChange(value);
         }}
-        placeholder="클릭하시고 주소를 입력해주세요."
+        placeholder={t("clickToEnterAnAddress")}
       />
       {showModal && (
         <div className={styles.daumPostWrapper}>

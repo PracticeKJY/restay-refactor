@@ -1,4 +1,6 @@
 "use client"
+import { useTranslations } from "next-intl";
+
 
 import { FC, useState } from "react"
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form"
@@ -25,6 +27,8 @@ const TextArea: FC<TextAreaProps> = ({
   register,
   errors,
 }) => {
+  const t = useTranslations("Common");
+
   const [inputFocused, setInputFocused] = useState(false)
 
   const handleOnFocus = () => setInputFocused(true)
@@ -48,7 +52,7 @@ const TextArea: FC<TextAreaProps> = ({
         {...register(id, { required })}
         onFocus={handleOnFocus}
         onBlur={handleOnBlur}
-        placeholder="숙소에 대해 상세한 설명을 적어주세요"
+        placeholder={t("describeYourSpaceInDetail")}
       />
       {errors[id] ? (
         <span className={styles.errorText}>

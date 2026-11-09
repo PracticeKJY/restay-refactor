@@ -89,6 +89,7 @@ restayChargeAtom.debugLabel = "restayChargeAtom";
 // })
 
 export interface fetchUrlatomProps {
+  _id: string;
   title: string;
   description: string;
   imageSrc: string[];

@@ -3,6 +3,7 @@
 import { FC } from "react"
 import styles from "./CategoryInput.module.css"
 import { IconType } from "react-icons"
+import { useCategoryCopy } from "@/i18n/useCategoryCopy"
 
 interface CategoryInput {
   onClick: (value: string) => void
@@ -17,8 +18,13 @@ const CategoryInput: FC<CategoryInput> = ({
   label,
   icon: Icon,
 }) => {
+  const categoryCopy = useCategoryCopy()
   return (
     <div
+      role="button"
+      tabIndex={0}
+      aria-pressed={selected}
+      onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onClick(label); } }}
       onClick={() => onClick(label)}
       className={`${styles.categoryInputContainer} ${
         selected ? styles.isSelected : ""
@@ -27,7 +33,7 @@ const CategoryInput: FC<CategoryInput> = ({
       <div className={styles.iconWrapper}>
         <Icon size={30} />
       </div>
-      <div className={styles.labelContainer}>{label}</div>
+      <div className={styles.labelContainer}>{categoryCopy(label)}</div>
     </div>
   )
 }

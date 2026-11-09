@@ -42,3 +42,5 @@
 .commentTitle {
   font-weight: 600;
 }
+
+@media (max-width: 1023px) { .infoContainer { padding-left: 0; min-height: 0; max-width: none; overflow-wrap: anywhere; } .comment { padding: 20px 16px; } }

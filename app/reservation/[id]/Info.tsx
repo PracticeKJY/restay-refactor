@@ -1,4 +1,6 @@
 "use client";
+import { useTranslations } from "next-intl";
+
 
 import { FC, useState } from "react";
 import styles from "./Reservation.module.css";
@@ -12,6 +14,8 @@ interface InfoProps {
 }
 
 const Info: FC<InfoProps> = ({ startDate, endDate }) => {
+  const t = useTranslations("Reservation");
+
   const startMonth = moment(startDate).format("M");
   const startDay = moment(startDate).format("D");
   const endMonth = moment(endDate).format("M");
@@ -32,18 +36,17 @@ const Info: FC<InfoProps> = ({ startDate, endDate }) => {
   return (
     <div className={styles.reservationWrapper}>
       <div>
-        <div className={styles.infoTitle}>예약 정보</div>
+        <div className={styles.infoTitle}>{t("yourReservation")}</div>
         <div className={styles.infoWrapper}>
           <div>
-            <div className={styles.dataTitle}>날짜</div>
+            <div className={styles.dataTitle}>{t("dates")}</div>
             <div className={styles.data}>
-              {startMonth === endMonth ? `${startMonth}월 ${startDay}일 ~ ${endDay}일` : `${startMonth}월 ${startDay}일 ~ ${endMonth}월 ${endDay}일`}
+              {startMonth === endMonth ? t("dateRangeSameMonth", { p0: startMonth, p1: startDay, p2: endDay }) : t("dateRangeDifferentMonth", { p0: startMonth, p1: startDay, p2: endMonth, p3: endDay })}
             </div>
           </div>
           <div className={styles.modifyDate}>
             <button className={styles.modifyButton} onClick={onClick}>
-              수정
-            </button>
+              {t("edit")}</button>
             <div className={styles.modifyDateWrapper}>{toggle && datePicker}</div>
           </div>
         </div>

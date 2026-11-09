@@ -1,4 +1,6 @@
 "use client";
+import { useTranslations } from "next-intl";
+
 
 import Skeleton from "@/app/component/Skeleton/Skeleton";
 import styles from "./Reservation.module.css";
@@ -6,6 +8,8 @@ import Image from "next/image";
 import { FcPlanner } from "react-icons/fc";
 
 const ProductCardInfo = ({ detailListing }: any) => {
+  const t = useTranslations("Reservation");
+
   const imageSrc = detailListing?.imageSrc?.[0];
 
   return (
@@ -30,8 +34,7 @@ const ProductCardInfo = ({ detailListing }: any) => {
           </div>
         </div>
         <div className={styles.reviewInfoWrapper}>
-          ★<span className={styles.reviewScore}>4.85</span>(후기 4개)
-        </div>
+          ★<span className={styles.reviewScore}>4.85</span>{t("4Reviews")}</div>
       </div>
     </div>
   );

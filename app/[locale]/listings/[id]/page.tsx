@@ -3,6 +3,12 @@
 import DetailListingClient from "@/app/listings/[id]/DetailListingClient";
 import { auth } from "@/auth";
 import { DetailListingAtomProps } from "@/jotai/@store/state";
+import { pageMetadata } from "@/i18n/metadata";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; id: string }> }) {
+  const { locale, id } = await params;
+  return pageMetadata(locale, `/listings/${encodeURIComponent(id)}`, "listing");
+}
 
 export const runtime = "nodejs";
 

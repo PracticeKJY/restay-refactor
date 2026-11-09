@@ -1,4 +1,6 @@
 "use client"
+import { useTranslations } from "next-intl";
+
 
 import { FC, useState } from "react"
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form"
@@ -28,6 +30,8 @@ const Input: FC<InputProps> = ({
   errors,
   placeHolder,
 }) => {
+  const t = useTranslations("Common");
+
   const [inputFocused, setInputFocused] = useState(false)
 
   const handleOnFocus = () => setInputFocused(true)
@@ -51,15 +55,17 @@ const Input: FC<InputProps> = ({
         ${errors[id] ? styles.inputError : ""}
         `}
         id={id}
+        aria-invalid={Boolean(errors[id])}
+        aria-describedby={errors[id] ? `${id}-error` : undefined}
         type={type}
         disabled={disabled}
         {...register(id, {
-          required: required && "필수 입력사항입니다.",
+          required: required && t("thisFieldIsRequired"),
           ...(id === "email"
             ? {
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                  message: "올바른 이메일 주소 형식이 아닙니다.",
+                  message: t("enterAValidEmailAddress"),
                 },
               }
             : {}),
@@ -67,7 +73,7 @@ const Input: FC<InputProps> = ({
             ? {
                 pattern: {
                   value: /^[ㄱ-ㅎ|가-힣|]+$/,
-                  message: "이름은 한글만 적을 수 있습니다.",
+                  message: t("namesMustUseKoreanCharacters"),
                 },
               }
             : {}),
@@ -75,11 +81,11 @@ const Input: FC<InputProps> = ({
             ? {
                 minLength: {
                   value: 4,
-                  message: "비밀번호는 최소 4자 이상이어야 합니다.",
+                  message: t("passwordsMustContainAtLeast4Characters"),
                 },
                 maxLength: {
                   value: 12,
-                  message: "비밀번호는 최대 12자까지 가능합니다.",
+                  message: t("passwordsCanContainUpTo12Characters"),
                 },
               }
             : {}),
@@ -89,7 +95,7 @@ const Input: FC<InputProps> = ({
         onBlur={handleOnBlur}
       />
       {errors[id] ? (
-        <span className={styles.errorText}>
+        <span id={`${id}-error`} role="alert" className={styles.errorText}>
           {errors[id]?.message?.toString()}
         </span>
       ) : (

@@ -405,3 +405,5 @@
   padding: 1.5rem 0;
   font-size: 0.875rem;
 }
+
+@media (max-width: 1023px) { .reservationContainer { flex-direction: column; margin: 0; padding-top: 2rem; gap: 2rem; } .reservationInfo, .productCardContainer, .productCardWrapper { width: 100%; min-width: 0; } .productCardWrapper { position: static; height: auto; padding: 16px; } .productInfo { min-width: 0; overflow-wrap: anywhere; } .expirationAndCVVWrapper > * { min-width: 0; flex: 1; } .input { min-width: 0; font-size: 16px; } }

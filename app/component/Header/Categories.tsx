@@ -16,7 +16,8 @@ import { BsSnow } from "react-icons/bs"
 import { IoDiamond } from "react-icons/io5"
 import { MdOutlineVilla } from "react-icons/md"
 import CategoryBox from "../CategoryBox"
-import { usePathname, useSearchParams } from "next/navigation"
+import { useSearchParams } from "next/navigation";
+import { usePathname } from "@/i18n/navigation"
 
 export const categories = [
   {

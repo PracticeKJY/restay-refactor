@@ -8,6 +8,7 @@ import UserMenu from "./UserMenu";
 import Categories from "./Categories";
 import { useEffect, useRef } from "react";
 import type { Session } from "next-auth";
+import LanguageSelector from "./LanguageSelector";
 
 interface NavbarProps {
   session: Session | null;
@@ -50,7 +51,10 @@ const Navbar = ({ session }: NavbarProps) => {
               <Logo />
               <Search />
             </div>
-            <UserMenu session={session} />
+            <div className={styles.accountControls}>
+              <UserMenu session={session} />
+              <LanguageSelector />
+            </div>
           </div>
         </Container>
       </div>

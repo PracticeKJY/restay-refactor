@@ -1,10 +1,12 @@
 "use client"
 
 import styles from "./CategoryBox.module.css"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "@/i18n/navigation"
 import qs from "query-string"
 import { FC, useCallback } from "react"
 import { IconType } from "react-icons"
+import { useCategoryCopy } from "@/i18n/useCategoryCopy"
 
 interface CategoryBoxProps {
   label: string
@@ -13,6 +15,7 @@ interface CategoryBoxProps {
 }
 
 const CategoryBox: FC<CategoryBoxProps> = ({ icon: Icon, label, selected }) => {
+  const categoryCopy = useCategoryCopy()
   const router = useRouter()
   const params = useSearchParams()
 
@@ -44,9 +47,10 @@ const CategoryBox: FC<CategoryBoxProps> = ({ icon: Icon, label, selected }) => {
   }, [params, label, router])
 
   return (
-    <div onClick={handleClick} className={styles.container}>
+    <div role="button" tabIndex={0} aria-pressed={selected} onClick={handleClick} className={styles.container}
+      onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); handleClick(); } }}>
       <Icon size={26} />
-      <div className={styles.labelWrapper}>{label}</div>
+      <div className={styles.labelWrapper}>{categoryCopy(label)}</div>
     </div>
   )
 }

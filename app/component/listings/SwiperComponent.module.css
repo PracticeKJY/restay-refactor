@@ -48,3 +48,6 @@
 .visibleButton {
   opacity: 1;
 }
+
+.prevButton:focus-visible, .nextButton:focus-visible { opacity: 1; }
+@media (hover: none) { .prevButton, .nextButton { opacity: 1; min-width: 36px; min-height: 36px; } }

@@ -49,3 +49,5 @@
     padding: 2rem 0;
   }
 }
+
+@media (max-width: 374px) { .categoryWraaper { grid-template-columns: minmax(0, 1fr); } }

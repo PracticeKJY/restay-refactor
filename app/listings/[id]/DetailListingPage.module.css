@@ -10,63 +10,11 @@
   position: relative;
 }
 
-.swiperSlide {
-  opacity: 0.25;
-}
-
-.active {
-  opacity: 1;
-}
-
 .mainCarousel {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-}
-
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiperWrapper {
-  display: block;
-  position: relative;
-  max-width: 560px;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.swiperList {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 520px;
-}
-
-.prevButton {
-  font-weight: 600;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  z-index: 10;
-  top: 85%;
-  left: -10px;
-  border: none;
-  background-color: transparent;
-}
-.nextButton {
-  font-weight: 600;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  z-index: 10;
-  top: 85%;
-  right: 0;
-  border: none;
-  background-color: transparent;
 }
 
 .hostingIntroduce {
@@ -188,3 +136,9 @@
   text-decoration: underline;
   text-underline-offset: 0.5rem;
 }
+
+@media (max-width: 1023px) { .contentContainer { width: 100%; margin-top: 2rem; padding: 2rem 0; } .mainCarousel, .bodyContainer { flex-direction: column; align-items: stretch; gap: 2rem; } .infoContainer { padding-left: 0; max-width: none; min-height: 0; } .hostDataContainer { width: 100%; } .countList { flex-wrap: wrap; } .displayNav { padding: 1rem; } .detailListingNavWrapper { gap: 1rem; flex-wrap: wrap; } }
+
+@media (max-width: 1199px) { .contentContainer { max-width: 100%; } .mainCarousel, .bodyContainer { gap: 2rem; } .mainCarousel > *, .bodyContainer > * { min-width: 0; flex: 1 1 0; } }
+
+@media (max-width: 1023px) { .mainCarousel { gap: 1.25rem; } }

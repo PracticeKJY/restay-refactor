@@ -1,9 +1,13 @@
 "use client"
+import { useTranslations } from "next-intl";
+
 
 import styles from "./DetailListingPage.module.css"
 import { useEffect, useState } from "react"
 
 const MiniHeader = ({ topRef, bodyRef, mapRef }: any) => {
+  const t = useTranslations("Listings");
+
   const [isShow, setIsShow] = useState(false)
 
   const moveToTop = () => {
@@ -41,14 +45,11 @@ const MiniHeader = ({ topRef, bodyRef, mapRef }: any) => {
       <div className={styles.detailListingNavContainer}>
         <div className={styles.detailListingNavWrapper}>
           <button className={styles.borderNone} onClick={moveToTop}>
-            사진
-          </button>
+            {t("photos")}</button>
           <button className={styles.borderNone} onClick={moveToBodyInfo}>
-            숙소 정보
-          </button>
+            {t("aboutThisStay")}</button>
           <button className={styles.borderNone} onClick={moveToMapInfo}>
-            위치
-          </button>
+            {t("location")}</button>
         </div>
       </div>
     </div>

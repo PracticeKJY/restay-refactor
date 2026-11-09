@@ -1,4 +1,6 @@
 "use client";
+import { useTranslations } from "next-intl";
+
 
 import styles from "./Reservation.module.css";
 
@@ -10,6 +12,8 @@ import PaymentDropDownHeader from "@/app/reservation/components/PaymentDropDownH
 import PaymentDropDownList from "@/app/reservation/components/PaymentDropDownList";
 
 const Payment = () => {
+  const t = useTranslations("Reservation");
+
   const paymentOptions = paymentOptionData;
 
   const [isCheck, setIsCheck] = useState(false);
@@ -31,7 +35,7 @@ const Payment = () => {
   return (
     <div className={styles.paymentContainer}>
       <div className={styles.paymentTitleWrapper}>
-        <div className={styles.paymentTitle}>결제 수단</div>
+        <div className={styles.paymentTitle}>{t("paymentMethod")}</div>
         <div className={styles.creditImageWrapper}>
           <Image src={"/ic-logo-visa.svg"} alt="" width={36} height={36} />
           <Image src={"/ic-logo-amex.svg"} alt="" width={36} height={36} />
@@ -45,7 +49,7 @@ const Payment = () => {
         </div>
         <div className={styles.paymentOptionInfo}>
           <ReservationInput
-            title={"카드번호"}
+            title={t("cardNumber")}
             id={"creditCardNumber"}
             maxLength={19}
             value={formattedValue || inputValue}
@@ -53,7 +57,7 @@ const Payment = () => {
             placeholder={"0000 0000 0000 0000"}
           />
           <div className={styles.expirationAndCVVWrapper}>
-            <ReservationInput title={"만료일"} id={"expirationDate"} placeholder={"MM / YY"} />
+            <ReservationInput title={t("expirationDate")} id={"expirationDate"} placeholder={"MM / YY"} />
             <ReservationInput title={"CVV"} id={"CVV"} placeholder={"123"} />
           </div>
         </div>

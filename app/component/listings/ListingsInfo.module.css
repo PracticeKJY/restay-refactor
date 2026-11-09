@@ -76,3 +76,5 @@
   width: 500px;
   height: 500px;
 }
+
+@media (max-width: 1023px) { .hostDataContainer, .mapInfo { width: 100%; min-width: 0; } .countList { flex-wrap: wrap; gap: .5rem; } .hostingInfoContainer { gap: 1rem; } .descriptionInfo, .descriptionInfoMore { overflow-wrap: anywhere; } }

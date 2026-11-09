@@ -1,7 +1,11 @@
 "use client"
+import { useTranslations } from "next-intl";
+
 
 const Loading = () => {
-  return <div>로딩중...</div>
+  const t = useTranslations("Common");
+
+  return <div>{t("loading")}</div>
 }
 
 export default Loading

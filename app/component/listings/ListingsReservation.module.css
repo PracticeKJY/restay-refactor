@@ -77,3 +77,5 @@
   justify-content: space-between;
   font-weight: 600;
 }
+
+@media (max-width: 1023px) { .dataPickerWrapper { position: static; width: 100%; height: auto; min-height: 392px; padding: 16px; } .priceInfoWrapper { flex-wrap: wrap; gap: .5rem; } .reservationInfoRule { text-align: center; } }

@@ -1,4 +1,6 @@
 "use client";
+import { useTranslations } from "next-intl";
+
 
 import { useState } from "react";
 import styles from "./ListingsCard.module.css";
@@ -22,6 +24,8 @@ type Props = {
 };
 
 const FavoriteButton = ({ data, sessionEmail }: Props) => {
+  const t = useTranslations("Listings");
+
   const [isLoading, setIsLoading] = useState(false);
   const [unSubModal, setUnSubModal] = useState(false);
   const [isWishListModal, setIsWishListModal] = useState(false);
@@ -51,7 +55,7 @@ const FavoriteButton = ({ data, sessionEmail }: Props) => {
     console.log(sessionEmail, "sessionEmail");
 
     if (!sessionEmail) {
-      alert("로그인 후 이용해주세요.");
+      alert(t("pleaseLogInToContinue"));
       return;
     }
 
@@ -74,18 +78,18 @@ const FavoriteButton = ({ data, sessionEmail }: Props) => {
       setIsLoading(true);
 
       await POST("/api/favorite/favorite", modifyFormData);
-      toast.success("위시리스트가 생성되었습니다.");
+      toast.success(t("wishlistCreated"));
 
-      const wishListDatas = await GET<wishListAtomProps[]>("api/favorite/findFavorite").then((res) => res.data);
+      const wishListDatas = await GET<wishListAtomProps[]>("/api/favorite/findFavorite").then((res) => res.data);
       setWishListData(wishListDatas);
 
-      const fav = await GET<favoriteAtomProps[]>("api/favorite/findHasFavorite").then((res) => res.data);
+      const fav = await GET<favoriteAtomProps[]>("/api/favorite/findHasFavorite").then((res) => res.data);
       setFavorite(fav);
 
       setIsWishListModal(false);
       reset();
     } catch {
-      toast.error("위시리스트 생성에 실패했어요.");
+      toast.error(t("couldNotCreateTheWishlist"));
     } finally {
       setIsLoading(false);
     }
@@ -101,16 +105,16 @@ const FavoriteButton = ({ data, sessionEmail }: Props) => {
 
       await POST("/api/favorite/deleteFavorite", modifyData);
 
-      const findHasFavorite = await GET<favoriteAtomProps[]>("api/favorite/findHasFavorite").then((res) => res.data);
+      const findHasFavorite = await GET<favoriteAtomProps[]>("/api/favorite/findHasFavorite").then((res) => res.data);
       setFavorite(findHasFavorite);
 
-      const wishListDatas = await GET<wishListAtomProps[]>("api/favorite/findFavorite").then((res) => res.data);
+      const wishListDatas = await GET<wishListAtomProps[]>("/api/favorite/findFavorite").then((res) => res.data);
       setWishListData(wishListDatas);
 
       setUnSubModal(false);
       reset();
     } catch {
-      toast.error("위시리스트 삭제에 실패했어요.");
+      toast.error(t("couldNotRemoveTheWishlistItem"));
     } finally {
       setIsLoading(false);
     }
@@ -118,16 +122,16 @@ const FavoriteButton = ({ data, sessionEmail }: Props) => {
 
   const bodyContent = (
     <div className={styles.bodyContentContainer}>
-      <Heading title="새로운 위시리스트 추가" subTitle="위시리스트의 제목을 적어주세요." />
+      <Heading title={t("createANewWishlist")} subTitle={t("enterANameForYourWishlist")} />
       <Input id={"wishListTitle"} label={"wishListTitle"} register={register} errors={errors} disabled={isLoading} />
     </div>
   );
 
-  const wishListModal = <Modal title="위시리스트 추가" body={bodyContent} isOpen={isWishListModal} onClose={handleClose} onSubmit={handleSubmit(onSubmit)} actionLabel={"확인"} />;
+  const wishListModal = <Modal title={t("addToWishlist")} body={bodyContent} isOpen={isWishListModal} onClose={handleClose} onSubmit={handleSubmit(onSubmit)} actionLabel={t("confirm")} />;
 
-  const unSubBodyContent = <Heading title="취소하시겠어요?" />;
+  const unSubBodyContent = <Heading title={t("wouldYouLikeToRemoveThis")} />;
 
-  const unSubWishListModal = <Modal body={unSubBodyContent} isOpen={unSubModal} onClose={() => setUnSubModal(false)} onSubmit={handleSubmit(unSubHandler)} actionLabel={"확인"} />;
+  const unSubWishListModal = <Modal body={unSubBodyContent} isOpen={unSubModal} onClose={() => setUnSubModal(false)} onSubmit={handleSubmit(unSubHandler)} actionLabel={t("confirm")} />;
 
   const myFavorites = favorite.filter((f) => sessionEmail && f.email === sessionEmail);
   const checkHeartById = myFavorites.some((f) => data._id === f.id);
@@ -137,7 +141,8 @@ const FavoriteButton = ({ data, sessionEmail }: Props) => {
       {isWishListModal && wishListModal}
       {unSubModal && unSubWishListModal}
 
-      <div onClick={handleSetFavorite}>
+      <div role="button" tabIndex={0} aria-label={t("addToWishlist")} aria-pressed={checkHeartById} onClick={handleSetFavorite}
+        onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); handleSetFavorite(); } }}>
         {checkHeartById ? <AiFillHeart size={28} className={styles.aiFillHeart} /> : <AiOutlineHeart size={28} className={styles.aiOutlineHeart} />}
       </div>
     </>
@@ -224,9 +229,9 @@ export default FavoriteButton;
 
 //       await POST("/api/favorite/favorite", modifyFormData);
 //       toast.success("위시리스트가 생성되었습니다.");
-//       const wishListDatas = await GET<wishListAtomProps[]>("api/favorite/findFavorite").then((res) => res.data);
+//       const wishListDatas = await GET<wishListAtomProps[]>("/api/favorite/findFavorite").then((res) => res.data);
 //       setWishListData(wishListDatas);
-//       const favorite = await GET<favoriteAtomProps[]>("api/favorite/findHasFavorite").then((res) => res.data);
+//       const favorite = await GET<favoriteAtomProps[]>("/api/favorite/findHasFavorite").then((res) => res.data);
 //       setFavorite(favorite);
 //       setIsWishListModal(false);
 //       reset();
@@ -250,9 +255,9 @@ export default FavoriteButton;
 //       setIsLoading(true);
 
 //       await POST("/api/favorite/deleteFavorite", modifyData);
-//       const findHasFavorite = await GET<favoriteAtomProps[]>("api/favorite/findHasFavorite").then((res) => res.data);
+//       const findHasFavorite = await GET<favoriteAtomProps[]>("/api/favorite/findHasFavorite").then((res) => res.data);
 //       setFavorite(findHasFavorite);
-//       const wishListDatas = await GET<wishListAtomProps[]>("api/favorite/findFavorite").then((res) => res.data);
+//       const wishListDatas = await GET<wishListAtomProps[]>("/api/favorite/findFavorite").then((res) => res.data);
 //       setWishListData(wishListDatas);
 
 //       setUnSubModal(false);

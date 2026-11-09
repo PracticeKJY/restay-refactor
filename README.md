@@ -1,3 +1,25 @@
+## 현재 리팩토링 실행 안내
+
+Next.js 15.5.9 / React 18 / next-intl 4 기반입니다. 한국어 URL은 기존대로 유지하며 영어는 `/en`을 사용합니다. API 경로에는 locale을 붙이지 않습니다.
+
+검증 환경은 Node.js 22.17.0 / npm 11.6.1입니다. 라우팅 테스트는 Node의 `module.registerHooks`를 사용하므로 Node 22.15 이상이 필요합니다. 새 라이브러리 설치나 주요 버전 업그레이드는 수행하지 않았습니다.
+
+```sh
+npm run typecheck
+npm run lint
+npm test
+npm run build
+npm run start -- --hostname localhost --port 3101
+# 위 서버를 실행한 뒤 별도 터미널에서:
+npm run test:smoke
+```
+
+`test:smoke`는 localhost:3101의 공개 HTML을 읽는 검사입니다. 인증 설정이 허용하지 않으면 인증 API 검사는 보류 결과로 종료합니다. 브라우저·실결제 검증은 포함하지 않습니다. Windows에서 PATH 문제가 있으면 기존 Node 설치의 절대 경로를 사용할 수 있습니다.
+
+진행 범위와 검증 제한은 [진행 기록](docs/refactoring-progress.md), 최신 결과와 인증 오류 해결안은 [최종 검증](docs/final-validation.md), 화면별 절차는 [수동 검증](docs/manual-verification.md), 성능 기록은 [성능 문서](docs/performance.md)를 참고해 주세요. 아래의 프로젝트 초기 소개·스크린샷은 과거 구현 기록이며, 결제 기능 설명을 현재 동작의 근거로 사용하지 않습니다.
+
+`next build`는 코드·환경값을 제외한 webpack 모듈 통계를 `.next/client-bundle-stats.json`에 기록합니다. `node scripts/analyze-bundles.cjs`로 실제 JS 파일 합집합/gzip 집계를 재현할 수 있습니다. 기존 상세의 로컬 서버 조회 URL이 3000 포트를 사용하는 환경에서는 `npm run start -- --hostname localhost --port 3000` 후 `npm run test:smoke -- --port=3000`으로 상세까지 확인할 수 있습니다. 제품 설정이나 환경변수는 이 명령으로 바뀌지 않습니다.
+
 ![header](https://capsule-render.vercel.app/api?type=waving&color=0:0093FE,100:FFFFFF)
 <div align="center"><img src="https://github.com/PracticeKJY/restay-refactor/assets/119389577/af1f87ba-2575-47a6-981a-9d09efdb21b8" width="400"></div>
 

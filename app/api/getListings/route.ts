@@ -1,5 +1,5 @@
 // app/api/listings/getListings/route.ts
-import clientPromise from "@/app/api/mongoDB";
+import { findListings } from "@/lib/listings";
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs"; // ⭐ MongoDB는 반드시 nodejs
@@ -8,13 +8,7 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const client = await clientPromise;
-    const db = client.db("Restay");
-
-    const result = await db
-      .collection("listings")
-      .find(body ?? {})
-      .toArray();
+    const result = await findListings(body ?? {});
 
     return NextResponse.json(result, { status: 200 });
   } catch (error) {

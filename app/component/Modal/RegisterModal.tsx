@@ -1,4 +1,6 @@
 "use client"
+import { useTranslations } from "next-intl";
+
 
 import { useState } from "react"
 import Modal from "./Modal"
@@ -12,6 +14,8 @@ import toast from "react-hot-toast"
 import { useAtomValue, useSetAtom } from "jotai"
 
 const RegisterModal = () => {
+  const t = useTranslations("Auth");
+
   const [isLoading, setIsLoading] = useState(false)
   const isRegisterModal = useAtomValue(registerModalAtom)
   const isLoginModal = useAtomValue(loginModalAtom)
@@ -39,11 +43,11 @@ const RegisterModal = () => {
     axios
       .post("/api/auth/signup", data)
       .then(() => {
-        toast.success("restay의 회원이 되신걸 환영해요")
+        toast.success(t("welcomeToRestay2"))
       })
       .catch((error) => {
         console.log(error)
-        toast.error("Something went wrong")
+        toast.error(t("somethingWentWrong"))
       })
       .finally(() => {
         setIsLoading(false)
@@ -60,8 +64,8 @@ const RegisterModal = () => {
     <>
       <div className={styles.bodyContentContainer}>
         <Heading
-          title="Restay에 오신것을 환영합니다."
-          subTitle="Restay의 회원이 되시고 혜택을 받아가세요"
+          title={t("welcomeToRestay")}
+          subTitle={t("joinRestayAndEnjoyMemberBenefits")}
         />
         <Input
           id={"email"}
@@ -97,10 +101,9 @@ const RegisterModal = () => {
       <div className={styles.footerContentContainer}>
         <div className={styles.footerTextContainer}>
           <div className={styles.footerTextWraaper}>
-            <div>이미 계정이 있으신가요?</div>
+            <div>{t("alreadyHaveAnAccount")}</div>
             <button onClick={onClick} className={styles.footerTextButton}>
-              로그인
-            </button>
+              {t("logIn")}</button>
           </div>
         </div>
       </div>
@@ -112,8 +115,8 @@ const RegisterModal = () => {
       isOpen={isRegisterModal}
       onClose={handleClose}
       disabled={isLoading}
-      title={"회원가입"}
-      actionLabel={"회원가입"}
+      title={t("signUp")}
+      actionLabel={t("signUp")}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
       footer={footerContent}

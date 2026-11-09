@@ -1,0 +1,14 @@
+# Restay Project - Codex Configuration
+
+# 기본 추론 수준
+model_reasoning_effort = "medium"
+
+# 프로젝트 작업 공간 내 파일 수정 허용
+sandbox_mode = "workspace-write"
+
+# 추가 권한이 필요한 작업은 승인 요청
+approval_policy = "on-request"
+
+# 외부 네트워크 접근 제한
+[sandbox_workspace_write]
+network_access = false

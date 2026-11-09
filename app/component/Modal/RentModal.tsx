@@ -1,9 +1,11 @@
 "use client";
+import { useTranslations } from "next-intl";
+
 
 import styles from "./RentModal.module.css";
 import Modal from "./Modal";
 import { latlngAtom, rentModalAtom } from "../../../jotai/@store/state";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Heading from "../Heading";
 import { categories } from "./../Header/Categories";
@@ -12,7 +14,7 @@ import Counter from "../Input/Counter";
 import ImageUpload from "./../Input/ImageUpload";
 import Input from "../Input/Input";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 import toast from "react-hot-toast";
 import { useAtomValue, useSetAtom } from "jotai";
 import TextArea from "../Input/TextArea";
@@ -33,6 +35,8 @@ interface RentModalProps {
 }
 
 const RentModalClient = ({ sessionEmail }: RentModalProps) => {
+  const t = useTranslations("Hosting");
+
   const [step, setStep] = useState(STEPS.CATEGORY);
   const isRentModal = useAtomValue(rentModalAtom);
   const setIsRentModal = useSetAtom(rentModalAtom);
@@ -68,8 +72,6 @@ const RentModalClient = ({ sessionEmail }: RentModalProps) => {
   const roomCount = watch("roomCount");
   const bathroomCount = watch("bathroomCount");
   const imageSrc = watch("imageSrc");
-  const title = watch("title");
-  const price = watch("price");
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -88,7 +90,7 @@ const RentModalClient = ({ sessionEmail }: RentModalProps) => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     if (!sessionEmail) {
-      toast.error("로그인 후 이용해주세요.");
+      toast.error(t("pleaseLogInToContinue"));
       return;
     }
 
@@ -107,28 +109,28 @@ const RentModalClient = ({ sessionEmail }: RentModalProps) => {
     axios
       .post("/api/listings/listings", modifyFormData)
       .then(() => {
-        toast.success("리스트가 생성되었어요");
+        toast.success(t("listingCreated"));
         router.refresh();
         reset();
         setStep(STEPS.CATEGORY);
         setIsRentModal(!isRentModal);
       })
       .catch(() => {
-        toast.error("리스트 생성에 실패했어요");
+        toast.error(t("couldNotCreateTheListing"));
       })
       .finally(() => {
         setIsLoading(false);
       });
   };
 
-  const actionLabel = useMemo(() => (step === STEPS.PRICE ? "생성" : "다음"), [step]);
+  const actionLabel = step === STEPS.PRICE ? t("create") : t("next");
 
-  const secondaryActionLabel = useMemo(() => (step === STEPS.CATEGORY ? undefined : "뒤로"), [step]);
+  const secondaryActionLabel = step === STEPS.CATEGORY ? undefined : t("back");
 
   /* ---------- bodyContent (기존 그대로) ---------- */
   let bodyContent = (
     <div className={styles.bodyContentContainer}>
-      <Heading title="어떤 장소를 공유하실건가요?" subTitle="다음 중 장소를 가장 잘 설명하는 것을 선택해주세요." />
+      <Heading title={t("whatKindOfSpaceWillYouShare")} subTitle={t("chooseTheCategoryThatBestDescribesYour")} />
       <div className={styles.categoryWraaper}>
         {categories.map((item) => (
           <CategoryInput key={item.label} onClick={(category) => setCustomValue("category", category)} selected={category === item.label} label={item.label} icon={item.icon} />
@@ -140,7 +142,7 @@ const RentModalClient = ({ sessionEmail }: RentModalProps) => {
   if (step === STEPS.LOCATION) {
     bodyContent = (
       <div className={styles.bodyContentContainer}>
-        <Heading title="어디에 위치하고 있나요?" />
+        <Heading title={t("whereIsYourSpace")} />
         <DaumPost value={location} onChange={(v) => setCustomValue("location", v)} />
         <KakaoMap />
       </div>
@@ -150,10 +152,10 @@ const RentModalClient = ({ sessionEmail }: RentModalProps) => {
   if (step === STEPS.INFO) {
     bodyContent = (
       <div className={styles.bodyContentContainer}>
-        <Heading title="몇 가지 정보를 알려주세요." />
-        <Counter title={"게스트"} subTitle={"총 인원수를 알려주세요."} value={guestCount} onChange={(value) => setCustomValue("guestCount", value)} />
-        <Counter title={"방"} subTitle={"총 방의 갯수를 알려주세요."} value={roomCount} onChange={(value) => setCustomValue("roomCount", value)} />
-        <Counter title={"화장실"} subTitle={"총 화장실의 갯수를 알려주세요."} value={bathroomCount} onChange={(value) => setCustomValue("bathroomCount", value)} />
+        <Heading title={t("tellUsALittleMore")} />
+        <Counter title={t("guests")} subTitle={t("howManyGuestsCanStay")} value={guestCount} onChange={(value) => setCustomValue("guestCount", value)} />
+        <Counter title={t("rooms")} subTitle={t("howManyRoomsAreThere")} value={roomCount} onChange={(value) => setCustomValue("roomCount", value)} />
+        <Counter title={t("bathrooms")} subTitle={t("howManyBathroomsAreThere")} value={bathroomCount} onChange={(value) => setCustomValue("bathroomCount", value)} />
       </div>
     );
   }
@@ -161,7 +163,7 @@ const RentModalClient = ({ sessionEmail }: RentModalProps) => {
   if (step === STEPS.IMAGES) {
     bodyContent = (
       <div className={styles.bodyContentContainer}>
-        <Heading title="사진을 업로드해주세요." />
+        <Heading title={t("uploadPhotosOfYourSpace")} />
         <ImageUpload value={imageSrc} onChange={(v) => setCustomValue("imageSrc", v)} />
       </div>
     );
@@ -170,9 +172,9 @@ const RentModalClient = ({ sessionEmail }: RentModalProps) => {
   if (step === STEPS.DESCRIPTION) {
     bodyContent = (
       <div className={styles.bodyContentContainer}>
-        <Heading title="공간을 설명해주세요." />
-        <Input id="title" label="Title" register={register} errors={errors} required />
-        <TextArea id="description" label="Description" register={register} errors={errors} required />
+        <Heading title={t("describeYourSpace")} />
+        <Input id="title" label={t("title")} register={register} errors={errors} required />
+        <TextArea id="description" label={t("description")} register={register} errors={errors} required />
       </div>
     );
   }
@@ -180,15 +182,15 @@ const RentModalClient = ({ sessionEmail }: RentModalProps) => {
   if (step === STEPS.PRICE) {
     bodyContent = (
       <div className={styles.bodyContentContainer}>
-        <Heading title="가격을 정해주세요." />
-        <Input id="price" label="Price" type="number" register={register} errors={errors} required />
+        <Heading title={t("setYourPrice")} />
+        <Input id="price" label={t("price")} type="number" register={register} errors={errors} required />
       </div>
     );
   }
 
   return (
     <Modal
-      title="Restay할 준비가 되셨나요?"
+      title={t("readyToHostOnRestay")}
       body={bodyContent}
       isOpen={isRentModal}
       onClose={handleClose}

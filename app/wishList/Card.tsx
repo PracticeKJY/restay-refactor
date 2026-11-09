@@ -1,33 +1,34 @@
-"use Client";
+"use client";
+import { useTranslations } from "next-intl";
+
 
 import styles from "./Card.module.css";
-import SwiperComponent from "../component/listings/SwiperComponent";
-import { FC, useState } from "react";
+import ListingCardMedia from "../component/listings/ListingCardMedia";
+import { FC } from "react";
+import type { ListingCardMediaData } from "@/types/listing-card";
 
 interface CardProps {
-  data: any;
-  userId?: any;
+  data: ListingCardMediaData;
+  userId?: string;
   title?: string;
   startDay?: string;
   endDay?: string;
   disable?: boolean;
 }
 
-const Card: FC<CardProps> = ({ data, title, startDay, endDay, disable }: any) => {
-  const [isHover, setIsHover] = useState(false);
+const Card: FC<CardProps> = ({ data, title, startDay, endDay, disable }) => {
+  const t = useTranslations("Common");
 
   return (
     <>
       <div className={styles.cardContainer}>
         <div className={styles.cardWrapper}>
-          <div className={styles.listingsWrapper} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-            <SwiperComponent data={data} isHover={isHover} disable={disable} />
-          </div>
+          <ListingCardMedia className={styles.listingsWrapper} data={data} disable={disable} />
           {title ? (
             <div className={styles.cardTitle}>{title}</div>
           ) : (
             <div className={styles.cardTitle}>
-              예약일: {startDay} ~ {endDay}
+              {t("reservationDates")} {startDay} ~ {endDay}
             </div>
           )}
         </div>
