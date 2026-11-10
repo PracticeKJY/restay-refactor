@@ -191,7 +191,7 @@ const RentModalClient = ({ sessionEmail }: RentModalProps) => {
   return (
     <Modal
       title={t("readyToHostOnRestay")}
-      body={bodyContent}
+      body={<div><div data-ui="hosting-progress"><span>{t("stepOf", { current: step + 1, total: 6 })}</span><progress value={step + 1} max={6} aria-label={t("progress")} /></div>{bodyContent}</div>}
       isOpen={isRentModal}
       onClose={handleClose}
       onSubmit={handleSubmit(onSubmit)}

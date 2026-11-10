@@ -1,0 +1,42 @@
+[     150ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3101/:1
+[     374ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(pages-dir-browser)/./node_modules/react-dom/cjs/react-dom.development.js:29835
+[     446ms] Error: Cannot find module './vendor-chunks/react-icons.js'
+Require stack:
+- C:\Users\qw119\desktop\project\restay-refactor\.next\server\webpack-runtime.js
+- C:\Users\qw119\desktop\project\restay-refactor\.next\server\pages\_document.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\require.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\next-server.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\next.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\lib\start-server.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\cli\next-start.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1401:15)
+    at <unknown> (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\require-hook.js:57:36)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1487:12)
+    at mod.require (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\require-hook.js:68:28)
+    at require (node:internal/modules/helpers:135:16)
+[     443ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3101/_next/static/development/_devMiddlewareManifest.json:1
+[     444ms] [LOG] Failed to fetch _devMiddlewareManifest SyntaxError: Unexpected token 'N', "Not Found" is not valid JSON @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/page-loader.js:59
+[     467ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3101/favicon.ico:1
+[     499ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3101/__nextjs_original-stack-frames:1
+[   29566ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error during WebSocket handshake: net::ERR_CONNECTION_RESET @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   30582ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   31595ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   32609ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   33612ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   34624ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   39634ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   44647ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   49659ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   54671ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   59682ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   64706ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   69733ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   74757ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   79785ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   84812ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[   89855ms] [ERROR] WebSocket connection to 'ws://localhost:3101/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89

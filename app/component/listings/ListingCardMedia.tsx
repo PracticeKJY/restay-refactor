@@ -17,7 +17,7 @@ export default function ListingCardMedia({ data, className, disable, sessionEmai
   const [isHover, setIsHover] = useState(false);
 
   return (
-    <div className={className} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+    <div data-listing-card className={className} onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
       <SwiperComponent data={data} isHover={isHover} disable={disable} sessionEmail={sessionEmail} priority={priority} />
       {children}
     </div>

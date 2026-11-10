@@ -4,6 +4,8 @@
   gap: 1rem;
 }
 
+.footerContentContainer [data-ui="auth-divider"] { display: none; }
+
 .footerContentContainer {
   display: flex;
   flex-direction: column;

@@ -1,3 +1,6 @@
+@import "./design-tokens.css";
+@import "./modern-ui.css";
+
 @font-face {
   font-family: "KyoboHandwriting2022khn";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KyoboHandwriting2022khn.woff2")
@@ -228,3 +231,5 @@ a:active {
 }
 
 @media (max-width: 1023px) { .react-datepicker, .react-datepicker__month-container, .react-datepicker__children-container { max-width: 100%; width: 100% !important; } .react-datepicker__day, .react-datepicker__day-name { flex: 1; width: auto !important; min-width: 0; } .react-datepicker__week, .react-datepicker__day-names { width: 100%; } }
+body:has([data-restay-home]) footer { background: #eff1e9; color: #5d6b61; border-top: 1px solid var(--restay-line); margin-top: 72px; font-family: Arial, "Malgun Gothic", sans-serif; }
+body:has([data-restay-home]) footer a { color: #365448; }

@@ -17,6 +17,7 @@ interface InputProps {
   register: UseFormRegister<FieldValues>
   errors: FieldErrors
   placeHolder?: string
+  autoComplete?: string
 }
 
 const Input: FC<InputProps> = ({
@@ -29,6 +30,7 @@ const Input: FC<InputProps> = ({
   register,
   errors,
   placeHolder,
+  autoComplete,
 }) => {
   const t = useTranslations("Common");
 
@@ -38,7 +40,7 @@ const Input: FC<InputProps> = ({
   const handleOnBlur = () => setInputFocused(false)
 
   return (
-    <div className={styles.inputContainer}>
+    <div data-ui="field" className={styles.inputContainer}>
       {formatPrice && <BiWon size={16} className={styles.biWon} />}
       <label
         className={`${styles.label} ${
@@ -55,6 +57,7 @@ const Input: FC<InputProps> = ({
         ${errors[id] ? styles.inputError : ""}
         `}
         id={id}
+        autoComplete={autoComplete}
         aria-invalid={Boolean(errors[id])}
         aria-describedby={errors[id] ? `${id}-error` : undefined}
         type={type}

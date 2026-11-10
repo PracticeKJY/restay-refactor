@@ -10,7 +10,7 @@ const Spinner = () => {
   const t = useTranslations("Common");
 
   return (
-    <div className={styles.spinnerContainer}>
+    <div data-ui="spinner" role="status" className={styles.spinnerContainer}>
       <div className={styles.spinnerWrapper}>
         <h3>{t("pleaseWaitAMoment")}</h3>
         {/* react-spinners 라이브러리를 이용한 스피너 */}

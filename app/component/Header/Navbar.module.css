@@ -72,3 +72,22 @@
 }
 
 @media (max-width: 1023px) { .navbarMenu { padding-left: 0; gap: .5rem; } .logoSearchWrapper { flex: 1; min-width: 0; width: auto; } }
+.homeHeader { position: sticky; top: 0; z-index: 200; background: #faf9f6f5; border-bottom: 1px solid var(--restay-line); color: var(--restay-ink); font-family: Arial, "Malgun Gothic", sans-serif; }
+.homeNav { max-width: 1440px; margin: auto; padding: 13px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 82px; }
+.homeLogo img { display: block; }
+.homeLinks { display: flex; align-items: center; gap: 32px; font-size: 13px; }
+.homeLinks a { padding: 12px 0; color: #657169; }
+.homeLinks a[aria-current] { color: var(--restay-ink); border-bottom: 2px solid var(--restay-ink); font-weight: 600; }
+.homeHeader .accountControls [class*="hostingText"] { display: none; }
+.homeHeader select { background: transparent; border: none; font-size: 12px; min-height: 44px; }
+@media (max-width: 1023px) { .homeNav { padding-inline: 32px; } .homeLinks { gap: 20px; } }
+@media (max-width: 767px) { .homeNav { min-height: 72px; padding: 10px 20px; gap: 10px; } .homeLinks { display: none; } .homeLogo img { display: block; width: 100px; } }
+.homeHeader [role="button"] { min-height: 44px; min-width: 44px; justify-content: center; }
+/* Page navigation remains available on small screens. */
+.homeNav { flex-wrap: wrap; }
+.homeLinks { gap: 30px; }
+@media (max-width: 767px) {
+  .homeNav { padding-bottom: 0; column-gap: 8px; row-gap: 0; }
+  .homeLinks { display: flex; order: 3; width: 100%; justify-content: space-between; gap: 12px; border-top: 1px solid var(--restay-line); margin-top: 8px; }
+  .homeLinks a { display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 0; font-size: 12px; flex: 1; white-space: nowrap; }
+}

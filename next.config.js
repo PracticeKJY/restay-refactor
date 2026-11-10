@@ -1,3 +1,5 @@
+const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -14,4 +16,8 @@ const nextConfig = {
 };
 
 const withNextIntl = require("next-intl/plugin")("./i18n/request.ts");
-module.exports = withNextIntl(nextConfig);
+// A production build must never overwrite chunks served by an active dev server.
+module.exports = (phase) => withNextIntl({
+  ...nextConfig,
+  distDir: phase === PHASE_DEVELOPMENT_SERVER ? ".next-dev" : ".next",
+});

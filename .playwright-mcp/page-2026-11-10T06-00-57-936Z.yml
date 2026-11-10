@@ -1,0 +1,61 @@
+- generic [active] [ref=f11e1]:
+  - banner [ref=f11e2]:
+    - generic [ref=f11e3]:
+      - link "Restay Logo" [ref=f11e5] [cursor=pointer]
+      - navigation "주요 탐색" [ref=f11e6]:
+        - link "머무를 곳" [ref=f11e7] [cursor=pointer]:
+          - /url: /
+        - link "취향별 여행" [ref=f11e8] [cursor=pointer]:
+          - /url: "#collections"
+        - link "숙소 둘러보기" [ref=f11e9] [cursor=pointer]:
+          - /url: "#stays"
+      - generic [ref=f11e10]:
+        - combobox "언어" [ref=f11e11]:
+          - option "한국어" [selected]
+          - option "English"
+        - button "사용자 메뉴" [ref=f11e14] [cursor=pointer]:
+          - img "Avatar" [ref=f11e17]
+  - status [ref=f11e18]: 로딩중...
+  - contentinfo [ref=f11e19]:
+    - generic [ref=f11e20]:
+      - list [ref=f11e21]:
+        - listitem [ref=f11e22]:
+          - link "회사소개" [ref=f11e23] [cursor=pointer]:
+            - /url: /
+          - text: ㅣ
+        - listitem [ref=f11e24]:
+          - link "이용약관" [ref=f11e25] [cursor=pointer]:
+            - /url: /
+          - text: ㅣ
+        - listitem [ref=f11e26]:
+          - link "개인정보처리방침" [ref=f11e27] [cursor=pointer]:
+            - /url: /
+          - text: ㅣ
+        - listitem [ref=f11e28]:
+          - link "소비자 분쟁해결 기준" [ref=f11e29] [cursor=pointer]:
+            - /url: /
+          - text: ㅣ
+        - listitem [ref=f11e30]:
+          - link "사업자 정보확인" [ref=f11e31] [cursor=pointer]:
+            - /url: /
+          - text: ㅣ
+        - listitem [ref=f11e32]:
+          - link "Restay 마케팅센터" [ref=f11e33] [cursor=pointer]:
+            - /url: /
+          - text: ㅣ
+        - listitem [ref=f11e34]:
+          - link "액티비티 호스트센터" [ref=f11e35] [cursor=pointer]:
+            - /url: /
+          - text: ㅣ
+        - listitem [ref=f11e36]:
+          - link "콘텐츠산업진흥법에의한 표시" [ref=f11e37] [cursor=pointer]:
+            - /url: /
+          - text: ㅣ
+      - paragraph [ref=f11e38]: 고객행복센터 010-4874-2157오전 9시 - 새벽 3시
+      - generic [ref=f11e39]:
+        - generic [ref=f11e40]: (주) Restay컴퍼니
+        - generic [ref=f11e41]: "주소 : 서울특별시 송파구 가락로21길 57, 5층 | 대표이사 : 김종엽 | 사업자등록번호: 123-45-67890 | 전자우편주소 : qw1192@gmail.com"
+        - generic [ref=f11e42]: "통신판매번호 : 4024-서울강남-01234 | 관광사업자 등록번호: 제9999-24호 | 전화번호 : 010-4874-2157 | 호스팅서비스제공자의 상호 표시: (주) Restay컴퍼니"
+        - generic [ref=f11e43]: (주) Restay컴퍼니는 통신판매중개자로서 통신판매의 당사자가 아니며, 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다.
+        - text: Copyright GC COMPANY Corp. All rights reserved.
+  - alert [ref=f11e45]

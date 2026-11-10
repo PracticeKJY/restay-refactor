@@ -3,6 +3,7 @@ import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
 import { TbPhotoPlus } from "react-icons/tb";
 import { FC, useCallback, useState } from "react";
+import { useTranslations } from "next-intl";
 
 declare global {
   var cloudinary: any;
@@ -14,6 +15,7 @@ interface ImageUploadProps {
 }
 
 const ImageUpload: FC<ImageUploadProps> = ({ onChange, value }) => {
+  const t = useTranslations("Hosting");
   const [images, setImages] = useState<string[]>(value || []);
   const handleUpload = useCallback(
     (result: any) => {
@@ -44,20 +46,18 @@ const ImageUpload: FC<ImageUploadProps> = ({ onChange, value }) => {
         }}>
         {({ open }) => {
           return (
-            <div onClick={() => open?.()} className={styles.container}>
+            <button data-ui="image-upload" type="button" onClick={() => open?.()} className={styles.container}>
               <TbPhotoPlus size={50} />
-              <div className={styles.imageUploadText}>click to Upload</div>
-            </div>
+              <span className={styles.imageUploadText}>{t("uploadPhotos")}</span>
+            </button>
           );
         }}
       </CldUploadWidget>
       <div className={styles.uploadImageContainer}>
         {images.map((image, index) => (
           <div key={index} className={styles.uploadImageWrapper}>
-            <Image alt="upload" width={100} height={100} style={{ objectFit: "cover" }} src={image} />
-            <div className={styles.deleteButton} onClick={() => handleDelete(index)}>
-              X
-            </div>
+            <Image alt={t("uploadedPhoto", { number: index + 1 })} width={100} height={100} style={{ objectFit: "cover" }} src={image} />
+            <button type="button" aria-label={t("removePhoto", { number: index + 1 })} className={styles.deleteButton} onClick={() => handleDelete(index)}>×</button>
           </div>
         ))}
       </div>

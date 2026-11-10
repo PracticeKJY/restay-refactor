@@ -25,7 +25,7 @@ const Button: FC<ButtonProps> = ({ label, onClick, disabled, outline, small = fa
   // <div className={`${styles.button} ${outlineClass} ${smallClass}`}>
 
   return (
-    <button onClick={onClick} disabled={disabled} className={`${styles.button} ${outlineClass} ${smallClass}`}>
+    <button data-ui="button" data-variant={outline ? "outline" : "primary"} data-small={small || undefined} onClick={onClick} disabled={disabled} className={`${styles.button} ${outlineClass} ${smallClass}`}>
       {typeof Icon === "string" ? <Image src={Icon} alt={alt || ""} width={25} height={25} className={styles.Image} /> : Icon && <Icon size={24} className={styles.Image} />}
       {label}
     </button>

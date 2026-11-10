@@ -26,7 +26,7 @@ const WishList = async () => {
 
   return (
     <div>
-      <WishListCard />
+      <WishListCard sessionEmail={session?.user?.email ?? undefined} />
     </div>
   );
 };

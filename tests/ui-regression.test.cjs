@@ -69,7 +69,7 @@ test("home server data has the same JSON shape and search filter as the listing 
   });
   const element = await Home({ searchParams: Promise.resolve(filter) });
   assert.equal(queried, filter);
-  assert.equal(JSON.stringify(element.props.children.props.initialListings), JSON.stringify(apiData));
+  assert.equal(JSON.stringify(element.props.initialListings), JSON.stringify(apiData));
   assert.equal(apiData[0]._id, id.toHexString());
   assert.equal(apiData[0].title, "원문 숙소");
 });
@@ -251,4 +251,61 @@ test("simulated canceled payment does not create a reservation or chat", async (
   await h.complete({ success: false, error_msg: "fixture cancellation" });
   assert.equal(h.requests.length, 0);
   assert.equal(h.navigations.length, 0);
+});
+
+test("redesign stays off listing and reservation routes in both locales", () => {
+  for (const locale of ["ko", "en"]) {
+    for (const pathname of ["/", "/wishList", "/trips", "/messages", "/messages/room-123", "/listings/listing-123", "/reservation/listing-123"]) {
+      const { default: Navbar } = load("app/component/Header/Navbar.tsx", {
+        react: { ...React, useEffect() {}, useRef: () => ({ current: null }) },
+        "next-intl": intl(locale),
+        "@/i18n/navigation": { Link: () => null, usePathname: () => pathname },
+        "../Container": { default: () => null }, "./Logo": { default: () => null },
+        "./Search": { default: () => null }, "./UserMenu": { default: () => null },
+        "./Categories": { default: () => null }, "./LanguageSelector": { default: () => null },
+      });
+      const element = Navbar({ session: null });
+      const excluded = pathname.startsWith("/listings/") || pathname.startsWith("/reservation/");
+      assert.equal(Boolean(element.props["data-restay-shell"]), !excluded, `${locale}: ${pathname}`);
+    }
+  }
+});
+
+test("guest page login actions use the auth dialog store without navigation", () => {
+  const dialogStore = {};
+  const loginAtom = {};
+  let opened = false;
+  let navigated = false;
+  const { default: Empty } = load("app/component/Empty.tsx", {
+    "next-intl": intl("ko"),
+    "@/i18n/navigation": { useRouter: () => ({ push: () => { navigated = true; } }) },
+    "@/jotai/@store/state": { loginModalAtom: loginAtom },
+    jotai: {
+      getDefaultStore: () => dialogStore,
+      useSetAtom: (atom, options) => {
+        assert.equal(atom, loginAtom);
+        assert.equal(options.store, dialogStore);
+        return value => { opened = value; };
+      },
+    },
+    "./Button": { default: () => null }, "./Heading": { default: () => null },
+  });
+  const element = Empty({ action: "login", showReset: true });
+  const button = element.props.children[2].props.children;
+  button.props.onClick();
+  assert.equal(opened, true);
+  assert.equal(navigated, false);
+});
+
+test("development chunks are isolated from production build and start output", async () => {
+  const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER } = require("next/constants");
+  const configure = require("../next.config.js");
+  const dev = await configure(PHASE_DEVELOPMENT_SERVER);
+  const build = await configure(PHASE_PRODUCTION_BUILD);
+  const start = await configure(PHASE_PRODUCTION_SERVER);
+  assert.equal(dev.distDir, ".next-dev");
+  assert.equal(build.distDir, ".next");
+  assert.equal(start.distDir, build.distDir);
+  assert.notEqual(dev.distDir, build.distDir);
+  assert.equal(typeof dev.webpack, "function");
 });

@@ -85,7 +85,10 @@
     "businessInformation": "Business information",
     "restayMarketingCenter": "Restay marketing center",
     "activityHostCenter": "Activity host center",
-    "contentIndustryDisclosures": "Content industry disclosures"
+    "contentIndustryDisclosures": "Content industry disclosures",
+    "brandDescription": "Your own pace. Your kind of escape.",
+    "stayInspired": "STAY A LITTLE. FEEL A LOT.",
+    "brandTagline": "A better stay. A better everyday."
   },
   "Listings": {
     "southKorea": ", South Korea",
@@ -136,7 +139,11 @@
     "welcomeToRestay2": "Welcome to Restay!",
     "somethingWentWrong": "Something went wrong",
     "joinRestayAndEnjoyMemberBenefits": "Join Restay and enjoy member benefits.",
-    "alreadyHaveAnAccount": "Already have an account?"
+    "alreadyHaveAnAccount": "Already have an account?",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "orContinueWith": "Or continue with"
   },
   "Hosting": {
     "pleaseLogInToContinue": "Please log in to continue.",
@@ -161,7 +168,12 @@
     "description": "Description",
     "setYourPrice": "Set your price.",
     "price": "Price",
-    "readyToHostOnRestay": "Ready to host on Restay?"
+    "readyToHostOnRestay": "Ready to host on Restay?",
+    "uploadPhotos": "Choose photos",
+    "uploadedPhoto": "Uploaded photo {number}",
+    "removePhoto": "Remove photo {number}",
+    "stepOf": "Step {current} of {total}",
+    "progress": "Listing setup progress"
   },
   "Messages": {
     "pageDescription": "A place to talk about your reservation and stay.",
@@ -207,7 +219,12 @@
     "send": "Send"
   },
   "Reservation": {
-    "payments": { "kakaoPay": "Kakao Pay", "tossPayments": "Toss Payments", "mobileDanal": "Mobile payment (Danal)", "cardMobilians": "Card payment (Mobilians)" },
+    "payments": {
+      "kakaoPay": "Kakao Pay",
+      "tossPayments": "Toss Payments",
+      "mobileDanal": "Mobile payment (Danal)",
+      "cardMobilians": "Card payment (Mobilians)"
+    },
     "yourReservation": "Your reservation",
     "dates": "Dates",
     "edit": "Edit",
@@ -292,5 +309,50 @@
       "label": "Windmills",
       "description": "Explore windmills nearby."
     }
+  },
+  "HomeDesign": {
+    "navigation": "Main navigation",
+    "stays": "Places to stay",
+    "collections": "Travel your way",
+    "discover": "Explore stays",
+    "eyebrow": "A LITTLE ESCAPE, A BETTER EVERYDAY",
+    "titleLineOne": "A little further away.",
+    "titleLineTwo": "A little closer to you.",
+    "description": "Mornings by the ocean. Afternoons wrapped in green.\nDiscover places where simply staying is a journey.",
+    "explore": "Find your escape",
+    "note": "Wherever you go, take your time",
+    "noteDetail": "From coast to countryside, a stay that feels like you",
+    "featuredStay": "A little travel inspiration",
+    "photoTag": "SOMEWHERE SLOW",
+    "findYourStay": "FIND YOUR STAY",
+    "searchTitle": "What does your escape look like?",
+    "stayCollection": "THE STAY COLLECTION",
+    "staysTitle": "Your next chapter starts here.",
+    "staysDescription": "Follow your curiosity. Find a place to make the everyday feel far away.",
+    "filteredDescription": "Explore spaces that suit your style and plan your next escape.",
+    "count": "{count} places",
+    "reset": "View all stays",
+    "closingTitle": "Time well spent. Time well rested.",
+    "closingDescription": "Step outside the everyday and settle into a different view.",
+    "findAgain": "Find your next escape",
+    "searchPrompt": "Search a stay theme, like beach"
+  },
+  "WorkspaceDesign": {
+    "wishlistEyebrow": "YOUR PERSONAL COLLECTION",
+    "wishlistTitle": "Places worth saving",
+    "wishlistDescription": "Keep the places that catch your eye. Your next escape starts here.",
+    "wishlistLoginDescription": "Log in to collect your favourite places and make them part of your next journey.",
+    "wishlistLoadFailed": "We could not load your saved places. Please try again in a moment.",
+    "savedCount": "{count} collections",
+    "tripsEyebrow": "YOUR NEXT CHAPTER",
+    "tripsTitle": "Your journeys",
+    "tripsDescription": "From the journeys ahead to the moments you keep. Find your stays with Restay.",
+    "messagesEyebrow": "A CONVERSATION AWAY",
+    "footerTagline": "A better stay. A better everyday.",
+    "loadingDescription": "Getting your next journey ready.",
+    "errorDescription": "We are having trouble connecting. Please try again.",
+    "notFoundDescription": "This place could not be found. Let us find somewhere else to explore.",
+    "increase": "Increase {label}",
+    "decrease": "Decrease {label}"
   }
 }

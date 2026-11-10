@@ -1,0 +1,23 @@
+:root {
+  --restay-font-sans: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --restay-text-body: 14px;
+  --restay-text-heading: 28px;
+  --restay-ink: #193d38;
+  --restay-muted: #69756f;
+  --restay-paper: #faf9f6;
+  --restay-surface: #ffffff;
+  --restay-line: #e3e7df;
+  --restay-accent: #dce8db;
+  --restay-radius-sm: 12px;
+  --restay-radius-md: 20px;
+  --restay-radius-lg: 28px;
+  --restay-shadow: 0 12px 40px rgb(25 61 56 / 8%);
+  --restay-space-1: 4px;
+  --restay-space-2: 8px;
+  --restay-space-3: 12px;
+  --restay-space-4: 16px;
+  --restay-space-6: 24px;
+  --restay-space-8: 32px;
+  --restay-space-12: 48px;
+  --restay-space-16: 64px;
+}

@@ -14,7 +14,7 @@ import { useCallback } from "react"
 import { Link } from "@/i18n/navigation"
 import { useCategoryCopy } from "@/i18n/useCategoryCopy"
 
-const Search = () => {
+const Search = ({ prompt }: { prompt?: string }) => {
   const t = useTranslations("Navigation");
 
   const [inputText, setInputText] = useState("")
@@ -96,8 +96,9 @@ const Search = () => {
     <div className={styles.container}>
       {!showSearch ? (
         <div className={styles.searchWrapper}>
-          <div className={styles.searchText} onClick={onClick}>
-            {t("anywhereAnytime")} <span>Restay</span>{t("whereWillYouGoNext")}</div>
+          <div className={styles.searchText} role="button" tabIndex={0} onClick={onClick}
+            onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onClick(); } }}>
+            {prompt ?? <>{t("anywhereAnytime")} <span>Restay</span>{t("whereWillYouGoNext")}</>}</div>
           <button
             aria-label={t("search")}
             className={styles.biSearchWrapper}

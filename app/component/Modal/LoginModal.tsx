@@ -68,11 +68,11 @@ const LoginModal = () => {
   };
 
   const bodyContent = (
-    <div className={styles.bodyContentContainer}>
-      <Heading title={t("welcomeToRestay")} subTitle={t("enterYourEmailAndPassword")} />
+    <div data-ui="auth-body" className={styles.bodyContentContainer}>
+      <Heading as="h2" title={t("welcomeToRestay")} subTitle={t("enterYourEmailAndPassword")} />
 
-      <Input id={"email"} label={"Email"} type={"email"} disabled={isLoading} register={register} errors={errors} required />
-      <Input id={"password"} label={"Password"} type="password" disabled={isLoading} register={register} errors={errors} required />
+      <Input id={"email"} label={t("email")} autoComplete="email" type={"email"} disabled={isLoading} register={register} errors={errors} required />
+      <Input id={"password"} label={t("password")} autoComplete="current-password" type="password" disabled={isLoading} register={register} errors={errors} required />
     </div>
   );
 
@@ -82,12 +82,13 @@ const LoginModal = () => {
   };
 
   const footerContent = (
-    <div className={styles.footerContentContainer}>
+    <div data-ui="auth-footer" className={styles.footerContentContainer}>
+      <div data-ui="auth-divider">{t("orContinueWith")}</div>
       <Button outline label={t("continueWithGoogle")} icon={FcGoogle} onClick={() => signInWithProvider("google")} />
       <Button outline label={t("continueWithNaver")} icon={"/naverIcon.png"} onClick={() => signInWithProvider("naver")} />
       <Button outline label={t("continueWithKakao")} icon={RiKakaoTalkFill} onClick={() => signInWithProvider("kakao")} />
 
-      <div className={styles.footerTextContainer}>
+      <div data-ui="auth-switch" className={styles.footerTextContainer}>
         <div className={styles.footerTextWraaper}>
           <div>{t("newToRestay")}</div>
           <button onClick={onClick} className={styles.footerTextButton}>

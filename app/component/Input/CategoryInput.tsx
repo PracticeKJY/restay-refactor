@@ -21,6 +21,7 @@ const CategoryInput: FC<CategoryInput> = ({
   const categoryCopy = useCategoryCopy()
   return (
     <div
+      data-ui="category-input"
       role="button"
       tabIndex={0}
       aria-pressed={selected}

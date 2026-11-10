@@ -62,14 +62,16 @@ const RegisterModal = () => {
 
   const bodyContent = (
     <>
-      <div className={styles.bodyContentContainer}>
+      <div data-ui="auth-body" className={styles.bodyContentContainer}>
         <Heading
+          as="h2"
           title={t("welcomeToRestay")}
           subTitle={t("joinRestayAndEnjoyMemberBenefits")}
         />
         <Input
           id={"email"}
-          label={"Email"}
+          label={t("email")}
+          autoComplete="email"
           disabled={isLoading}
           register={register}
           errors={errors}
@@ -77,7 +79,8 @@ const RegisterModal = () => {
         />
         <Input
           id={"name"}
-          label={"Name"}
+          label={t("name")}
+          autoComplete="name"
           disabled={isLoading}
           register={register}
           errors={errors}
@@ -85,7 +88,8 @@ const RegisterModal = () => {
         />
         <Input
           id={"password"}
-          label={"Password"}
+          label={t("password")}
+          autoComplete="new-password"
           type="password"
           disabled={isLoading}
           register={register}
@@ -98,8 +102,8 @@ const RegisterModal = () => {
 
   const footerContent = (
     <>
-      <div className={styles.footerContentContainer}>
-        <div className={styles.footerTextContainer}>
+      <div data-ui="auth-footer" className={styles.footerContentContainer}>
+        <div data-ui="auth-switch" className={styles.footerTextContainer}>
           <div className={styles.footerTextWraaper}>
             <div>{t("alreadyHaveAnAccount")}</div>
             <button onClick={onClick} className={styles.footerTextButton}>

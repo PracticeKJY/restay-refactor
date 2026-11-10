@@ -35,19 +35,21 @@ const TextArea: FC<TextAreaProps> = ({
   const handleOnBlur = () => setInputFocused(false)
 
   return (
-    <div className={styles.textAreaContainer}>
+    <div data-ui="field" className={styles.textAreaContainer}>
       {formatPrice && <BiWon size={16} className={styles.biWon} />}
       <label
         className={`${styles.label} ${
           inputFocused ? styles.textAreaFocused : styles.textAreaNotFocused
         }`}
         htmlFor={id}
-      />
+      >{label}</label>
       <textarea
         className={`${styles.textArea} 
         ${errors[id] ? styles.textAreaError : ""}
         `}
         id={id}
+        aria-invalid={Boolean(errors[id])}
+        aria-describedby={errors[id] ? `${id}-error` : undefined}
         disabled={disabled}
         {...register(id, { required })}
         onFocus={handleOnFocus}
@@ -55,7 +57,7 @@ const TextArea: FC<TextAreaProps> = ({
         placeholder={t("describeYourSpaceInDetail")}
       />
       {errors[id] ? (
-        <span className={styles.errorText}>
+        <span id={`${id}-error`} role="alert" className={styles.errorText}>
           {errors[id]?.message?.toString()}
         </span>
       ) : (

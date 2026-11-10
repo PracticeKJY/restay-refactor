@@ -1,0 +1,43 @@
+- generic:
+  - generic [active]:
+    - generic [ref=f16e3]:
+      - generic [ref=f16e4]:
+        - navigation [ref=f16e6]:
+          - button [disabled] [ref=f16e7]:
+            - img "previous" [ref=f16e8]
+          - generic [ref=f16e10]:
+            - generic [ref=f16e11]: 1/
+            - text: "1"
+          - button [disabled] [ref=f16e12]:
+            - img "next" [ref=f16e13]
+        - link "Next.js 15.5.9 (outdated) Webpack" [ref=f16e16] [cursor=pointer]:
+          - /url: https://nextjs.org/docs/messages/version-staleness
+          - generic "An outdated version detected (latest is 16.4.6), upgrade is highly recommended!" [ref=f16e19]: Next.js 15.5.9 (outdated)
+          - generic [ref=f16e20]: Webpack
+      - dialog "Build Error" [ref=f16e22]:
+        - generic [ref=f16e25]:
+          - generic [ref=f16e26]:
+            - generic [ref=f16e27]:
+              - generic [ref=f16e28]: Build Error
+              - generic [ref=f16e30]:
+                - button "Copy Error Info" [ref=f16e31] [cursor=pointer]
+                - button "No related documentation found" [disabled] [ref=f16e34]
+                - link "Learn more about enabling Node.js inspector for server code with Chrome DevTools" [ref=f16e37] [cursor=pointer]:
+                  - /url: https://nextjs.org/docs/app/building-your-application/configuring/debugging#server-side-code
+            - paragraph [ref=f16e47]: "Syntax error: Selector \"[data-ui=\"auth-divider\"]\" is not pure (pure selectors must contain at least one local class or id)"
+          - generic [ref=f16e49]:
+            - generic [ref=f16e51]:
+              - generic [ref=f16e55]: ./app/component/Modal/LoginModal.module.css (7:1)
+              - button "Open in editor" [ref=f16e56] [cursor=pointer]
+            - generic [ref=f16e60]: "Syntax error: Selector \"[data-ui=\"auth-divider\"]\" is not pure (pure selectors must contain at least one local class or id) 5 | } 6 | > 7 | [data-ui=\"auth-divider\"] { display: none; } | ^ 8 | 9 | .footerContentContainer {"
+        - generic [ref=f16e63]:
+          - generic [ref=f16e64]: "1"
+          - generic [ref=f16e65]: "2"
+    - generic [ref=f16e70] [cursor=pointer]:
+      - button "Open Next.js Dev Tools" [ref=f16e71]
+      - button "Open issues overlay" [ref=f16e76]:
+        - generic [ref=f16e77]:
+          - generic [aria-hidden] [ref=f16e78]: "0"
+          - generic [ref=f16e79]: "1"
+        - generic [ref=f16e80]: Issue
+  - alert [ref=f16e81]

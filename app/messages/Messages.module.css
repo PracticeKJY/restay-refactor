@@ -95,3 +95,67 @@
   .composer { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
   .emptyState { padding: 24px; }
 }
+/* Restay workspace design. Transport and message state remain in the existing hooks. */
+.workspace { width: 100%; max-width: 1344px; margin: 0 auto; padding: 52px 48px 0; height: auto; min-height: 65vh; color: var(--restay-ink); font-family: var(--restay-font-sans); }
+.workspace:has(.workspaceBody) { height: min(920px, calc(100dvh - 120px)); min-height: 650px; }
+.pageHeader { padding: 0; }
+.pageHeader > header { margin-bottom: 36px; }
+.workspaceBody { border: 1px solid var(--restay-line); border-radius: 24px; box-shadow: 0 10px 40px rgb(25 61 56 / 3%); grid-template-columns: 310px minmax(0, 1fr); }
+.sidebar { border-color: var(--restay-line); background: #fcfcf8; }
+.sidebarHeader { padding: 20px; background: #fcfcf8; border-color: var(--restay-line); }
+.sidebarHeader h2 { font-size: 14px; color: var(--restay-ink); }
+.iconButton { width: 44px; height: 44px; color: var(--restay-muted); }
+.iconButton:hover { background: #edf2e5; }
+.conversationList { padding: 10px; }
+.conversationLink { padding: 18px 14px; border-radius: 14px; }
+.conversationLink:hover { background: #eff3e9; }
+.selected { background: #edf3e6; border-color: #c9d6bd; }
+.avatar { background: #e9efdf; color: #5c7750; }
+.selected .avatar { background: var(--restay-ink); color: white; }
+.conversationTitle strong, .chatHeading h2 { color: var(--restay-ink); }
+.conversationTitle time, .preview, .reservationLabel, .chatHeading p { color: var(--restay-muted); }
+.chatHeader { padding: 20px 24px; border-color: var(--restay-line); }
+.listingContext { border-color: var(--restay-line); background: #fbfcf8; color: var(--restay-ink); padding-block: 14px; }
+.listingContext > span:last-child { color: #5c7750; }
+.thread { background: #fff; padding-top: 16px; }
+.dayDivider { color: var(--restay-muted); }
+.dayDivider::before, .dayDivider::after { background: var(--restay-line); }
+.messageMeta { color: var(--restay-muted); }
+.messageMeta > span { color: var(--restay-ink); }
+.bubble { background: #f0f3ec; color: var(--restay-ink); padding: 12px 16px; }
+.ownMessage .bubble { background: var(--restay-ink); color: white; }
+.composer { border-color: var(--restay-line); padding: 18px 22px; padding-bottom: max(18px, env(safe-area-inset-bottom)); }
+.composerField { border-color: #d7dfd0; background: #fafbf7; border-radius: 16px; }
+.composerField:focus-within { border-color: #527b5a; box-shadow: 0 0 0 2px #edf3e6; }
+.composer textarea { color: var(--restay-ink); }
+.composer p { color: var(--restay-muted); }
+.sendButton { width: 44px; height: 44px; flex-basis: 44px; background: var(--restay-ink); border-radius: 12px; }
+.emptyState { color: var(--restay-muted); gap: 16px; }
+.emptyState h2, .emptyThread p { color: var(--restay-ink); font-size: 22px; letter-spacing: -.5px; }
+.emptyState > svg, .emptyInbox > svg { color: #6a8665; background: #eff3e9; }
+.emptyState a, .emptyInbox a { color: var(--restay-ink); }
+.emptyInbox { padding: 40px 22px; color: var(--restay-muted); }
+.emptyThread { color: var(--restay-muted); }
+.retryButton, .contactButton { border-color: var(--restay-line); border-radius: 12px; min-height: 46px; color: var(--restay-ink); font-size: 13px; }
+.contactButton { width: 100%; background: #f0f4e9; margin-top: 18px; }
+.retryButton:hover, .contactButton:hover:not(:disabled) { background: #e6eddd; border-color: #9eaf94; }
+.iconButton:focus-visible, .conversationLink:focus-visible, .backLink:focus-visible, .sendButton:focus-visible { outline-color: #527b5a; }
+@media (max-width: 1023px) { .workspace { padding: 36px 32px 0; } .workspaceBody { grid-template-columns: 260px minmax(0, 1fr); } }
+@media (max-width: 767px) {
+  .workspace { padding: 28px 20px 0; margin: 0 auto; width: 100%; min-height: 65vh; height: auto; }
+  .workspace:has(.workspaceBody) { height: calc(100dvh - 150px); min-height: 560px; }
+  .workspace[data-room="true"] { padding: 16px 12px 0; height: calc(100dvh - 134px); min-height: 420px; }
+  .workspace[data-room="true"] .pageHeader { display: none; }
+  .pageHeader { padding: 0; }
+  .pageHeader p { display: block; }
+  .pageHeader > header { margin-bottom: 24px; }
+  .workspaceBody { border: 1px solid var(--restay-line); border-radius: 20px; }
+  .chatHeader { padding: 12px; }
+  .chatHeading h2 { font-size: 15px; }
+  .chatHeader .backLink { width: 44px; height: 44px; }
+  .thread { padding: 12px; }
+  .composer { padding: 12px; padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+  .emptyState h2 { font-size: 20px; }
+  .emptyState p { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) { .conversationLink, .composerField { transition: none; } }

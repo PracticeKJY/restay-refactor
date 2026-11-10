@@ -50,13 +50,13 @@ const Card = load("app/wishList/Card.tsx", {
 test("home keeps its wrapper, card information and favorite session", () => {
   assert.equal(renderToStaticMarkup(React.createElement(ListingsCard, {
     data: listing, userId: listing._id, sessionEmail: "test@example.com",
-  })), '<div class="listingsWrapper"><div data-listing="listing-123" data-hover="false" data-disabled="false" data-session="test@example.com"></div><span>숙소</span></div>');
+  })), '<div data-listing-card="true" class="listingsWrapper"><div data-listing="listing-123" data-hover="false" data-disabled="false" data-session="test@example.com"></div><span>숙소</span></div>');
 });
 
 test("wishlist keeps its title, DOM wrappers and disabled favorites", () => {
   assert.equal(renderToStaticMarkup(React.createElement(Card, {
     data: listing, title: "다음 여행", disable: true,
-  })), '<div class="cardContainer"><div class="cardWrapper"><div class="listingsWrapper"><div data-listing="listing-123" data-hover="false" data-disabled="true"></div></div><div class="cardTitle">다음 여행</div></div></div>');
+  })), '<div class="cardContainer"><div class="cardWrapper"><div data-listing-card="true" class="listingsWrapper"><div data-listing="listing-123" data-hover="false" data-disabled="true"></div></div><div class="cardTitle">다음 여행</div></div></div>');
 });
 
 test("trips keeps the reservation dates instead of a wishlist title", () => {

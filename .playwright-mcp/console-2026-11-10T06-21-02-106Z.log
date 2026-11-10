@@ -1,0 +1,154 @@
+[     482ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[   39817ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[   43864ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[   43899ms] [LOG] [Fast Refresh] done in 35ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[   43949ms] [LOG] [HMR] Detected local css modules. Reload all css @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js:2
+[   47953ms] [LOG] [Fast Refresh] done in 4089ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[   48004ms] [LOG] [HMR] Detected local css modules. Reload all css @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js:2
+[   48980ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[   89199ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[   91001ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[   91028ms] [LOG] [Fast Refresh] done in 26ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[   91627ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[   91705ms] [LOG] [Fast Refresh] done in 703ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  105818ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  162669ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  170411ms] [LOG] [Fast Refresh] done in 7742ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  172562ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  172593ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[  174035ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ http://localhost:3000/wishList:1
+[  232655ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  246826ms] [LOG] [Fast Refresh] done in 14172ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  246922ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ http://localhost:3000/wishList:1
+[  249770ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[  257203ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  257264ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[  258847ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ http://localhost:3000/messages:1
+[  456589ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  461564ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  461609ms] [LOG] [Fast Refresh] done in 46ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  464439ms] [LOG] [Fast Refresh] done in 2875ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  522334ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  522369ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[  524776ms] Error: Switched to client rendering because the server rendering errored:
+
+Cannot read properties of undefined (reading 'call')
+    at Object.__webpack_require__ [as require] (C:\Users\qw119\desktop\project\restay-refactor\.next\server\webpack-runtime.js:25:43)
+    at Object.require (C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:39:28541)
+    at globalThis.__next_require__ (C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:39:29364)
+    at requireModule (C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:2:318257)
+    at initializeModuleChunk (C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:2:347377)
+    at readChunk (C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:2:340966)
+    at getComponentNameFromType (C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:2:76927)
+    at retryNode (C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:2:194224)
+    at renderNodeDestructive (C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:2:193847)
+    at retryNode (C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:2:194969)
+    at performWork (C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:2:215436)
+    at Immediate._onImmediate (C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:2:98974)
+    at process.processImmediate (node:internal/timers:485:21)
+    at process.callbackTrampoline (node:internal/async_hooks:130:17)
+[  526148ms] [WARNING] Image with src "https://res.cloudinary.com/dh1ayq7rh/image/upload/v1685967365/ritknm4krz3ylcw1b7z3.jpg" was detected as the Largest Contentful Paint (LCP). Please add the "priority" property if this image is above the fold.
+Read more: https://nextjs.org/docs/api-reference/next/image#priority @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/utils/warn-once.js:16
+[  531470ms] [WARNING] Image with src "/ic-loadview.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/utils/warn-once.js:16
+[  533558ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  545500ms] [LOG] [Fast Refresh] done in 11943ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  548652ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  548688ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[  549880ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <SegmentViewNode type="page" pagePath="[locale]/r...">
+      <SegmentTrieNode>
+      <Index>
+        <PortOneScript>
+        <ReservationClient sessionEmail="">
+          <Container>
+            <div className="Container_...">
+              <div className="Reservatio...">
+                <div className="Reservatio...">
+                  <div>
+                  <Info>
+                  <Payment>
+                    <div className="Reservatio...">
+                      <div>
+                      <div className="Reservatio...">
+                        <div>
+                        <div className="Reservatio...">
+                          <ReservationInput title="카드번호" id="creditCard..." maxLength={19} value="" ...>
+                            <div className="Reservatio...">
+                              <label>
+                              <input
+                                className="Reservation_input__K_VZC"
+                                id="creditCardNumber"
+                                type="text"
+                                maxLength={19}
+                                value=""
+                                onChange={function handleInputChange}
+                                onFocus={function handleOnFocus}
+                                onBlur={function handleOnBlur}
+                                placeholder="0000 0000 0000 0000"
+-                               style={{caret-color:"transparent"}}
+                              >
+                          <div className="Reservatio...">
+                            <ReservationInput title="만료일" id="expiration..." placeholder="MM / YY">
+                              <div className="Reservatio...">
+                                <label>
+                                <input
+                                  className="Reservation_input__K_VZC"
+                                  id="expirationDate"
+                                  type="text"
+                                  maxLength={undefined}
+                                  value={undefined}
+                                  onChange={undefined}
+                                  onFocus={function handleOnFocus}
+                                  onBlur={function handleOnBlur}
+                                  placeholder="MM / YY"
+-                                 style={{caret-color:"transparent"}}
+                                >
+                            <ReservationInput title="CVV" id="CVV" placeholder="123">
+                              <div className="Reservatio...">
+                                <label>
+                                <input
+                                  className="Reservation_input__K_VZC"
+                                  id="CVV"
+                                  type="text"
+                                  maxLength={undefined}
+                                  value={undefined}
+                                  onChange={undefined}
+                                  onFocus={function handleOnFocus}
+                                  onBlur={function handleOnBlur}
+                                  placeholder="123"
+-                                 style={{caret-color:"transparent"}}
+                                >
+                  ...
+                ...
+    ...
+ @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[  566041ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  567929ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  570652ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  610860ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  612568ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  614656ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  618363ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[ 1116774ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[ 1118176ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ http://localhost:3000/trips:1
+[ 1118537ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ http://localhost:3000/trips:1
+[ 1134724ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[ 1136592ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ http://localhost:3000/en/messages:1
+[ 1138069ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[ 1181625ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1186692ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1186781ms] [LOG] [Fast Refresh] done in 89ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1197952ms] [LOG] [Fast Refresh] done in 11260ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1198395ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1

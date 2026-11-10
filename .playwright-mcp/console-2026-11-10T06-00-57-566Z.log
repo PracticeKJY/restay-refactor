@@ -1,0 +1,843 @@
+[  582989ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/listings/647f06098fa7dae018e55e24. Falling back to browser navigation. Error: Failed to read a RSC payload created by a development version of React on the server while using a production version on the client. Always use matching versions on the server and the client.
+    at http://localhost:3000/_next/static/chunks/1255-8befde0980f5cba9.js:1:165929
+    at t (http://localhost:3000/_next/static/chunks/1255-8befde0980f5cba9.js:1:166422) @ http://localhost:3000/_next/static/chunks/1255-8befde0980f5cba9.js:1
+[  592945ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/?category=%ED%95%B4%EB%B3%80%20%EA%B7%BC%EC%B2%98. Falling back to browser navigation. Error: Failed to read a RSC payload created by a development version of React on the server while using a production version on the client. Always use matching versions on the server and the client.
+    at http://localhost:3000/_next/static/chunks/1255-8befde0980f5cba9.js:1:165929
+    at t (http://localhost:3000/_next/static/chunks/1255-8befde0980f5cba9.js:1:166422) @ http://localhost:3000/_next/static/chunks/1255-8befde0980f5cba9.js:1
+[  856373ms] [ERROR] Failed to fetch RSC payload for http://localhost:3000/?category=%ED%95%B4%EB%B3%80%20%EA%B7%BC%EC%B2%98. Falling back to browser navigation. Error: Failed to read a RSC payload created by a development version of React on the server while using a production version on the client. Always use matching versions on the server and the client.
+    at http://localhost:3000/_next/static/chunks/1255-8befde0980f5cba9.js:1:165929
+    at t (http://localhost:3000/_next/static/chunks/1255-8befde0980f5cba9.js:1:166422) @ http://localhost:3000/_next/static/chunks/1255-8befde0980f5cba9.js:1
+[  856867ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  865893ms] [WARNING] The resource http://localhost:3000/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdh1ayq7rh%2Fimage%2Fupload%2Fv1686045998%2Fupjeagzr956l2qfdltyj.jpg&w=384&q=75 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/?category=%EC%8A%A4%ED%82%A4:1
+[  874432ms] [WARNING] The resource http://localhost:3000/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdh1ayq7rh%2Fimage%2Fupload%2Fv1686045998%2Fupjeagzr956l2qfdltyj.jpg&w=384&q=75 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:1
+[  912338ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  915158ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  915235ms] [LOG] [Fast Refresh] done in 78ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  916714ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  916775ms] [LOG] [Fast Refresh] done in 60ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  916827ms] [LOG] [HMR] Detected local css modules. Reload all css @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js:2
+[  918529ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  918580ms] [LOG] [Fast Refresh] done in 51ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  919525ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  919570ms] [LOG] [Fast Refresh] done in 45ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  920698ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  920805ms] [LOG] [Fast Refresh] done in 108ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  921720ms] [LOG] [Fast Refresh] done in 1022ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  925528ms] [WARNING] The resource http://localhost:3000/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdh1ayq7rh%2Fimage%2Fupload%2Fv1686045998%2Fupjeagzr956l2qfdltyj.jpg&w=384&q=75 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:1
+[  973131ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  974607ms] [LOG] [Fast Refresh] done in 1476ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  976035ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  977482ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  977512ms] [LOG] [Fast Refresh] done in 31ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  978179ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[  978244ms] [LOG] [Fast Refresh] done in 762ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  978562ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  979363ms] [LOG] [Fast Refresh] done in 802ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  982366ms] [WARNING] The resource http://localhost:3000/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdh1ayq7rh%2Fimage%2Fupload%2Fv1686045998%2Fupjeagzr956l2qfdltyj.jpg&w=384&q=75 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:1
+[ 1024472ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1025279ms] [LOG] [Fast Refresh] done in 806ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1025307ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1026535ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1026562ms] [LOG] [Fast Refresh] done in 27ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1027501ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1027709ms] [LOG] [Fast Refresh] done in 208ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1028070ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1028078ms] [LOG] {file: Object} @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/next-devtools/index.js:1631
+[ 1028364ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1028364ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1028364ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1028759ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1029135ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1029136ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1029136ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1029554ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1029943ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1029944ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1029944ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1030263ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1030754ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1030754ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1030754ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1031077ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1031095ms] [WARNING] The resource http://localhost:3000/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdh1ayq7rh%2Fimage%2Fupload%2Fv1686045998%2Fupjeagzr956l2qfdltyj.jpg&w=384&q=75 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:1
+[ 1031537ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1031537ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1031537ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1031908ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1059711ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1059711ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1060144ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1060421ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1060421ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1060422ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1060740ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1060740ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1061106ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1061878ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1061878ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1062199ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1157016ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1157016ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1157017ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1158101ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1166960ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1166960ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1168385ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1168421ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1168421ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1170202ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1170202ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1172945ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1175840ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1175840ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1176640ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1176640ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1177885ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1179050ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/next-devtools/userspace/app/errors/intercept-console-error.js:57
+[ 1179712ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/?_rsc=xff7b:1
+[ 1179792ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/?_rsc=xff7b:1
+[ 1179879ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:1
+[ 1180951ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(pages-dir-browser)/./node_modules/react-dom/cjs/react-dom.development.js:29835
+[ 1181057ms] Error: Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+
+    at getCssError (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\plugins\wellknown-errors-plugin\parseCss.js:24:16)
+    at getModuleBuildError (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\plugins\wellknown-errors-plugin\webpackModuleError.js:115:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\plugins\wellknown-errors-plugin\index.js:29:49)
+    at async (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\plugins\wellknown-errors-plugin\index.js:27:21)
+[ 1181046ms] [LOG] [HMR] connected @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:46
+[ 1181048ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:77
+[ 1181092ms] [LOG] {file: Object} @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/compiled/next-devtools/index.js:1631
+[ 1181107ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/favicon.ico:1
+[ 1191235ms] [ERROR] ./app/component/Modal/LoginModal.module.css:7:1
+Syntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer { @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:77
+[ 1191235ms] [ERROR] ./app/component/Modal/LoginModal.module.css
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+-- inner error --
+CssSyntax error: Selector "[data-ui="auth-divider"]" is not pure (pure selectors must contain at least one local class or id) (7:1)
+
+  5 | }
+  6 | 
+> 7 | [data-ui="auth-divider"] { display: none; }
+    | ^
+  8 | 
+  9 | .footerContentContainer {
+Generated code for C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[2]!C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\webpack\loaders\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[5].use[3]!C:\Users\qw119\desktop\project\restay-refactor\app\component\Modal\LoginModal.module.css
+
+Import trace for requested module:
+./app/component/Modal/LoginModal.module.css
+./app/component/Modal/LoginModal.tsx
+./app/component/Header/UserMenu.tsx
+./app/component/Header/Navbar.tsx @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup.js:77
+[ 1191235ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:207
+[ 1193525ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/0a776cbad0fefb0b.webpack.hot-update.json:1
+[ 1193527ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:348
+[ 1195804ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[ 1195842ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[ 1244357ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1248404ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1248436ms] [LOG] [Fast Refresh] done in 32ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1252488ms] [LOG] [Fast Refresh] done in 4084ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1293739ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1295541ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1295568ms] [LOG] [Fast Refresh] done in 26ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1296244ms] [LOG] [Fast Refresh] done in 702ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1367209ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1374949ms] [LOG] [Fast Refresh] done in 7740ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1437195ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1451570ms] [LOG] [Fast Refresh] done in 14375ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1661129ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1666104ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1666149ms] [LOG] [Fast Refresh] done in 45ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1668975ms] [LOG] [Fast Refresh] done in 2872ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 1669347ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[ 1726697ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[ 1738098ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 1750040ms] [LOG] [Fast Refresh] done in 11942ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 2386165ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 2391232ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[ 2391319ms] [LOG] [Fast Refresh] done in 88ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 2402499ms] [LOG] [Fast Refresh] done in 11267ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[ 3679994ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:1
+[ 3680236ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(pages-dir-browser)/./node_modules/react-dom/cjs/react-dom.development.js:29835
+[ 3680328ms] Error: Cannot find module './vendor-chunks/react-icons.js'
+Require stack:
+- C:\Users\qw119\desktop\project\restay-refactor\.next-dev\server\webpack-runtime.js
+- C:\Users\qw119\desktop\project\restay-refactor\.next-dev\server\app\[locale]\page.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\require.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\load-components.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\utils.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\dev\static-paths-worker.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\jest-worker\processChild.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1401:15)
+    at <unknown> (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\require-hook.js:57:36)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1487:12)
+    at mod.require (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\require-hook.js:68:28)
+    at require (node:internal/modules/helpers:135:16)
+[ 3680327ms] [LOG] [HMR] connected @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:46
+[ 3681069ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/favicon.ico:1
+[ 5438622ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:207
+[ 5441859ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:348
+[ 5443324ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:1
+[ 5443630ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(pages-dir-browser)/./node_modules/react-dom/cjs/react-dom.development.js:29835
+[ 5443668ms] Error: Cannot find module './vendor-chunks/react-icons.js'
+Require stack:
+- C:\Users\qw119\desktop\project\restay-refactor\.next-dev\server\webpack-runtime.js
+- C:\Users\qw119\desktop\project\restay-refactor\.next-dev\server\app\[locale]\page.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\require.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\load-components.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\build\utils.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\dev\static-paths-worker.js
+- C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\jest-worker\processChild.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1401:15)
+    at <unknown> (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\require-hook.js:57:36)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1487:12)
+    at mod.require (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\require-hook.js:68:28)
+    at require (node:internal/modules/helpers:135:16)
+[ 5443653ms] [LOG] [HMR] connected @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:46
+[ 5444370ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/favicon.ico:1
+[ 5625470ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[ 5626484ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[ 5627500ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[ 5628511ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[ 5629523ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[ 5634539ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[ 5639553ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:89
+[ 5652413ms] [LOG] [HMR] connected @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:46
+[ 5652459ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/d92a254d2867f655.webpack.hot-update.json:1
+[ 5652460ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:348
+[ 5662783ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:207
+[ 5677773ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/d92a254d2867f655.webpack.hot-update.json:1
+[ 5677773ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/hot-reloader-pages.js:348
+[ 5685102ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631

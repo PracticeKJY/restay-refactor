@@ -57,7 +57,7 @@ const SwiperComponent: FC<SwiperComponentProps> = ({ data, isHover, disable = fa
   return (
     <>
       <Swiper
-        className={styles.swiper}
+        data-listing-media className={styles.swiper}
         modules={[Navigation]}
         loop
         slidesPerGroup={1}

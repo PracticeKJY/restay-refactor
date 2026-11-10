@@ -14,9 +14,11 @@ interface CardProps {
   startDay?: string;
   endDay?: string;
   disable?: boolean;
+  location?: string;
+  description?: string;
 }
 
-const Card: FC<CardProps> = ({ data, title, startDay, endDay, disable }) => {
+const Card: FC<CardProps> = ({ data, title, startDay, endDay, disable, location, description }) => {
   const t = useTranslations("Common");
 
   return (
@@ -31,6 +33,8 @@ const Card: FC<CardProps> = ({ data, title, startDay, endDay, disable }) => {
               {t("reservationDates")} {startDay} ~ {endDay}
             </div>
           )}
+          {location && <p className={styles.cardLocation}>{location.split(" ").slice(0, 2).join(" ")}</p>}
+          {description && <p className={styles.cardDescription}>{description}</p>}
         </div>
       </div>
     </>

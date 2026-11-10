@@ -6,12 +6,13 @@ interface HeadingProps {
   title: string
   subTitle?: string
   center?: boolean
+  as?: "div" | "h2" | "h3"
 }
 
-const Heading: FC<HeadingProps> = ({ title, subTitle, center }) => {
+const Heading: FC<HeadingProps> = ({ title, subTitle, center, as: Title = "div" }) => {
   return (
-    <div className={`${center ? styles.center : styles.headingWrapper}`}>
-      <div className={styles.title}>{title}</div>
+    <div data-ui="heading" className={`${center ? styles.center : styles.headingWrapper}`}>
+      <Title className={styles.title}>{title}</Title>
       <div className={styles.subtitle}>{subTitle}</div>
     </div>
   )

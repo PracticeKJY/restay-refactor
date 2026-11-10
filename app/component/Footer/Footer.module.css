@@ -11,6 +11,8 @@
   color: #000;
 }
 
+.footerIntro { display: none; }
+
 .ulList {
   display: flex;
   flex-flow: row wrap;

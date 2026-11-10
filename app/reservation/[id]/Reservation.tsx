@@ -1,7 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
 
-
 import styles from "./Reservation.module.css";
 
 import Container from "@/app/component/Container";
@@ -109,7 +108,7 @@ const ReservationClient = ({ sessionEmail }: Props) => {
               const chatRes = await fetch("/api/chat/get-or-create", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                credentials: "include", // ⭐⭐⭐ 중요: NextAuth 쿠키 포함
+                credentials: "include", // 중요: NextAuth 쿠키 포함
                 body: JSON.stringify({ reservationId: String(reservationId) }),
               });
 
@@ -123,8 +122,6 @@ const ReservationClient = ({ sessionEmail }: Props) => {
                 // router.push(`/messages/${chatJson.conversationId}`);
               }
             }
-
-            console.log(res.data, "resresresrserserser");
 
             toast.success(t("reservationCompleted"));
             router.push("/");

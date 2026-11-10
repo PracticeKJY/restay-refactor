@@ -21,7 +21,7 @@ test("Korean and English translation keys match and all ICU messages format", ()
   assert.deepEqual(Object.keys(korean).sort(), Object.keys(english).sort());
   for (const [locale, messages] of [["ko", korean], ["en", english]]) {
     for (const [key, value] of Object.entries(messages)) {
-      const formatted = new IntlMessageFormat(value, locale).format({ p0: 2, p1: 3, p2: 4, p3: 5, count: 2, category: "빌라", query: (parts) => parts.join("") });
+      const formatted = new IntlMessageFormat(value, locale).format({ p0: 2, p1: 3, p2: 4, p3: 5, count: 2, number: 1, current: 2, total: 6, label: "게스트", category: "빌라", query: (parts) => parts.join("") });
       assert.equal(typeof formatted, "string", `${locale}:${key}`);
     }
   }

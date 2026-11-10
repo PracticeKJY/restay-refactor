@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 // app/trips/page.tsx
 import styles from "@/app/trips/Trips.module.css";
 import { auth } from "@/auth";
-import Container from "@/app/component/Container";
+import PageShell from "@/app/component/PageShell";
 import Empty from "@/app/component/Empty";
 import Trips from "@/app/trips/Trips";
 import { POST } from "@/app/http/request";
@@ -20,6 +20,7 @@ type TripRecord = reservationProductAtomProps & { _id: string };
 
 export default async function Page() {
   const t = await getTranslations("Common");
+  const design = await getTranslations("WorkspaceDesign");
 
   // ✅ v5 방식 세션
   const session = await auth();
@@ -27,9 +28,9 @@ export default async function Page() {
 
   if (!currentUserEmail) {
     return (
-      <Container>
-        <Empty title={t("pleaseLogIn")} subtitle={t("logInToViewYourReservations")} actionLabel={t("logIn")} showReset />
-      </Container>
+      <PageShell eyebrow={design("tripsEyebrow")} title={design("tripsTitle")} description={design("tripsDescription")}>
+        <Empty title={t("pleaseLogIn")} subtitle={t("logInToViewYourReservations")} actionLabel={t("logIn")} action="login" showReset />
+      </PageShell>
     );
   }
 
@@ -45,9 +46,9 @@ export default async function Page() {
   }));
 
   return (
-    <Container>
+    <PageShell eyebrow={design("tripsEyebrow")} title={design("tripsTitle")} description={design("tripsDescription")}>
       <div className={styles.tripsWrapper}>
-        <div className={styles.tripsTitle}>{t("confirmedReservations")}</div>
+        <h2 className={styles.tripsTitle}>{t("confirmedReservations")}</h2>
         <div className={serializedResult.length > 0 ? styles.listingsContainer : ""}>
           {serializedResult.length > 0 ? (
             serializedResult.map((result) => <Trips key={result.reservationId} result={result} reservationId={result.reservationId} currentUserEmail={currentUserEmail} />)
@@ -56,6 +57,6 @@ export default async function Page() {
           )}
         </div>
       </div>
-    </Container>
+    </PageShell>
   );
 }

@@ -1,0 +1,5 @@
+- generic [active] [ref=f10e1]:
+  - generic [ref=f10e4]:
+    - heading "500" [level=1] [ref=f10e5]
+    - heading "Internal Server Error." [level=2] [ref=f10e7]
+  - alert [ref=f10e8]

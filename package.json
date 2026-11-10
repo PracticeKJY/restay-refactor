@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/dev-server.cjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.cjs --ignore-pattern .next --ignore-pattern node_modules --ignore-pattern .codex",
     "typecheck": "tsc --noEmit --incremental false",
-    "test": "node --test tests/listing-cards.test.cjs tests/i18n-routing.test.cjs tests/localization.test.cjs tests/ui-regression.test.cjs tests/auth-environment.test.cjs tests/responsive-rules.test.cjs tests/chat.test.cjs",
+    "test": "node --test tests/listing-cards.test.cjs tests/i18n-routing.test.cjs tests/localization.test.cjs tests/ui-regression.test.cjs tests/auth-environment.test.cjs tests/responsive-rules.test.cjs tests/chat.test.cjs tests/dev-server.test.cjs",
     "test:smoke": "node scripts/smoke-production.cjs"
   },
   "dependencies": {
@@ -50,6 +50,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.0",
     "@types/bcrypt": "^5.0.0"
   }
 }

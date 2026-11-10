@@ -19,7 +19,7 @@ const CardInfo = ({ data }: { data: ListingCardSummary }) => {
   const localePrice = data.price.toLocaleString(locale === "en" ? "en-US" : "ko-KR")
   return (
     <div
-      role="link"
+      data-card-info role="link"
       tabIndex={0}
       onKeyDown={(event) => { if (event.key === "Enter") router.push(`/listings/${data._id}`) }}
       onClick={() => {

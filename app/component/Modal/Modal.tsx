@@ -91,16 +91,16 @@ const Modal: FC<ModalProps> = ({
   const modalTransitionClass = showModal ? styles.modalShow : styles.modalHide
 
   return (
-    <div className={styles.modalWrapper}>
+    <div data-ui="modal-backdrop" className={styles.modalWrapper}>
       <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby={title ? titleId : undefined} aria-label={title ? undefined : actionLabel} tabIndex={-1} className={`${styles.modalContainer} ${modalTransitionClass}`}>
-        <div className={styles.modalHeaderContainer}>
+        <div data-ui="modal-header" className={styles.modalHeaderContainer}>
           <button type="button" aria-label={t("close")} onClick={handleClose} className={styles.closeButton}>
             <IoMdClose size={18} />
           </button>
           <div id={titleId}>{title}</div>
         </div>
-        <div className={styles.modalBodyContainer}>{body}</div>
-        <div className={styles.modalFooterContainer}>
+        <div data-ui="modal-body" className={styles.modalBodyContainer}>{body}</div>
+        <div data-ui="modal-footer" className={styles.modalFooterContainer}>
           <div className={styles.modalFooterWrapper}>
             {secondaryAction && secondaryActionLabel && (
               <Button

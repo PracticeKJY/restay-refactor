@@ -9,6 +9,8 @@ import { useInbox } from "../hooks/useInbox";
 import { updatePreview } from "../chat-model";
 import ChatAvatar from "./ChatAvatar";
 import styles from "../Messages.module.css";
+import { PageHeader } from "@/app/component/PageShell";
+import Empty from "@/app/component/Empty";
 
 interface Props {
   email?: string | null;
@@ -21,16 +23,16 @@ interface Props {
 export default function ChatWorkspace({ email, selectedId, activeConversation, latestMessage, children }: Props) {
   const t = useTranslations("Messages");
   const locale = useLocale();
+  const design = useTranslations("WorkspaceDesign");
+  const common = useTranslations("Common");
   const inbox = useInbox(email);
   let conversations = inbox.conversations;
   if (activeConversation && !conversations.some(room => room.id === activeConversation.id)) conversations = [activeConversation, ...conversations];
   if (latestMessage) conversations = updatePreview(conversations, latestMessage);
 
-  return <main className={styles.workspace}>
-    <header className={styles.pageHeader}>
-      <h1>{t("messages")}</h1><p>{t("pageDescription")}</p>
-    </header>
-    {!email ? <div className={styles.emptyState}><FiMessageSquare aria-hidden="true" size={36} /><h2>{t("loginRequired")}</h2><p>{t("loginDescription")}</p><Link href="/">{t("goHome")}</Link></div> :
+  return <main data-room={Boolean(selectedId)} className={styles.workspace}>
+    <div className={styles.pageHeader}><PageHeader eyebrow={design("messagesEyebrow")} title={t("messages")} description={t("pageDescription")} /></div>
+    {!email ? <Empty title={t("loginRequired")} subtitle={t("loginDescription")} actionLabel={common("logIn")} action="login" showReset icon={<FiMessageSquare size={30} />} /> :
       <div className={styles.workspaceBody}>
         <aside aria-label={t("conversationList")} className={`${styles.sidebar} ${selectedId ? styles.hideOnMobile : ""}`}>
           <div className={styles.sidebarHeader}><h2>{t("allMessages")}</h2><button type="button" className={styles.iconButton} aria-label={t("refresh")} onClick={inbox.reload}><FiRefreshCw /></button></div>

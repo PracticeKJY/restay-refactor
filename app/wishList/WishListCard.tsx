@@ -1,5 +1,5 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 
 import styles from "./WishListCard.module.css";
@@ -8,6 +8,8 @@ import Empty from "../component/Empty";
 import { useEffect, useState } from "react";
 import { GET } from "@/app/http/request";
 import Spinner from "@/app/component/Spinner/Spinner";
+import PageShell from "@/app/component/PageShell";
+import { FiHeart, FiAlertCircle } from "react-icons/fi";
 
 export interface WishListProps {
   _id: string;
@@ -37,51 +39,54 @@ export interface Listing {
   userName: string;
 }
 
-const WishListCard = () => {
+const WishListCard = ({ sessionEmail }: { sessionEmail?: string }) => {
+  const design = useTranslations("WorkspaceDesign");
+  const locale = useLocale();
   const t = useTranslations("Common");
 
   const [wishList, setWishList] = useState<WishListProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [failed, setFailed] = useState(false);
+  const [attempt, setAttempt] = useState(0);
   useEffect(() => {
+    if (!sessionEmail) { setIsLoading(false); return; }
+    let active = true;
     const getFavoriteList = async () => {
       try {
         setIsLoading(true);
+        setFailed(false);
         const res = await GET<WishListProps[]>("/api/favorite/findFavorite");
-        setWishList(res.data);
+        if (active) setWishList(res.data);
       } catch (e) {
-        console.log(e);
+        if (active) setFailed(true);
       } finally {
-        setIsLoading(false);
+        if (active) setIsLoading(false);
       }
     };
 
-    getFavoriteList();
-  }, []);
+    void getFavoriteList();
+    return () => { active = false; };
+  }, [sessionEmail, attempt]);
 
-  if (isLoading) {
-    return <Spinner />;
-  }
-
-  return (
+  return <PageShell eyebrow={design("wishlistEyebrow")} title={design("wishlistTitle")} description={design("wishlistDescription")}
+    count={sessionEmail && !isLoading && !failed ? design("savedCount", { count: wishList.length.toLocaleString(locale) }) : undefined}>
     <div className={styles.wishListContainer}>
-      {wishList?.length > 0 ? (
-        <WishListProduct wishListData={wishList} />
-      ) : (
-        <Empty title={t("createYourFirstWishlist")} subtitle={t("tapTheHeartToSavePlacesYou")} actionLabel={t("findAStay")} showReset />
-      )}
+      {!sessionEmail ? <Empty title={t("pleaseLogIn")} subtitle={design("wishlistLoginDescription")} actionLabel={t("logIn")} action="login" showReset icon={<FiHeart size={30} />} /> :
+       isLoading ? <Spinner /> :
+       failed ? <Empty title={t("errorTitle")} subtitle={design("wishlistLoadFailed")} actionLabel={t("retry")} onAction={() => setAttempt(value => value + 1)} showReset icon={<FiAlertCircle size={30} />} /> :
+       wishList.length > 0 ? <WishListProduct wishListData={wishList} /> :
+       <Empty title={t("createYourFirstWishlist")} subtitle={t("tapTheHeartToSavePlacesYou")} actionLabel={t("findAStay")} showReset icon={<FiHeart size={30} />} />}
     </div>
-  );
+  </PageShell>;
 };
 
 const WishListProduct = ({ wishListData }: { wishListData: WishListProps[] }) => {
-  const t = useTranslations("Common");
-
   return (
     <div className={styles.wishListWrapper}>
-      <div className={styles.wishListTitle}>{t("wishlist")}</div>
+
       <div className={styles.listingsContainer}>
         {wishListData.map((data: WishListProps) => (
-          <Card key={data._id} userId={data._id} title={data.wishListTitle} data={data.listing} disable={true} />
+          <Card key={data._id} userId={data._id} title={data.wishListTitle} data={data.listing} location={data.listing.location} description={data.listing.title} disable={true} />
         ))}
       </div>
     </div>

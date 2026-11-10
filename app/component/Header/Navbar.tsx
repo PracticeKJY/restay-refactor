@@ -9,6 +9,8 @@ import Categories from "./Categories";
 import { useEffect, useRef } from "react";
 import type { Session } from "next-auth";
 import LanguageSelector from "./LanguageSelector";
+import { Link, usePathname } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 interface NavbarProps {
   session: Session | null;
@@ -16,10 +18,15 @@ interface NavbarProps {
 
 const Navbar = ({ session }: NavbarProps) => {
   const navbar = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isModern = !/^\/(listings|reservation)(\/|$)/.test(pathname);
+  const t = useTranslations("HomeDesign");
+  const navigation = useTranslations("Navigation");
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!navbar.current) {
+      if (!navbar.current || isModern) {
         return;
       }
 
@@ -40,7 +47,22 @@ const Navbar = ({ session }: NavbarProps) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isModern]);
+
+  if (isModern) return (
+    <header data-restay-shell data-restay-home={isHome || undefined} className={styles.homeHeader}>
+      <div className={styles.homeNav}>
+        <div className={styles.homeLogo}><Logo /></div>
+        <nav className={styles.homeLinks} aria-label={t("navigation")}>
+          <Link href="/" aria-current={isHome ? "page" : undefined}>{t("stays")}</Link>
+          <Link href="/wishList" aria-current={pathname === "/wishList" ? "page" : undefined}>{navigation("wishlist")}</Link>
+          <Link href="/trips" aria-current={pathname === "/trips" ? "page" : undefined}>{navigation("trips")}</Link>
+          <Link href="/messages" aria-current={pathname.startsWith("/messages") ? "page" : undefined}>{navigation("messages")}</Link>
+        </nav>
+        <div className={styles.accountControls}><LanguageSelector /><UserMenu session={session} /></div>
+      </div>
+    </header>
+  );
 
   return (
     <>

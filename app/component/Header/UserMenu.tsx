@@ -49,11 +49,11 @@ const UserMenu = ({ session }: Props) => {
   };
 
   const userMenu = session ? (
-    <div ref={userMenuOpenRef} className={styles.userMenuOpen}>
+    <div data-ui="user-dropdown" ref={userMenuOpenRef} className={styles.userMenuOpen}>
       <LogoutMenu session={session} />
     </div>
   ) : (
-    <div ref={userMenuOpenRef} className={styles.userMenuOpen}>
+    <div data-ui="user-dropdown" ref={userMenuOpenRef} className={styles.userMenuOpen}>
       <LoginMenu />
     </div>
   );

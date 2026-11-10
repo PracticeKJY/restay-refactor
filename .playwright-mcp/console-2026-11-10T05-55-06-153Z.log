@@ -1,0 +1,45 @@
+[     952ms] [LOG] [Fast Refresh] done in 975ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[     954ms] [LOG] [HMR] Detected local css modules. Reload all css @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js:2
+[    4216ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[    4251ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[   21940ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[   22280ms] [WARNING] Image with src "https://res.cloudinary.com/dh1ayq7rh/image/upload/v1686045998/upjeagzr956l2qfdltyj.jpg" was detected as the Largest Contentful Paint (LCP). Please add the "priority" property if this image is above the fold.
+Read more: https://nextjs.org/docs/api-reference/next/image#priority @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/utils/warn-once.js:16
+[   22675ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[   23928ms] [LOG] [Fast Refresh] done in 1252ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[   23936ms] [LOG] [HMR] Detected local css modules. Reload all css @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js:2
+[   27600ms] [WARNING] The resource http://localhost:3000/_next/static/css/app/%5Blocale%5D/layout.css?1794290130089 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3000/:1
+[  103022ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.development.js:25631
+[  107611ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[  114276ms] [WARNING] Image with src "/ic-loadview.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/utils/warn-once.js:16
+[  126786ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  131328ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  131455ms] [LOG] [Fast Refresh] done in 126ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  133992ms] [LOG] [Fast Refresh] done in 2663ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  134338ms] [WARNING] %c%s%c [33m[auth][warn][debug-enabled][0m background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   Read more: https://warnings.authjs.dev @ <anonymous>:1
+[  177250ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/hot-reloader/app/hot-reloader-app.js:197
+[  178653ms] [LOG] [Fast Refresh] done in 1402ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/dev/report-hmr-latency.js:14
+[  182523ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:1
+[  183608ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(pages-dir-browser)/./node_modules/react-dom/cjs/react-dom.development.js:29835
+[  183706ms] Error: ENOENT: no such file or directory, open 'C:\Users\qw119\desktop\project\restay-refactor\.next\prerender-manifest.json'
+    at readFileSync (node:fs:441:20)
+    at loadManifest (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\load-manifest.external.js:41:41)
+    at loadManifestFromRelativePath (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\load-manifest.external.js:84:16)
+    at AppPageRouteModule.loadManifests (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:41:28603)
+    at AppPageRouteModule.prepare (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:41:36772)
+    at async handler (webpack-internal:///(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2F%5Blocale%5D%2Fpage&page=%2F%5Blocale%5D%2Fpage&appPaths=%2F%5Blocale%5D%2Fpage&pagePath=private-next-app-dir%2F%5Blocale%5D%2Fpage.tsx&appDir=C%3A%5CUsers%5Cqw119%5Cdesktop%5Cproject%5Crestay-refactor%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5Cqw119%5Cdesktop%5Cproject%5Crestay-refactor&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D&isGlobalNotFoundEnabled=!:172:27)
+    at async DevServer.renderToResponseWithComponentsImpl (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\base-server.js:1422:9)
+    at async DevServer.renderPageComponent (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\base-server.js:1474:24)
+    at async DevServer.renderToResponseImpl (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\base-server.js:1514:32)
+    at async DevServer.pipeImpl (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\base-server.js:1025:25)
+    at async NextNodeServer.handleCatchallRenderRequest (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\next-server.js:393:17)
+    at async DevServer.handleRequestImpl (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\base-server.js:916:17)
+    at async (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\dev\next-dev-server.js:399:20)
+    at async Span.traceAsyncFn (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\trace\trace.js:157:20)
+    at async DevServer.handleRequest (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\dev\next-dev-server.js:395:24)
+    at async invokeRender (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\lib\router-server.js:240:21)
+    at async handleRequest (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\lib\router-server.js:437:24)
+    at async requestHandlerImpl (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\lib\router-server.js:485:13)
+    at async Server.requestListener (file://C:\Users\qw119\desktop\project\restay-refactor\node_modules\next\dist\server\lib\start-server.js:226:13)
+[  183702ms] [LOG] [HMR] connected @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/dev/hot-reloader/pages/websocket.js:46
+[  184592ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/favicon.ico:1

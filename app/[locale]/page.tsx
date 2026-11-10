@@ -1,6 +1,5 @@
 // app/page.tsx
 import HomeClient from "@/app/client/home-client";
-import Container from "@/app/component/Container";
 import { auth } from "@/auth";
 import { pageMetadata } from "@/i18n/metadata";
 import { findListings } from "@/lib/listings";
@@ -18,9 +17,7 @@ const Home = async ({ searchParams }: { searchParams: Promise<Record<string, str
   const initialListings: fetchUrlatomProps[] = JSON.parse(JSON.stringify(await findListings(params)));
 
   return (
-    <Container>
       <HomeClient searchParams={params} sessionEmail={session?.user?.email ?? ""} initialListings={initialListings} />
-    </Container>
   );
 };
 
