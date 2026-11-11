@@ -27,6 +27,7 @@ test("incoming messages scroll the history pane even when it was scrolled upward
     "../hooks/useConversation": { useConversation: () => ({ messages, loading: false, failed: false }) },
     "./ChatWorkspace": { default: () => null }, "./ChatAvatar": { default: () => null },
     "../Messages.module.css": { default: {} },
+    "@/app/component/Skeleton/PageSkeleton": { ThreadSkeleton: () => null },
   }).default;
   View({ params: { id: "room" }, currentUserEmail: "guest@test.dev" });
   effects[1].effect();

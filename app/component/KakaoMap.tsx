@@ -7,6 +7,8 @@ import { Map, MapMarker, MapTypeControl, Roadview, ZoomControl, useKakaoLoader }
 import { latlngAtom } from "../../jotai/@store/state";
 import { useAtomValue } from "jotai";
 import Image from "next/image";
+import Skeleton from "./Skeleton/Skeleton";
+import LoadingRegion from "./Skeleton/LoadingRegion";
 
 interface KakaoMapProps {
   center?: any;
@@ -27,7 +29,7 @@ const KakaoMap: FC<KakaoMapProps> = ({ center }) => {
   };
 
   if (error) return <div role="status" className={styles.mapWrapper}>{t("couldNotLoadTheMap")}</div>;
-  if (loading) return <div role="status" className={styles.mapWrapper}>{t("loadingTheMap")}</div>;
+  if (loading) return <LoadingRegion className={styles.mapWrapper}><Skeleton variant="image" height="100%" style={{ height: "100%" }} /></LoadingRegion>;
 
   return (
     <>

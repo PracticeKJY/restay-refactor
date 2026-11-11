@@ -1,11 +1,3 @@
-"use client"
-import { useTranslations } from "next-intl";
+"use client";
 
-
-const Loading = () => {
-  const t = useTranslations("Common");
-
-  return <div>{t("loading")}</div>
-}
-
-export default Loading
+export { CardSkeletons as default } from "./Skeleton/PageSkeleton";

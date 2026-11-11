@@ -8,6 +8,7 @@ import { useConversation } from "../hooks/useConversation";
 import ChatWorkspace from "./ChatWorkspace";
 import ChatAvatar from "./ChatAvatar";
 import styles from "../Messages.module.css";
+import { ThreadSkeleton } from "@/app/component/Skeleton/PageSkeleton";
 
 interface ListingContext { title: string; userName?: string; userImage?: string; }
 interface Props { params: { id: string }; currentUserEmail?: string | null; }
@@ -61,7 +62,7 @@ export default function ConversationView({ params, currentUserEmail }: Props) {
     {room.connection === "reconnecting" && !room.failed && <p className={styles.connectionNotice} role="status">{t("reconnecting")}</p>}
     {room.failed ? <div className={styles.emptyState} role="status"><h2>{t("roomUnavailable")}</h2><p>{t("roomUnavailableDescription")}</p><button type="button" className={styles.retryButton} onClick={room.reload}>{t("retry")}</button></div> :
       <div ref={thread} className={styles.thread} role="log" aria-label={t("messageHistory")} aria-live="polite" aria-busy={room.loading}>
-        {room.loading ? <p className={styles.loading}>{t("loading")}</p> : room.messages.length === 0 ? <div className={styles.emptyThread}><p>{t("sayHello")}</p><span>{t("conversationHint")}</span></div> : room.messages.map((message, index) => {
+        {room.loading && room.messages.length === 0 ? <ThreadSkeleton /> : room.messages.length === 0 ? <div className={styles.emptyThread}><p>{t("sayHello")}</p><span>{t("conversationHint")}</span></div> : room.messages.map((message, index) => {
           const own = message.sender_email === currentUserEmail;
           const date = new Date(message.created_at);
           const previousDate = index ? new Date(room.messages[index - 1].created_at) : null;

@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import styles from "./SwiperComponent.module.css";
 
 import { useRouter } from "@/i18n/navigation";
-import Image from "next/image";
+import Image from "@/app/component/Skeleton/ProgressiveImage";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Swiper as SwiperType, Navigation } from "swiper";
 import { FC, useRef } from "react";

@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 
 import Skeleton from "@/app/component/Skeleton/Skeleton";
 import styles from "./Reservation.module.css";
-import Image from "next/image";
+import Image from "@/app/component/Skeleton/ProgressiveImage";
 import { FcPlanner } from "react-icons/fc";
 
 const ProductCardInfo = ({ detailListing }: any) => {

@@ -1,6 +1,6 @@
 "use client";
 import { useLocale, useTranslations } from "next-intl";
-import Image from "next/image";
+import Image from "@/app/component/Skeleton/ProgressiveImage";
 import { useEffect } from "react";
 import { useSetAtom } from "jotai";
 import { FiArrowDown, FiArrowUpRight, FiCompass } from "react-icons/fi";
@@ -11,8 +11,11 @@ import ListingsCard from "@/app/component/listings/ListingsCard";
 import Categories from "@/app/component/Header/Categories";
 import Search from "@/app/component/Header/Search";
 import styles from "@/app/page.module.css";
-interface HomeClientProps { searchParams: { category?: string }; sessionEmail?: string; initialListings: fetchUrlatomProps[]; }
-export default function HomeClient({ searchParams, sessionEmail, initialListings }: HomeClientProps) {
+import { CardSkeletons, MediaSkeleton } from "@/app/component/Skeleton/PageSkeleton";
+import LoadingRegion from "@/app/component/Skeleton/LoadingRegion";
+import Skeleton from "@/app/component/Skeleton/Skeleton";
+interface HomeClientProps { searchParams: { category?: string }; sessionEmail?: string; initialListings: fetchUrlatomProps[]; loading?: boolean; }
+export default function HomeClient({ searchParams, sessionEmail, initialListings, loading = false }: HomeClientProps) {
   const t = useTranslations("HomeDesign");
   const common = useTranslations("Common");
   const locale = useLocale();
@@ -29,7 +32,7 @@ export default function HomeClient({ searchParams, sessionEmail, initialListings
         <a className={styles.primaryButton} href="#stays">{t("explore")}<FiArrowUpRight size={20} /></a>
         <div className={styles.heroNote}><span className={styles.noteIcon}><FiCompass size={22} /></span><p>{t("note")}<small>{t("noteDetail")}</small></p></div>
       </div>
-      {featured && <Link href={`/listings/${featured._id}`} className={styles.heroVisual} aria-label={t("featuredStay")}>
+      {loading ? <div className={styles.heroVisual}><LoadingRegion><MediaSkeleton hero /></LoadingRegion></div> : featured && <Link href={`/listings/${featured._id}`} className={styles.heroVisual} aria-label={t("featuredStay")}>
         <Image src={featured.imageSrc[0]} alt={featured.title} fill priority sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1280px) 55vw, 720px" />
         <span className={styles.photoTag}>{t("photoTag")}</span>
         <div className={styles.photoCaption}><div><small>{t("featuredStay")}</small><strong>{featured.location.split(" ").slice(0, 2).join(" ")}</strong></div><span><FiArrowUpRight size={24} /></span></div>
@@ -46,9 +49,9 @@ export default function HomeClient({ searchParams, sessionEmail, initialListings
         <p className={styles.eyebrow}>{t("stayCollection")}</p>
         <h2 id="stays-title">{category ? common.rich("searchResult", {category: `'${category}'`, query: chunks => <span>{chunks}</span>}) : t("staysTitle")}</h2>
         <p className={styles.sectionDescription}>{category ? t("filteredDescription") : t("staysDescription")}</p>
-      </div><span className={styles.resultCount}>{t("count", {count: initialListings.length.toLocaleString(locale)})}<FiArrowDown /></span></div>
+      </div><span className={styles.resultCount}>{loading ? <Skeleton variant="custom" width={70} height={18} /> : t("count", {count: initialListings.length.toLocaleString(locale)})}<FiArrowDown /></span></div>
       {category && <Link className={styles.resetLink} href="/">{t("reset")}</Link>}
-      {initialListings.length === 0 ? <Empty showReset /> : <div className={styles.listingsContainer}>
+      {loading ? <CardSkeletons homePage /> : initialListings.length === 0 ? <Empty showReset /> : <div className={styles.listingsContainer}>
         {initialListings.map((data, index) => <ListingsCard key={data._id} userId={data._id} data={data} sessionEmail={sessionEmail} priority={!!category && index === 0} />)}
       </div>}
     </section>

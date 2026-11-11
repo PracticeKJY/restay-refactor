@@ -1,4 +1,4 @@
-// app/page.tsx
+// The route group scopes the home loading boundary without changing its URL.
 import HomeClient from "@/app/client/home-client";
 import { auth } from "@/auth";
 import { pageMetadata } from "@/i18n/metadata";

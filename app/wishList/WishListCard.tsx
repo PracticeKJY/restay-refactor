@@ -7,7 +7,7 @@ import Card from "./Card";
 import Empty from "../component/Empty";
 import { useEffect, useState } from "react";
 import { GET } from "@/app/http/request";
-import Spinner from "@/app/component/Spinner/Spinner";
+import { CardSkeletons } from "@/app/component/Skeleton/PageSkeleton";
 import PageShell from "@/app/component/PageShell";
 import { FiHeart, FiAlertCircle } from "react-icons/fi";
 
@@ -72,7 +72,7 @@ const WishListCard = ({ sessionEmail }: { sessionEmail?: string }) => {
     count={sessionEmail && !isLoading && !failed ? design("savedCount", { count: wishList.length.toLocaleString(locale) }) : undefined}>
     <div className={styles.wishListContainer}>
       {!sessionEmail ? <Empty title={t("pleaseLogIn")} subtitle={design("wishlistLoginDescription")} actionLabel={t("logIn")} action="login" showReset icon={<FiHeart size={30} />} /> :
-       isLoading ? <Spinner /> :
+       isLoading ? <CardSkeletons /> :
        failed ? <Empty title={t("errorTitle")} subtitle={design("wishlistLoadFailed")} actionLabel={t("retry")} onAction={() => setAttempt(value => value + 1)} showReset icon={<FiAlertCircle size={30} />} /> :
        wishList.length > 0 ? <WishListProduct wishListData={wishList} /> :
        <Empty title={t("createYourFirstWishlist")} subtitle={t("tapTheHeartToSavePlacesYou")} actionLabel={t("findAStay")} showReset icon={<FiHeart size={30} />} />}

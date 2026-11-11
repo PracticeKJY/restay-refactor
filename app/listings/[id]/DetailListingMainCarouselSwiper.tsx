@@ -8,7 +8,7 @@ import styles from "./DetailListingGallery.module.css";
 
 import { FC, useRef, useState } from "react";
 
-import Image from "next/image";
+import Image from "@/app/component/Skeleton/ProgressiveImage";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Swiper as SwiperType, Navigation, FreeMode, Thumbs } from "swiper";
 

@@ -1,0 +1,5 @@
+.frame { position: relative; display: inline-block; flex-shrink: 0; overflow: hidden; border-radius: 12px; max-width: 100%; vertical-align: middle; }
+.placeholder { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; border-radius: inherit; background: linear-gradient(90deg, #edf0e9 25%, #f7f8f4 50%, #edf0e9 75%); background-size: 200% 100%; animation: shimmer 1.5s linear infinite; color: #c5cec0; font: 600 24px var(--restay-font-sans, sans-serif); letter-spacing: -1px; }
+.failed { animation: none; }
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .placeholder { animation: none; } }

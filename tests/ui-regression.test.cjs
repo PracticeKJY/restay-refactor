@@ -60,7 +60,7 @@ test("home server data has the same JSON shape and search filter as the listing 
   assert.equal(response.status, 200);
   assert.equal(JSON.stringify(queried), JSON.stringify(filter));
   const apiData = await response.json();
-  const { default: Home } = load("app/[locale]/page.tsx", {
+  const { default: Home } = load("app/[locale]/(home)/page.tsx", {
     "@/lib/listings": service,
     "@/auth": { auth: async () => null },
     "@/i18n/metadata": {},

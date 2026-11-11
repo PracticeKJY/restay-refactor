@@ -81,7 +81,7 @@ const Skeleton = ({
 
   if (variant === "text") {
     return (
-      <div className={cx(styles.wrap, styles.col, className)} style={{ gap: `${gap}px`, ...style }}>
+      <div className={cx(styles.wrap, styles.col, className)} style={{ gap: `${gap}px`, width: toCssSize(width), ...style }}>
         {defaultLineWidths.map((w, idx) => (
           <Block key={idx} w={w} h={height ?? 20} r={4} />
         ))}
